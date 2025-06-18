@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
                   <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Laboratory of<br />
                     <span className="text-blue-600">Chembiosystems</span><br />
-                    Research
+                    Technologies
                   </h1>
                 </div>
               </div>
