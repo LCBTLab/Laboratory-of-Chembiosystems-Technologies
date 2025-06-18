@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Beaker } from 'lucide-react';
+import { Menu, X, Beaker, User, LogIn } from 'lucide-react';
+import { useAuthStore } from '../store/authStore';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { user, initialize } = useAuthStore();
+
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -53,6 +59,27 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
+          {/* Auth Section */}
+          <div className="hidden lg:flex items-center space-x-4">
+            {user ? (
+              <Link
+                to="/dashboard"
+                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                <User className="h-4 w-4 mr-2" />
+                Dashboard
+              </Link>
+            ) : (
+              <Link
+                to="/login"
+                className="inline-flex items-center px-4 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
+              >
+                <LogIn className="h-4 w-4 mr-2" />
+                Member Login
+              </Link>
+            )}
+          </div>
+
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -81,6 +108,27 @@ const Header: React.FC = () => {
                   {item.name}
                 </Link>
               ))}
+              <div className="pt-4 border-t border-gray-200 mt-4">
+                {user ? (
+                  <Link
+                    to="/dashboard"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center px-3 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    <User className="h-4 w-4 mr-2" />
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center px-3 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
+                  >
+                    <LogIn className="h-4 w-4 mr-2" />
+                    Member Login
+                  </Link>
+                )}
+              </div>
             </nav>
           </div>
         )}
