@@ -63,7 +63,7 @@ const TeamPage: React.FC = () => {
       name: "Saurav Kumar",
       position: "PhD Scholar",
       category: "phd",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQGP0pemKgpGvg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669221312881?e=1755734400&v=beta&t=lPZEpLJCg_mhLJ3T_S2-xwKNAxxf_x4ClNq7l1a-GG0",
       email: "neha.gupta@iitbhu.ac.in",
       research: "Development of biocompatible hydrogels for drug delivery",
       joinedYear: "2024"
