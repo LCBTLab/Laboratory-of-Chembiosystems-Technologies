@@ -22,20 +22,20 @@ const TeamPage: React.FC = () => {
       name: "Dr. Prodyut Dhar",
       position: "Principal Investigator",
       category: "faculty",
-      image: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300",
+      image: "https://www.iitbhu.ac.in/sites/default/files/styles/medium/public/pictures/2022-11/WhatsApp%20Image%202022-10-28%20at%201.30.17%20PM.jpeg?itok=4pE8AbrA",
       email: "prodyut.dhar@iitbhu.ac.in",
       research: "Molecular systems engineering, biomaterials, and sustainable biotechnology",
-      linkedin: "https://linkedin.com",
-      joinedYear: "2018"
+      linkedin: "https://www.linkedin.com/in/prodyut-dhar-16634a17/",
+      joinedYear: "2020"
     },
     {
       id: 2,
-      name: "Rajesh Kumar Singh",
+      name: "Rohit Rai",
       position: "PhD Scholar",
       category: "phd",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "rajesh.singh@iitbhu.ac.in",
-      research: "Protein engineering for enhanced catalytic activity and stability",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQHLdkW1HEl3Zw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1691433876544?e=1755734400&v=beta&t=8-q1-1DuVVRKjCxyNlIq5CsI1mvwzEMfAl4q3mxb17Y",
+      email: "rohitrai.rs.bce20@itbhu.ac.in",
+      research: "Life cycle analysis, Cellulose chemistry, Drinking straws, Sustainable agriculture, Biobased foams, 3D printing",
       joinedYear: "2020"
     },
     {
