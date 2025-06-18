@@ -80,7 +80,7 @@ const PIPage: React.FC = () => {
             <div className="lg:col-span-1">
               <div className="relative">
                 <img 
-                  src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=500" 
+                  src="https://www.iitbhu.ac.in/sites/default/files/styles/medium/public/pictures/2022-11/WhatsApp%20Image%202022-10-28%20at%201.30.17%20PM.jpeg?itok=4pE8AbrA" 
                   alt="Dr. Prodyut Dhar"
                   className="w-full max-w-sm mx-auto rounded-2xl shadow-lg object-cover aspect-square"
                 />
