@@ -1,4 +1,4 @@
- leimport { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 
 // Node.js example
 const supabaseUrl = process.env.example.VITE_SUPABASE_URL;
