@@ -40,84 +40,34 @@ const TeamPage: React.FC = () => {
     },
     {
       id: 3,
-      name: "Priya Sharma",
+      name: "Sanju Kumari Sharma",
       position: "PhD Scholar",
       category: "phd",
       image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "priya.sharma@iitbhu.ac.in",
-      research: "Biomaterials for tissue engineering and regenerative medicine",
-      joinedYear: "2021"
-    },
-    {
-      id: 4,
-      name: "Amit Patel",
-      position: "PhD Scholar",
-      category: "phd",
-      image: "https://images.pexels.com/photos/2182971/pexels-photo-2182971.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "amit.patel@iitbhu.ac.in",
-      research: "Sustainable chemical processes using biocatalysis",
-      joinedYear: "2019"
-    },
-    {
-      id: 5,
-      name: "Neha Gupta",
-      position: "M.Tech Student",
-      category: "mtech",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "neha.gupta@iitbhu.ac.in",
-      research: "Development of biocompatible hydrogels for drug delivery",
-      joinedYear: "2023"
-    },
-    {
-      id: 6,
-      name: "Vikram Yadav",
-      position: "M.Tech Student",
-      category: "mtech",
-      image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "vikram.yadav@iitbhu.ac.in",
-      research: "Computational modeling of enzyme-substrate interactions",
-      joinedYear: "2023"
-    },
-    {
-      id: 7,
-      name: "Sunita Devi",
-      position: "Project Assistant",
-      category: "staff",
-      image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "sunita.devi@iitbhu.ac.in",
-      research: "Laboratory management and experimental support",
+      email: "sanjukumarishrma.rs.bce22@iitbhu.ac.in",
+      research: "Biomaterials, Biocomposit material, Sustaiable material",
       joinedYear: "2022"
     },
     {
-      id: 8,
-      name: "Arjun Mehra",
-      position: "B.Tech Project Student",
-      category: "btech",
-      image: "https://images.pexels.com/photos/2182969/pexels-photo-2182969.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "arjun.mehra@iitbhu.ac.in",
-      research: "Green synthesis of nanoparticles for catalytic applications",
+      id: 4,
+      name: "Himanshu Modi",
+      position: "PhD Scholar",
+      category: "phd",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQGP0pemKgpGvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1669221312881?e=1755734400&v=beta&t=CHy2fEkVitGwn0O3yyAIznv0h6IbVLCkHayl8zcRkH4",
+      email: "amit.patel@iitbhu.ac.in",
+      research: "Sustainable chemical processes using biocatalysis",
       joinedYear: "2024"
     },
     {
-      id: 9,
-      name: "Kavya Reddy",
-      position: "B.Tech Project Student",
-      category: "btech",
-      image: "https://images.pexels.com/photos/1181689/pexels-photo-1181689.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "kavya.reddy@iitbhu.ac.in",
-      research: "Characterization of biomaterial surfaces and interfaces",
+      id: 5,
+      name: "Saurav Kumar",
+      position: "PhD Scholar",
+      category: "phd",
+      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300",
+      email: "neha.gupta@iitbhu.ac.in",
+      research: "Development of biocompatible hydrogels for drug delivery",
       joinedYear: "2024"
     },
-    {
-      id: 10,
-      name: "Rohit Kumar",
-      position: "B.Tech Project Student",
-      category: "btech",
-      image: "https://images.pexels.com/photos/2182968/pexels-photo-2182968.jpeg?auto=compress&cs=tinysrgb&w=300",
-      email: "rohit.kumar@iitbhu.ac.in",
-      research: "Microbial fuel cells for sustainable energy generation",
-      joinedYear: "2024"
-    }
   ];
 
   const filters = [
