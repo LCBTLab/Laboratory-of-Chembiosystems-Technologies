@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             <Beaker className="h-8 w-8 text-blue-600" />
             <div className="hidden sm:block">
               <h1 className="text-lg font-bold text-gray-900">
-                Laboratory of Chembiosystems Research
+                Laboratory of Chembiosystems Technologies
               </h1>
               <p className="text-xs text-gray-600">IIT (BHU) Varanasi</p>
             </div>
