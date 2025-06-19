@@ -1,14 +1,12 @@
 import { create } from 'zustand';
-import { supabase } from '../supabase';
+import { supabase } from '../supabase'; // make sure this file exports a valid Supabase client
 
 interface AuthState {
   user: any;
   loading: boolean;
   error: string | null;
   initialize: () => Promise<void>;
-  signInWithPassword: (email: string, password: string) => Promise<{ error: string | null }>;
-  signInWithOtp: (email: string) => Promise<{ error: string | null }>;
-  signInWithGoogle: () => Promise<{ error: string | null }>;
+  signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
 }
 
@@ -20,14 +18,17 @@ export const useAuthStore = create<AuthState>((set) => ({
   initialize: async () => {
     set({ loading: true });
     const { data, error } = await supabase.auth.getUser();
-    if (error) {
-      console.error('User fetch error:', error.message);
+
+    if (error || !data?.user) {
+      set({ user: null, loading: false });
+      return;
     }
-    set({ user: data?.user ?? null, loading: false });
+
+    set({ user: data.user, loading: false });
   },
 
-  signInWithPassword: async (email, password) => {
-    set({ loading: true, error: null });
+  signIn: async (email, password) => {
+    set({ loading: true });
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
     if (error) {
@@ -36,35 +37,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     }
 
     set({ user: data.user, loading: false });
-    return { error: null };
-  },
-
-  signInWithOtp: async (email) => {
-    set({ loading: true, error: null });
-    const { error } = await supabase.auth.signInWithOtp({ email });
-
-    if (error) {
-      set({ error: error.message, loading: false });
-      return { error: error.message };
-    }
-
-    set({ loading: false });
-    return { error: null };
-  },
-
-  signInWithGoogle: async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/dashboard`, // or your redirect URL
-      },
-    });
-
-    if (error) {
-      set({ error: error.message });
-      return { error: error.message };
-    }
-
     return { error: null };
   },
 
