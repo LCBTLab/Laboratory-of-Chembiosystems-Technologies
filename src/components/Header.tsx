@@ -32,11 +32,11 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 min-w-0">
-            <Beaker className="h-8 w-8 text-blue-600 shrink-0" />
+          <Link to="/" className="flex items-center space-x-5 min-w-0">
+            <Beaker className="h-10 w-10 text-blue-600 shrink-0" />
             <div className="sm:flex flex-col leading-tight min-w-0">
               <h1 className="text-base sm:text-lg font-semibold text-gray-900 whitespace-normal max-w-xs sm:max-w-md truncate">
-                Laboratory of Chembiosystems Technologies
+                Laboratory of Chembiosystem & Technologies
               </h1>
               <p className="text-xs text-gray-600 truncate">IIT (BHU) Varanasi</p>
             </div>
