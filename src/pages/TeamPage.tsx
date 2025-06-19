@@ -119,15 +119,15 @@ const TeamPage: React.FC = () => {
                 <div className="text-sm text-gray-600">Faculty</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600">3</div>
+                <div className="text-3xl font-bold text-purple-600">4</div>
                 <div className="text-sm text-gray-600">PhD Scholars</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600">2</div>
+                <div className="text-3xl font-bold text-green-600">0</div>
                 <div className="text-sm text-gray-600">M.Tech Students</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-orange-600">3</div>
+                <div className="text-3xl font-bold text-orange-600">0</div>
                 <div className="text-sm text-gray-600">B.Tech Students</div>
               </div>
             </div>
