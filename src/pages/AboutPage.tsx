@@ -29,7 +29,7 @@ const AboutPage: React.FC = () => {
     {
       year: "2018",
       title: "Lab Establishment",
-      description: "Laboratory of Chembiosystems Research founded at IIT (BHU)"
+      description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
     },
     {
       year: "2019",
@@ -68,7 +68,7 @@ const AboutPage: React.FC = () => {
               About Our Laboratory
             </h1>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              The Laboratory of Chembiosystems Research at IIT (BHU) is dedicated to advancing the frontiers 
+              The Laboratory of Chembiosystems Technologies at IIT (BHU) is dedicated to advancing the frontiers 
               of science through innovative research at the intersection of chemistry and biology.
             </p>
           </div>
@@ -85,7 +85,7 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To be a globally recognized center of excellence in chembiosystems research, pioneering 
+                To be a globally recognized center of excellence in chembiosystems TEchnologies, pioneering 
                 sustainable solutions that address critical challenges in health, environment, and technology 
                 through innovative integration of chemical and biological sciences.
               </p>
