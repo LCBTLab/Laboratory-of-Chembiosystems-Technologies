@@ -29,17 +29,16 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <Beaker className="h-8 w-8 text-blue-600" />
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-gray-900">
-                Laboratory of Chembiosystems Technologies
-              </h1>
-              <p className="text-xs text-gray-600">IIT (BHU) Varanasi</p>
-            </div>
+     <Link to="/" className="flex items-center space-x-3 min-w-0">
+  <Beaker className="h-8 w-8 text-blue-600 shrink-0" />
+  <div className="sm:flex flex-col leading-tight min-w-0">
+    <h1 className="text-base sm:text-lg font-semibold text-gray-900 whitespace-normal max-w-xs sm:max-w-md truncate">
+      Laboratory of Chembiosystems Technologies
+    </h1>
+    <p className="text-xs text-gray-600 truncate">IIT (BHU) Varanasi</p>
+  </div>
+</Link>
+
           </Link>
 
           {/* Desktop Navigation */}
