@@ -1,3 +1,14 @@
+// ProtectedRoute.tsx
+import { Navigate } from 'react-router-dom';
+import { useAuthStore } from '../store/authStore';
+
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+  const { user } = useAuthStore();
+  return user ? children : <Navigate to="/login" replace />;
+};
+
+export default ProtectedRoute;
+
 import React, { useState, useRef } from 'react';
 import { useAuthStore } from '../store/authStore';
 import { 
