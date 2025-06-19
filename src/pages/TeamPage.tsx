@@ -56,6 +56,7 @@ const TeamPage: React.FC = () => {
       category: "phd",
       image: "https://media.licdn.com/dms/image/v2/D4D03AQGP0pemKgpGvg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1669221312881?e=1755734400&v=beta&t=CHy2fEkVitGwn0O3yyAIznv0h6IbVLCkHayl8zcRkH4",
       email: "amit.patel@iitbhu.ac.in",
+      linkedin: "https://www.linkedin.com/in/himanshu-modi-90b247242/",
       research: "Sustainable chemical processes using biocatalysis",
       joinedYear: "2024"
     },
