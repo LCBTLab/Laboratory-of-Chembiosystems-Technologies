@@ -35,7 +35,7 @@ const TeamPage: React.FC = () => {
       category: "phd",
       image: "https://drive.google.com/file/d/1ZY7uj3kdTkjvZkna6rGNgQQdlD8121-r/view",
       email: "rohitrai.rs.bce20@itbhu.ac.in",
-      linkedin: "https://github.com/Kroofy01/LCBT/blob/main/2211.jpg",
+      linkedin: "https://github.com/Kroofy01/LCBT/blob/main/2211.jpg?raw=true",
       research: "Life cycle analysis, Cellulose chemistry, Drinking straws, Sustainable agriculture, Biobased foams, 3D printing",
       joinedYear: "2020"
     },
