@@ -88,52 +88,48 @@ const Header: React.FC = () => {
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+{/* Mobile Navigation */}
+{isMenuOpen && (
+  <div className="lg:hidden py-4 border-t border-gray-200">
+    <nav className="flex flex-col space-y-1 px-4">
+      {navigation.map((item) => (
+        <Link
+          key={item.name}
+          to={item.href}
+          onClick={() => setIsMenuOpen(false)}
+          className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 break-words ${
+            isActive(item.href)
+              ? 'bg-blue-100 text-blue-700'
+              : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+          }`}
+        >
+          {item.name}
+        </Link>
+      ))}
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-1">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <div className="pt-4 border-t border-gray-200 mt-4">
-                {user ? (
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center px-3 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    <User className="h-4 w-4 mr-2" />
-                    Dashboard
-                  </Link>
-                ) : (
-                  <Link
-                    to="/login"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center px-3 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
-                  >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Member Login
-                  </Link>
-                )}
-              </div>
-            </nav>
-          </div>
+      <div className="pt-4 border-t border-gray-200 mt-4">
+        {user ? (
+          <Link
+            to="/dashboard"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex items-center px-3 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          >
+            <User className="h-4 w-4 mr-2" />
+            Dashboard
+          </Link>
+        ) : (
+          <Link
+            to="/login"
+            onClick={() => setIsMenuOpen(false)}
+            className="flex items-center px-3 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
+          >
+            <LogIn className="h-4 w-4 mr-2" />
+            Member Login
+          </Link>
         )}
       </div>
-    </header>
-  );
-};
+    </nav>
+  </div>
+)}
 
 export default Header;
