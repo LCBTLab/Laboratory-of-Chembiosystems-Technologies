@@ -55,7 +55,7 @@ const TeamPage: React.FC = () => {
       position: "PhD Scholar",
       category: "phd",
       image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1669221312881.jpeg",
-      email: "amit.patel@iitbhu.ac.in",
+      email: "himanshumodi.rs.bce24@itbhu.ac.in",
       linkedin: "https://www.linkedin.com/in/himanshu-modi-90b247242/",
       research: "Sustainable chemical processes using biocatalysis",
       joinedYear: "2024"
@@ -65,8 +65,8 @@ const TeamPage: React.FC = () => {
       name: "Saurav Kumar",
       position: "PhD Scholar",
       category: "phd",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQGP0pemKgpGvg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1669221312881?e=1755734400&v=beta&t=lPZEpLJCg_mhLJ3T_S2-xwKNAxxf_x4ClNq7l1a-GG0",
-      email: "neha.gupta@iitbhu.ac.in",
+      image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/WhatsApp%20Image%202025-06-19%20at%2014.47.03_2bc2f854.jpg",
+      email: "sauravkumar.rs.bce24@iitbhu.ac.in",
       research: "Development of biocompatible hydrogels for drug delivery",
       joinedYear: "2024"
     },
