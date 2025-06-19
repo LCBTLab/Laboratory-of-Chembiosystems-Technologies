@@ -33,8 +33,9 @@ const TeamPage: React.FC = () => {
       name: "Rohit Rai",
       position: "PhD Scholar",
       category: "phd",
-      image: "https://media.licdn.com/dms/image/v2/D4D03AQHLdkW1HEl3Zw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1691433876544?e=1755734400&v=beta&t=8-q1-1DuVVRKjCxyNlIq5CsI1mvwzEMfAl4q3mxb17Y",
+      image: "https://drive.google.com/file/d/1ZY7uj3kdTkjvZkna6rGNgQQdlD8121-r/view?usp=sharing",
       email: "rohitrai.rs.bce20@itbhu.ac.in",
+      linkdin: "https://www.linkedin.com/in/rohit-rai-82b367195/",
       research: "Life cycle analysis, Cellulose chemistry, Drinking straws, Sustainable agriculture, Biobased foams, 3D printing",
       joinedYear: "2020"
     },
