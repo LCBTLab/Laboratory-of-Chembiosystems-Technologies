@@ -16,13 +16,28 @@ export const useAuthStore = create<AuthState>((set) => ({
   error: null,
 
   initialize: async () => {
-    set({ loading: true });
-    const { data, error } = await supabase.auth.getUser();
+  set({ loading: true });
 
-    if (error || !data?.user) {
-      set({ user: null, loading: false });
-      return;
-    }
+  const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+  if (sessionError || !session) {
+    // No session at all
+    set({ user: null, loading: false });
+    return;
+  }
+
+  const { data, error } = await supabase.auth.getUser();
+
+  if (error || !data?.user) {
+    // Invalid or deleted user
+    await supabase.auth.signOut(); // Clear the invalid session
+    set({ user: null, loading: false });
+    return;
+  }
+
+  // Valid user
+  set({ user: data.user, loading: false });
+},
 
     set({ user: data.user, loading: false });
   },
