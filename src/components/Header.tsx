@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Beaker, User, LogIn } from 'lucide-react';
@@ -78,6 +79,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
+      <div>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100"
