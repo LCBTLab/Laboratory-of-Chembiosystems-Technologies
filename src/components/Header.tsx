@@ -39,9 +39,7 @@ const Header: React.FC = () => {
   </div>
 </Link>
 
-          </Link>
-
-          {/* Desktop Navigation */}
+                 {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-1">
             {navigation.map((item) => (
               <Link
