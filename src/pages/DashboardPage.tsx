@@ -7,7 +7,6 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   return user ? children : <Navigate to="/login" replace />;
 };
 
-export default ProtectedRoute;
 
 import React, { useState, useRef } from 'react';
 import { useAuthStore } from '../store/authStore';
