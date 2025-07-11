@@ -1,83 +1,135 @@
 import { create } from 'zustand';
 import { User } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { supabase, signInWithGoogle, signInWithEmail, signUpWithEmail, signOut as supabaseSignOut } from '../lib/supabase';
+import type { Database } from '../lib/supabase';
 
-interface Profile {
-  id: string;
-  email: string;
-  name: string;
-  designation: string;
-  bio: string;
-  research_interests: string;
-  ongoing_projects: string[];
-  profile_picture_url: string | null;
-}
+type Profile = Database['public']['Tables']['profiles']['Row'];
 
 interface AuthState {
   user: User | null;
   profile: Profile | null;
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<{ error?: string }>;
+  error: string | null;
+  
+  // Actions
+  initialize: () => Promise<void>;
+  signInWithGoogle: () => Promise<{ error?: string }>;
+  signInWithEmail: (email: string, password: string) => Promise<{ error?: string }>;
+  signUpWithEmail: (email: string, password: string, name: string) => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
   updateProfile: (updates: Partial<Profile>) => Promise<{ error?: string }>;
   fetchProfile: () => Promise<void>;
-  initialize: () => Promise<void>;
+  clearError: () => void;
 }
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
   profile: null,
   loading: true,
+  error: null,
 
   initialize: async () => {
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      set({ loading: true, error: null });
+      
+      // Get current session
+      const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+      
+      if (sessionError) {
+        console.error('Session error:', sessionError);
+        set({ loading: false, error: sessionError.message });
+        return;
+      }
+
       if (session?.user) {
         set({ user: session.user });
         await get().fetchProfile();
       }
-    } catch (error) {
-      console.error('Error initializing auth:', error);
-    } finally {
-      set({ loading: false });
-    }
 
-    // Listen for auth changes
-    supabase.auth.onAuthStateChange(async (event, session) => {
-      if (session?.user) {
-        set({ user: session.user });
-        await get().fetchProfile();
-      } else {
-        set({ user: null, profile: null });
-      }
-    });
-  },
-
-  signIn: async (email: string, password: string) => {
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      // Listen for auth changes
+      supabase.auth.onAuthStateChange(async (event, session) => {
+        console.log('Auth state changed:', event, session?.user?.email);
+        
+        if (session?.user) {
+          set({ user: session.user, error: null });
+          await get().fetchProfile();
+        } else {
+          set({ user: null, profile: null });
+        }
+        
+        set({ loading: false });
       });
 
+    } catch (error) {
+      console.error('Error initializing auth:', error);
+      set({ error: 'Failed to initialize authentication', loading: false });
+    }
+  },
+
+  signInWithGoogle: async () => {
+    try {
+      set({ loading: true, error: null });
+      const { error } = await signInWithGoogle();
+      
       if (error) {
+        set({ error: error.message, loading: false });
         return { error: error.message };
       }
-
-      if (data.user) {
-        set({ user: data.user });
-        await get().fetchProfile();
-      }
-
+      
+      // Don't set loading to false here - let the auth state change handler do it
       return {};
     } catch (error) {
-      return { error: 'An unexpected error occurred' };
+      const errorMessage = 'Failed to sign in with Google';
+      set({ error: errorMessage, loading: false });
+      return { error: errorMessage };
+    }
+  },
+
+  signInWithEmail: async (email: string, password: string) => {
+    try {
+      set({ loading: true, error: null });
+      const { error } = await signInWithEmail(email, password);
+      
+      if (error) {
+        set({ error: error.message, loading: false });
+        return { error: error.message };
+      }
+      
+      return {};
+    } catch (error) {
+      const errorMessage = 'Failed to sign in';
+      set({ error: errorMessage, loading: false });
+      return { error: errorMessage };
+    }
+  },
+
+  signUpWithEmail: async (email: string, password: string, name: string) => {
+    try {
+      set({ loading: true, error: null });
+      const { error } = await signUpWithEmail(email, password, name);
+      
+      if (error) {
+        set({ error: error.message, loading: false });
+        return { error: error.message };
+      }
+      
+      return {};
+    } catch (error) {
+      const errorMessage = 'Failed to sign up';
+      set({ error: errorMessage, loading: false });
+      return { error: errorMessage };
     }
   },
 
   signOut: async () => {
-    await supabase.auth.signOut();
-    set({ user: null, profile: null });
+    try {
+      set({ loading: true, error: null });
+      await supabaseSignOut();
+      set({ user: null, profile: null, loading: false });
+    } catch (error) {
+      console.error('Error signing out:', error);
+      set({ error: 'Failed to sign out', loading: false });
+    }
   },
 
   fetchProfile: async () => {
@@ -91,38 +143,23 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         .eq('id', user.id)
         .single();
 
-      if (error && error.code !== 'PGRST116') {
+      if (error) {
+        if (error.code === 'PGRST116') {
+          // Profile doesn't exist, it will be created by the trigger
+          console.log('Profile not found, will be created automatically');
+          return;
+        }
         console.error('Error fetching profile:', error);
+        set({ error: error.message });
         return;
       }
 
       if (data) {
         set({ profile: data });
-      } else {
-        // Create default profile if it doesn't exist
-        const defaultProfile = {
-          id: user.id,
-          email: user.email || '',
-          name: user.user_metadata?.name || '',
-          designation: '',
-          bio: '',
-          research_interests: '',
-          ongoing_projects: [],
-          profile_picture_url: null,
-        };
-
-        const { data: newProfile, error: insertError } = await supabase
-          .from('profiles')
-          .insert(defaultProfile)
-          .select()
-          .single();
-
-        if (!insertError && newProfile) {
-          set({ profile: newProfile });
-        }
       }
     } catch (error) {
       console.error('Error in fetchProfile:', error);
+      set({ error: 'Failed to fetch profile' });
     }
   },
 
@@ -133,24 +170,33 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     }
 
     try {
+      set({ loading: true, error: null });
+      
       const { data, error } = await supabase
         .from('profiles')
-        .update({ ...updates, updated_at: new Date().toISOString() })
+        .update(updates)
         .eq('id', user.id)
         .select()
         .single();
 
       if (error) {
+        set({ error: error.message, loading: false });
         return { error: error.message };
       }
 
       if (data) {
-        set({ profile: data });
+        set({ profile: data, loading: false });
       }
 
       return {};
     } catch (error) {
-      return { error: 'An unexpected error occurred' };
+      const errorMessage = 'Failed to update profile';
+      set({ error: errorMessage, loading: false });
+      return { error: errorMessage };
     }
+  },
+
+  clearError: () => {
+    set({ error: null });
   },
 }));
