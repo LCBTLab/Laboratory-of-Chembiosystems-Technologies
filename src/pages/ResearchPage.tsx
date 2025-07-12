@@ -1,372 +1,474 @@
 import React, { useState } from 'react';
-import { Search, Filter, ExternalLink, Calendar, User, Tag, ChevronRight } from 'lucide-react';
+import { Search, Filter, ExternalLink, Calendar, User, Tag, ChevronRight, Award, BookOpen } from 'lucide-react';
 
 interface ResearchProject {
   id: number;
-  title: string;
-  category: string;
-  status: 'ongoing' | 'completed' | 'planned';
-  duration: string;
-  funding: string;
-  collaborators: string[];
+  sno: string;
+  project: string;
+  awardingAgency: string;
+  role: string;
+  year: string;
+  status: 'Ongoing' | 'Approved' | 'Complete';
   description: string;
-  objectives: string[];
-  methods: string[];
-  outcomes: string[];
   image: string;
   tags: string[];
-  publications: string[];
+}
+
+interface Publication {
+  id: number;
+  sno: string;
+  citation: string;
+  impactFactor: string;
+  year: number;
+  journal: string;
+  doi?: string;
 }
 
 const ResearchPage: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedProject, setSelectedProject] = useState<ResearchProject | null>(null);
+  const [activeTab, setActiveTab] = useState('projects');
 
   const projects: ResearchProject[] = [
     {
       id: 1,
-      title: "Engineering Robust Enzymes for Industrial Biotechnology",
-      category: "Molecular Systems Engineering",
-      status: "ongoing",
-      duration: "2022-2025",
-      funding: "DST-SERB (₹25 Lakhs)",
-      collaborators: ["IISc Bangalore", "CSIR-NCL Pune"],
-      description: "Development of thermostable and pH-resistant enzymes for industrial applications through protein engineering approaches.",
-      objectives: [
-        "Design and synthesize novel enzyme variants with enhanced stability",
-        "Optimize enzyme performance for industrial conditions",
-        "Scale-up production of engineered enzymes",
-        "Validate industrial applications"
-      ],
-      methods: [
-        "Directed evolution techniques",
-        "Rational protein design",
-        "Molecular dynamics simulations",
-        "High-throughput screening",
-        "Biochemical characterization"
-      ],
-      outcomes: [
-        "5 enzyme variants with 10x improved thermostability",
-        "2 patents filed for novel enzyme designs",
-        "Industrial collaboration established",
-        "3 high-impact publications"
-      ],
+      sno: "1",
+      project: "Bioengineering of Living Materials to fabricate Functionalized Bacterial Nanocellulose for High-Performance Applications",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2021-26",
+      status: "Ongoing",
+      description: "Advanced research on bacterial nanocellulose for high-performance applications in biotechnology and materials science.",
       image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Protein Engineering", "Biocatalysis", "Industrial Biotechnology"],
-      publications: ["Nature Biotechnology (2023)", "ACS Catalysis (2022)"]
+      tags: ["Biotechnology", "Nanocellulose", "Materials Science"]
     },
     {
       id: 2,
-      title: "Smart Biomaterials for Targeted Drug Delivery",
-      category: "Biomaterials & Biointerfaces",
-      status: "ongoing",
-      duration: "2021-2024",
-      funding: "DBT (₹35 Lakhs)",
-      collaborators: ["AIIMS Delhi", "PGIMER Chandigarh"],
-      description: "Development of stimuli-responsive biomaterials for controlled and targeted drug delivery applications.",
-      objectives: [
-        "Synthesize pH and temperature-responsive polymers",
-        "Develop targeted drug delivery systems",
-        "Evaluate biocompatibility and safety",
-        "Conduct in-vivo studies"
-      ],
-      methods: [
-        "Polymer synthesis and characterization",
-        "Drug encapsulation techniques",
-        "Cell culture studies",
-        "Animal model studies",
-        "Analytical characterization"
-      ],
-      outcomes: [
-        "Novel pH-responsive hydrogel developed",
-        "90% drug release efficiency achieved",
-        "Successful animal studies completed",
-        "2 patents under review"
-      ],
+      sno: "2",
+      project: "Education Guidelines - Enabling of Academic Institutes in Technical Textiles",
+      awardingAgency: "Ministry of Textiles, Govt. of India",
+      role: "P.I.",
+      year: "2025-28",
+      status: "Approved",
+      description: "Development of educational frameworks for technical textiles in academic institutions.",
       image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Drug Delivery", "Hydrogels", "Biocompatibility"],
-      publications: ["Advanced Materials (2022)", "Biomaterials (2021)"]
+      tags: ["Education", "Technical Textiles", "Academic Development"]
     },
     {
       id: 3,
-      title: "Green Synthesis of High-Value Chemicals",
-      category: "Sustainable Chemistry",
-      status: "completed",
-      duration: "2020-2023",
-      funding: "CSIR (₹20 Lakhs)",
-      collaborators: ["NCL Pune", "ICT Mumbai"],
-      description: "Development of environmentally friendly processes for synthesis of pharmaceutical intermediates and fine chemicals.",
-      objectives: [
-        "Develop green synthetic routes",
-        "Optimize reaction conditions",
-        "Scale-up processes",
-        "Perform economic analysis"
-      ],
-      methods: [
-        "Biocatalytic synthesis",
-        "Green chemistry principles",
-        "Process optimization",
-        "Life cycle assessment",
-        "Techno-economic analysis"
-      ],
-      outcomes: [
-        "3 green synthetic routes established",
-        "50% reduction in waste generation",
-        "2 processes scaled up to pilot scale",
-        "Technology transferred to industry"
-      ],
+      sno: "3",
+      project: "Biopolymer based degradable and wireless implantable biosensors for monitoring of post-surgical clotting disorders and peripheral nerve injuries",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2024-27",
+      status: "Approved",
+      description: "Innovative biosensors for medical monitoring applications using biodegradable biopolymers.",
       image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Green Chemistry", "Sustainability", "Process Development"],
-      publications: ["Green Chemistry (2023)", "ChemSusChem (2022)"]
+      tags: ["Biosensors", "Medical Technology", "Biopolymers"]
     },
     {
       id: 4,
-      title: "Bio-inspired Adhesive Materials",
-      category: "Bioinspired Systems",
-      status: "ongoing",
-      duration: "2023-2026",
-      funding: "SERB-ECRA (₹50 Lakhs)",
-      collaborators: ["IIT Bombay", "University of Cambridge"],
-      description: "Development of bio-inspired adhesive materials based on gecko feet and mussel proteins for medical and industrial applications.",
-      objectives: [
-        "Understand natural adhesion mechanisms",
-        "Design synthetic adhesive systems",
-        "Optimize adhesive properties",
-        "Develop commercial applications"
-      ],
-      methods: [
-        "Biomimetic design principles",
-        "Surface modification techniques",
-        "Adhesion testing protocols",
-        "Computational modeling",
-        "Material characterization"
-      ],
-      outcomes: [
-        "Novel bio-inspired adhesive formulation",
-        "10x improved wet adhesion",
-        "Medical device prototype developed",
-        "International collaboration established"
-      ],
+      sno: "4",
+      project: "Safety and efficacy studies of value-added forest produce",
+      awardingAgency: "CGMFP, Govt. of C.G.",
+      role: "P.I.",
+      year: "2024-25",
+      status: "Approved",
+      description: "Comprehensive studies on forest produce for value addition and safety assessment.",
       image: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Biomimetics", "Adhesives", "Surface Engineering"],
-      publications: ["Nature Materials (under review)"]
+      tags: ["Forest Products", "Safety Studies", "Value Addition"]
     },
     {
       id: 5,
-      title: "Microbial Electrochemical Systems for Wastewater Treatment",
-      category: "Sustainable Chemistry",
-      status: "planned",
-      duration: "2024-2027",
-      funding: "MoEFCC (₹40 Lakhs)",
-      collaborators: ["IIT Kharagpur", "TERI New Delhi"],
-      description: "Development of microbial fuel cells for simultaneous wastewater treatment and energy generation.",
-      objectives: [
-        "Optimize microbial communities",
-        "Design efficient electrode materials",
-        "Scale-up system design",
-        "Demonstrate field applications"
-      ],
-      methods: [
-        "Microbial community analysis",
-        "Electrochemical characterization",
-        "Reactor design and optimization",
-        "Pilot-scale testing",
-        "Economic feasibility study"
-      ],
-      outcomes: [
-        "High-performance electrode materials",
-        "Optimized microbial consortia",
-        "Pilot-scale demonstration",
-        "Commercial partnership"
-      ],
+      sno: "5",
+      project: "Lignocellulose based scalable luminous photonic biopolymers for sustainable films and coatings",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2024-27",
+      status: "Ongoing",
+      description: "Development of sustainable photonic biopolymers from lignocellulose for advanced applications.",
       image: "https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Microbial Fuel Cells", "Wastewater Treatment", "Renewable Energy"],
-      publications: []
+      tags: ["Lignocellulose", "Photonic Materials", "Sustainability"]
     },
     {
       id: 6,
-      title: "Computational Design of Membrane Proteins",
-      category: "Molecular Systems Engineering",
-      status: "ongoing",
-      duration: "2023-2025",
-      funding: "Intel-DST (₹15 Lakhs)",
-      collaborators: ["IIT Delhi", "JNCASR Bangalore"],
-      description: "Using computational methods to design and optimize membrane proteins for biotechnological applications.",
-      objectives: [
-        "Develop computational design tools",
-        "Design novel membrane proteins",
-        "Validate designs experimentally",
-        "Create protein design database"
-      ],
-      methods: [
-        "Molecular dynamics simulations",
-        "Machine learning algorithms",
-        "Protein structure prediction",
-        "Experimental validation",
-        "Database development"
-      ],
-      outcomes: [
-        "New computational pipeline developed",
-        "5 membrane protein designs validated",
-        "Open-source software released",
-        "International recognition"
-      ],
+      sno: "6",
+      project: "End functionalized cellulose nanocrystals using integrated microfluidics for production of high-performance optically active coatings and fibers",
+      awardingAgency: "Department of Science & Technology (DST), Govt. of India (Indo-Japan project)",
+      role: "P.I.",
+      year: "2024-26",
+      status: "Approved",
+      description: "International collaboration for advanced cellulose nanocrystal applications in optics.",
       image: "https://images.pexels.com/photos/2733659/pexels-photo-2733659.jpeg?auto=compress&cs=tinysrgb&w=500",
-      tags: ["Computational Biology", "Protein Design", "Machine Learning"],
-      publications: ["PNAS (2023)", "Bioinformatics (2023)"]
+      tags: ["Nanocrystals", "Microfluidics", "International Collaboration"]
+    },
+    {
+      id: 7,
+      sno: "7",
+      project: "Scale-up studies of isoprene production from genetically engineered cyanobacteria for biofuel application",
+      awardingAgency: "CST, Govt. of U.P.",
+      role: "Co-P.I.",
+      year: "2024-26",
+      status: "Ongoing",
+      description: "Scaling up biofuel production using genetically modified cyanobacteria.",
+      image: "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=500",
+      tags: ["Biofuels", "Genetic Engineering", "Scale-up Studies"]
+    },
+    {
+      id: 8,
+      sno: "8",
+      project: "Novel Bioprocessing routes for development of value-added products",
+      awardingAgency: "IIT (BHU)",
+      role: "P.I.",
+      year: "2020-21",
+      status: "Complete",
+      description: "Development of innovative bioprocessing methods for creating value-added products.",
+      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=500",
+      tags: ["Bioprocessing", "Value Addition", "Innovation"]
     }
   ];
 
-  const categories = ['all', 'Molecular Systems Engineering', 'Biomaterials & Biointerfaces', 'Sustainable Chemistry', 'Bioinspired Systems'];
-  const statuses = ['all', 'ongoing', 'completed', 'planned'];
+  const publications: Publication[] = [
+    {
+      id: 51,
+      sno: "51",
+      citation: "R Rai, R Bharti, Dhar P*, Biodegradable, water-resistant, smart cellulose-based drinking straws from agricultural biomass with detection of adulterants in beverages. Food Chemistry. 2025 Jan",
+      impactFactor: "8.5",
+      year: 2025,
+      journal: "Food Chemistry",
+      doi: "10.1016/j.foodchem.2025.143093"
+    },
+    {
+      id: 50,
+      sno: "50",
+      citation: "R Ranjan, R Rai, K Naik, AS Parmar, Dhar P*, In-situ growth of MoS2 on 3D printed phosphorylated cellulose for simultaneous dye degradation and microbial inactivation. Cellulose. 2025 Jan",
+      impactFactor: "5.3",
+      year: 2025,
+      journal: "Cellulose",
+      doi: "10.1007/s10570-024-06361-2"
+    },
+    {
+      id: 49,
+      sno: "49",
+      citation: "R Rai, R Ranjan, S Kumari, N De and Dhar P*, Cellulose-based phosphorylated bamboo with slow urea release and lower carbon footprints improves rainfed rice crop productivity in field trials. International Journal of Biological Macromolecules. 2025 Feb",
+      impactFactor: "8.2",
+      year: 2025,
+      journal: "International Journal of Biological Macromolecules"
+    },
+    {
+      id: 48,
+      sno: "48",
+      citation: "Naik, K; Tripathi, S; Ranjan, R; Agrawal, S, Singh, S; Dhar, P; Singh, K; Tiwari, V; Parmar, A, Conductive Hybrid Hydrogel of Carbon Nanotubes-Protein-Cellulose: In vivo Treatment of Diabetic Wound via Photothermal Therapy and Tracking Real-Time Wound Assessment via Photoacoustic Imaging. ACS Applied Bio Materials Feb 2025",
+      impactFactor: "4.7",
+      year: 2025,
+      journal: "ACS Applied Bio Materials"
+    },
+    {
+      id: 47,
+      sno: "47",
+      citation: "R D Prakashchandra, R Rai, A A Mandal, P Dhar, S Banerjee, T Sarkar, B N Babu, Photodynamic Inactivation of Bacteria Using Nickel (II) Complexes with Catecholate and Phenanthroline Ligands. ChemBioChem 2024 Nov",
+      impactFactor: "2.6",
+      year: 2024,
+      journal: "ChemBioChem",
+      doi: "10.1002/cbic.202400678"
+    },
+    {
+      id: 46,
+      sno: "46",
+      citation: "R Ranjan; S B Bhatt; R Rai; S Kumari; R Tilak; Dhar P*, Cellulose based aerogels derived from rice agro wastes with enhanced antifungal activity for topical management of vulvovaginal candidiasis. 2025 Jan Macromolecular Chemistry and Physics.",
+      impactFactor: "2.5",
+      year: 2025,
+      journal: "Macromolecular Chemistry and Physics",
+      doi: "10.1002/macp.202400355"
+    },
+    {
+      id: 45,
+      sno: "45",
+      citation: "SB Bhatt, R Ranjan, S Dahiya, BN Pal, Dhar P*. Functionalized jute with high-water absorption, low thermal conductivity and efficient radiative cooling for the preservation of perishable green vegetables with reduced cold storage energy requirements. Journal of Materials Chemistry A. 2024 Jun.",
+      impactFactor: "10.7",
+      year: 2024,
+      journal: "Journal of Materials Chemistry A",
+      doi: "10.1039/D4TA02507E"
+    },
+    {
+      id: 44,
+      sno: "44",
+      citation: "Rai R, Ranjan R, Kant C, Dhar P*. Biodegradable, eco-friendly, and hydrophobic drinking straws based on delignified phosphorylated bamboo-gelatin composites. Chemical Engineering Journal. 2023 Jun 22:144047.",
+      impactFactor: "16.744",
+      year: 2023,
+      journal: "Chemical Engineering Journal",
+      doi: "10.1016/j.cej.2023.144047"
+    },
+    {
+      id: 43,
+      sno: "43",
+      citation: "A Mazumdar, B Jain, M Mitra, Dhar P*. Interactive Evolutionary Multiobjective Optimization of Primer Design with Uncertain Objectives. Proceedings of the Genetic and Evolutionary Computation. 2024. July.",
+      impactFactor: "N/A",
+      year: 2024,
+      journal: "Proceedings of the Genetic and Evolutionary Computation",
+      doi: "10.1145/3638529.36541"
+    },
+    {
+      id: 42,
+      sno: "42",
+      citation: "Ranjan R, Bhatt SB, Rai R, Sharma SK, Ranjan R, Bharti A, Dhar P*. Rice husk valorisation by in situ grown MoS 2 nanoflowers: a dual-action catalyst for pollutant dye remediation and microbial decontamination. RSC Advances. 2024;14(17):12192-203.",
+      impactFactor: "N/A",
+      year: 2024,
+      journal: "RSC Advances"
+    }
+  ];
+
+  const statuses = ['all', 'Ongoing', 'Approved', 'Complete'];
 
   const filteredProjects = projects.filter(project => {
-    const matchesCategory = selectedFilter === 'all' || project.category === selectedFilter;
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesStatus = selectedFilter === 'all' || project.status === selectedFilter;
+    const matchesSearch = project.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         project.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    return matchesStatus && matchesSearch;
+  });
+
+  const filteredPublications = publications.filter(publication => {
+    return publication.citation.toLowerCase().includes(searchTerm.toLowerCase()) ||
+           publication.journal.toLowerCase().includes(searchTerm.toLowerCase());
   });
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'ongoing': return 'bg-green-100 text-green-800';
-      case 'completed': return 'bg-blue-100 text-blue-800';
-      case 'planned': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Ongoing': return 'bg-green-100 text-green-800 border-green-200';
+      case 'Approved': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'Complete': return 'bg-gray-100 text-gray-800 border-gray-200';
+      default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
   };
 
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case 'ongoing': return 'Ongoing';
-      case 'completed': return 'Completed';
-      case 'planned': return 'Planned';
-      default: return 'Unknown';
-    }
+  const getImpactFactorColor = (impactFactor: string) => {
+    const factor = parseFloat(impactFactor);
+    if (factor >= 10) return 'bg-red-100 text-red-800 border-red-200';
+    if (factor >= 5) return 'bg-orange-100 text-orange-800 border-orange-200';
+    if (factor >= 3) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+    return 'bg-green-100 text-green-800 border-green-200';
   };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              Our Research Projects
+      {/* Hero Section with Animation */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16 lg:py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-purple-400/10 animate-pulse"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-12 animate-fade-in-up">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-slide-in-left">
+              Research Portfolio
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Explore our diverse portfolio of research projects spanning molecular systems engineering, 
-              biomaterials, sustainable chemistry, and bioinspired systems.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right">
+              Explore our comprehensive research projects and publications spanning biotechnology, 
+              materials science, and sustainable engineering solutions.
             </p>
+          </div>
+          
+          {/* Animated Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+            {[
+              { value: projects.length, label: "Active Projects", delay: "0s" },
+              { value: publications.length, label: "Publications", delay: "0.2s" },
+              { value: "15+", label: "Years Experience", delay: "0.4s" },
+              { value: "50+", label: "Collaborations", delay: "0.6s" }
+            ].map((stat, index) => (
+              <div 
+                key={index}
+                className="text-center animate-bounce-in"
+                style={{ animationDelay: stat.delay }}
+              >
+                <div className="text-3xl font-bold text-blue-600 animate-count-up">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="py-8 bg-gray-50 sticky top-16 z-40">
+      {/* Tab Navigation with Animation */}
+      <section className="py-8 bg-white sticky top-16 z-40 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+          <div className="flex justify-center mb-6">
+            <div className="bg-gray-100 rounded-lg p-1 animate-slide-in-up">
+              {[
+                { id: 'projects', label: 'Research Projects', icon: Award },
+                { id: 'publications', label: 'Publications', icon: BookOpen }
+              ].map((tab) => {
+                const Icon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center px-6 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 ${
+                      activeTab === tab.id
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
+                  >
+                    <Icon className="h-5 w-5 mr-2" />
+                    {tab.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Search and Filter */}
+          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between animate-fade-in">
             <div className="relative flex-1 max-w-md">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search projects..."
+                placeholder={`Search ${activeTab}...`}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
               />
             </div>
             
-            <div className="flex items-center gap-4">
-              <Filter className="h-5 w-5 text-gray-600" />
-              <select
-                value={selectedFilter}
-                onChange={(e) => setSelectedFilter(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              >
-                {categories.map(category => (
-                  <option key={category} value={category}>
-                    {category === 'all' ? 'All Categories' : category}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {activeTab === 'projects' && (
+              <div className="flex items-center gap-4">
+                <Filter className="h-5 w-5 text-gray-600" />
+                <select
+                  value={selectedFilter}
+                  onChange={(e) => setSelectedFilter(e.target.value)}
+                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                >
+                  {statuses.map(status => (
+                    <option key={status} value={status}>
+                      {status === 'all' ? 'All Status' : status}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 bg-white">
+      {/* Content Section */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <div 
-                key={project.id}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="relative">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
-                      {getStatusText(project.status)}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <div className="flex items-center text-sm text-gray-500 mb-2">
-                    <Calendar className="h-4 w-4 mr-1" />
-                    <span>{project.duration}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.slice(0, 2).map((tag, index) => (
-                      <span 
-                        key={index}
-                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+          {activeTab === 'projects' ? (
+            /* Projects Table */
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-slide-in-up">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">S.No</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Project</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Awarding Agency</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Role</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Year</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {filteredProjects.map((project, index) => (
+                      <tr 
+                        key={project.id}
+                        className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
+                        style={{ animationDelay: `${index * 0.1}s` }}
                       >
-                        {tag}
-                      </span>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {project.sno}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-900 max-w-md">
+                          <div className="font-medium hover:text-blue-600 transition-colors duration-200">
+                            {project.project}
+                          </div>
+                          <div className="flex flex-wrap gap-1 mt-2">
+                            {project.tags.map((tag, tagIndex) => (
+                              <span 
+                                key={tagIndex}
+                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full animate-pulse"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
+                          {project.awardingAgency}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
+                          {project.role}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                          {project.year}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getStatusColor(project.status)}`}>
+                            {project.status}
+                          </span>
+                        </td>
+                      </tr>
                     ))}
-                    {project.tags.length > 2 && (
-                      <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
-                        +{project.tags.length - 2}
-                      </span>
-                    )}
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">
-                      {project.funding}
-                    </span>
-                    <ChevronRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 transition-colors" />
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ) : (
+            /* Publications List */
+            <div className="space-y-6">
+              {filteredPublications.map((publication, index) => (
+                <div 
+                  key={publication.id}
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] animate-slide-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-4 mb-3">
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
+                          #{publication.sno}
+                        </span>
+                        <span className="text-gray-600 text-sm">
+                          {publication.year}
+                        </span>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getImpactFactorColor(publication.impactFactor)}`}>
+                          I.F. {publication.impactFactor}
+                        </span>
+                      </div>
+                      
+                      <p className="text-gray-800 leading-relaxed mb-3">
+                        {publication.citation}
+                      </p>
+                      
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <span className="font-medium text-blue-600">
+                          {publication.journal}
+                        </span>
+                        {publication.doi && (
+                          <a 
+                            href={`https://doi.org/${publication.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                          >
+                            <ExternalLink className="h-4 w-4 mr-1" />
+                            DOI
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
           
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
+          {((activeTab === 'projects' && filteredProjects.length === 0) || 
+            (activeTab === 'publications' && filteredPublications.length === 0)) && (
+            <div className="text-center py-16 animate-fade-in">
               <Search className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                No projects found
+                No {activeTab} found
               </h3>
               <p className="text-gray-500">
                 Try adjusting your search terms or filters.
@@ -376,137 +478,147 @@ const ResearchPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Project Detail Modal */}
-      {selectedProject && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
-          <div className="min-h-screen px-4 py-8">
-            <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-xl">
-              <div className="relative">
-                <img 
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-64 object-cover rounded-t-xl"
-                />
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 bg-white bg-opacity-90 hover:bg-opacity-100 rounded-full p-2 transition-colors"
-                >
-                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <div className="p-8">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                      {selectedProject.title}
-                    </h2>
-                    <p className="text-lg text-blue-600 font-medium">
-                      {selectedProject.category}
-                    </p>
-                  </div>
-                  <span className={`px-4 py-2 rounded-full text-sm font-medium ${getStatusColor(selectedProject.status)}`}>
-                    {getStatusText(selectedProject.status)}
-                  </span>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Project Details</h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 text-gray-400 mr-2" />
-                        <span className="text-gray-600">Duration: {selectedProject.duration}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Tag className="h-4 w-4 text-gray-400 mr-2" />
-                        <span className="text-gray-600">Funding: {selectedProject.funding}</span>
-                      </div>
-                      <div className="flex items-start">
-                        <User className="h-4 w-4 text-gray-400 mr-2 mt-1" />
-                        <div>
-                          <span className="text-gray-600">Collaborators:</span>
-                          <ul className="ml-2 mt-1">
-                            {selectedProject.collaborators.map((collaborator, index) => (
-                              <li key={index} className="text-gray-600">• {collaborator}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Tags</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.tags.map((tag, index) => (
-                        <span 
-                          key={index}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Description</h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {selectedProject.description}
-                    </p>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Objectives</h3>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      {selectedProject.objectives.map((objective, index) => (
-                        <li key={index}>{objective}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Methods</h3>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      {selectedProject.methods.map((method, index) => (
-                        <li key={index}>{method}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Key Outcomes</h3>
-                    <ul className="list-disc list-inside space-y-1 text-gray-700">
-                      {selectedProject.outcomes.map((outcome, index) => (
-                        <li key={index}>{outcome}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {selectedProject.publications.length > 0 && (
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-3">Related Publications</h3>
-                      <ul className="space-y-2">
-                        {selectedProject.publications.map((publication, index) => (
-                          <li key={index} className="flex items-center text-blue-600 hover:text-blue-800">
-                            <ExternalLink className="h-4 w-4 mr-2" />
-                            <span>{publication}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+      {/* Call to Action with Animation */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative animate-fade-in-up">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 animate-slide-in-left">
+            Collaborate with Us
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto animate-slide-in-right">
+            Interested in our research? We welcome collaborations, partnerships, 
+            and opportunities to advance scientific knowledge together.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in">
+            <a 
+              href="/contact"
+              className="inline-flex items-center px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Start Collaboration
+            </a>
+            <a 
+              href="/publications"
+              className="inline-flex items-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+            >
+              <BookOpen className="h-5 w-5 mr-2" />
+              View All Publications
+            </a>
           </div>
         </div>
-      )}
+      </section>
+
+      {/* Custom CSS for Animations */}
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes slide-in-left {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slide-in-right {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes slide-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes bounce-in {
+          0% {
+            opacity: 0;
+            transform: scale(0.3);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1.05);
+          }
+          70% {
+            transform: scale(0.9);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes count-up {
+          from {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+          animation: slide-in-left 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+          animation: slide-in-right 0.8s ease-out forwards;
+        }
+
+        .animate-slide-in-up {
+          animation: slide-in-up 0.6s ease-out forwards;
+        }
+
+        .animate-bounce-in {
+          animation: bounce-in 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.6s ease-out forwards;
+        }
+
+        .animate-count-up {
+          animation: count-up 0.8s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 };
