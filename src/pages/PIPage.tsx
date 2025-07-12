@@ -124,7 +124,7 @@ const PIPage: React.FC = () => {
                   Contact
                 </a>
                 <a 
-                  href="https://scholar.google.com"
+                  href="https://scholar.google.com/citations?user=KFsPKWAAAAAJ&hl=en&authuser=1"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
@@ -133,7 +133,7 @@ const PIPage: React.FC = () => {
                   Google Scholar
                 </a>
                 <a 
-                  href="https://orcid.org"
+                  href="https://orcid.org/0000-0001-9716-3866"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-colors duration-200"
@@ -142,7 +142,7 @@ const PIPage: React.FC = () => {
                   ORCID
                 </a>
                 <a 
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/prodyut-dhar-16634a17/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 border-2 border-blue-700 text-blue-700 font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors duration-200"
@@ -258,7 +258,7 @@ const PIPage: React.FC = () => {
           
           <div className="text-center mt-8">
             <a 
-              href="https://scholar.google.com"
+              href="https://scholar.google.com/citations?user=KFsPKWAAAAAJ&hl=en&authuser=1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
