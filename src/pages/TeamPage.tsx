@@ -77,6 +77,7 @@ const TeamPage: React.FC = () => {
       category: "phd",
       image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1710943724382.jpeg",
       email: "meghalisaha.rs.bce25@itbhu.ac.in",
+      linkedin: "https://www.linkedin.com/in/meghali-saha-017b64237/",
       research: "",
       joinedYear: "2025"
     },
