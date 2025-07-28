@@ -77,7 +77,7 @@ const TeamPage: React.FC = () => {
       category: "phd",
       image: "",
       email: "meghalisaha.rs.bce25@itbhu.ac.in",
-      research: "",
+      research: "https://media.licdn.com/dms/image/v2/D5603AQHF-Evw-ZhUBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710943724382?e=1756339200&v=beta&t=cP-EoS681nYmOOBYr1aypPol0kVrJJlg_Mo0MrrSVCU",
       joinedyear: "2025"
     }
   ];
