@@ -75,11 +75,11 @@ const TeamPage: React.FC = () => {
       name: "Meghali Saha",
       position: "PhD Scholar",
       category: "phd",
-      image: "",
+      image: "https://media.licdn.com/dms/image/v2/D5603AQHF-Evw-ZhUBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710943724382?e=1756339200&v=beta&t=cP-EoS681nYmOOBYr1aypPol0kVrJJlg_Mo0MrrSVCU",
       email: "meghalisaha.rs.bce25@itbhu.ac.in",
-      research: "https://media.licdn.com/dms/image/v2/D5603AQHF-Evw-ZhUBQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1710943724382?e=1756339200&v=beta&t=cP-EoS681nYmOOBYr1aypPol0kVrJJlg_Mo0MrrSVCU",
+      research: "",
       joinedyear: "2025"
-    }
+    },
   ];
 
   const filters = [
