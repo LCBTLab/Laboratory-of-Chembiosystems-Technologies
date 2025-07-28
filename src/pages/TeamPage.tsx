@@ -70,6 +70,16 @@ const TeamPage: React.FC = () => {
       research: "Development of biocompatible hydrogels for drug delivery",
       joinedYear: "2024"
     },
+    {
+      id: 6,
+      name: "Meghali Saha",
+      position: "PhD Scholar",
+      category: "phd",
+      image: "",
+      email: "meghalisaha.rs.bce25@itbhu.ac.in",
+      research: "",
+      joinedyear: "2025"
+    }
   ];
 
   const filters = [
