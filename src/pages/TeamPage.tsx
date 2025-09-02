@@ -59,46 +59,17 @@ const currentStudents: Student[] = [
   {
     id: 5,
     sno: "5",
-    name: "Richa Tiwari",
-    fellowship: "UGC-JRF",
+    name: "Meghali Saha",
+    fellowship: "MHRD",
     degree: "PhD",
-    year: "July 2024",
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Bioengineering, Nanotechnology"
+    year: "July 2025",
+    image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400",
+    specialization: "Sustainable Chemistry, Materials Science"
   },
+
   {
     id: 6,
     sno: "6",
-    name: "Amey Mistry",
-    fellowship: "MHRD",
-    degree: "M.Tech",
-    year: "July 2023",
-    image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Chemical Engineering"
-  },
-  {
-    id: 7,
-    sno: "7",
-    name: "Farhaan Iqbal",
-    fellowship: "MHRD",
-    degree: "IDD",
-    year: "July 2020",
-    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Integrated Dual Degree Program"
-  },
-  {
-    id: 8,
-    sno: "8",
-    name: "Jyotirmoy Gupta",
-    fellowship: "MHRD",
-    degree: "IDD",
-    year: "July 2020",
-    image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Integrated Dual Degree Program"
-  },
-  {
-    id: 9,
-    sno: "9",
     name: "Praveen Kumar",
     fellowship: "MHRD",
     degree: "IDD",
@@ -109,9 +80,39 @@ const currentStudents: Student[] = [
 ];
 
 const alumniStudents: Student[] = [
+    {
+    id: 7,
+    sno: "1",
+    name: "Amey Mistry",
+    fellowship: "MHRD",
+    degree: "M.Tech",
+    year: "2023-2025",
+    image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
+    specialization: "Chemical Engineering"
+  },
+  {
+    id: 8,
+    sno: "2",
+    name: "Farhaan Iqbal",
+    fellowship: "MHRD",
+    degree: "IDD",
+    year: "2020-2025",
+    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
+    specialization: "Integrated Dual Degree Program"
+  },
+  {
+    id: 9,
+    sno: "3",
+    name: "Jyotirmoy Gupta",
+    fellowship: "MHRD",
+    degree: "IDD",
+    year: "2020-2025",
+    image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
+    specialization: "Integrated Dual Degree Program"
+  },
   {
     id: 10,
-    sno: "1",
+    sno: "4",
     name: "Rahul Ranjan",
     fellowship: "MHRD",
     degree: "PhD",
@@ -122,7 +123,7 @@ const alumniStudents: Student[] = [
   },
   {
     id: 11,
-    sno: "2",
+    sno: "5",
     name: "Vedang Prakash Mone",
     fellowship: "MHRD",
     degree: "M.Tech",
@@ -133,7 +134,7 @@ const alumniStudents: Student[] = [
   },
   {
     id: 12,
-    sno: "3",
+    sno: "6",
     name: "Ankit Bharti",
     fellowship: "MHRD",
     degree: "IDD",
@@ -144,7 +145,7 @@ const alumniStudents: Student[] = [
   },
   {
     id: 13,
-    sno: "4",
+    sno: "7",
     name: "Smruti B Bhatt",
     fellowship: "MHRD",
     degree: "M.Tech",
@@ -155,7 +156,7 @@ const alumniStudents: Student[] = [
   },
   {
     id: 14,
-    sno: "5",
+    sno: "8",
     name: "Bhavya Jain",
     fellowship: "MHRD",
     degree: "IDD",
