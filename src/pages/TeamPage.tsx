@@ -23,7 +23,7 @@ const currentStudents: Student[] = [
     fellowship: "DBT-JRF",
     degree: "PhD",
     year: "Dec 2020",
-    image: "https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/2211.jpg",
     specialization: "Cellulose Nanocrystals, Sustainable Materials"
   },
   {
@@ -43,7 +43,7 @@ const currentStudents: Student[] = [
     fellowship: "MHRD",
     degree: "PhD",
     year: "July 2024",
-    image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1669221312881.jpeg",
     specialization: "Chemical Engineering, Biotechnology"
   },
   {
@@ -53,7 +53,7 @@ const currentStudents: Student[] = [
     fellowship: "MHRD",
     degree: "PhD",
     year: "July 2024",
-    image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/WhatsApp%20Image%202025-06-19%20at%2014.47.03_2bc2f854.jpg",
     specialization: "Sustainable Chemistry, Materials Science"
   },
   {
@@ -63,7 +63,7 @@ const currentStudents: Student[] = [
     fellowship: "MHRD",
     degree: "PhD",
     year: "July 2025",
-    image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1710943724382.jpeg",
     specialization: "Sustainable Chemistry, Materials Science"
   },
 
