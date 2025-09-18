@@ -3,9 +3,11 @@ import { Mail, ExternalLink, MapPin, GraduationCap, Award, BookOpen, Users } fro
 
 const PIPage: React.FC = () => {
   const qualifications = [
-    "Ph.D. in Chemical Engineering, Indian Institute of Science (IISc), Bangalore",
-    "M.Tech. in Biochemical Engineering, IIT Delhi",
-    "B.Tech. in Chemical Engineering, NIT Rourkela"
+  " 1st Postdoctoral Researcher (January-September, 2018) at the Department of Biosystems and Bioproducts, School of Chemical Engineering, Aalto University, Finland",
+    "Received the JSPS fellowship (September, 2018-October 2020) and worked as a JSPS Fellow at Division of Forest and Biomaterials Science, Kyoto University, Japan",
+    "Ph.D. in Chemical Engineering,Indian Institute of Technology Guwahati (IITG), Assam",
+  
+    "B.Tech. in  Biotechnology from National Institute of Technology, Durgapur (NIT DGP), West Bengal"
   ];
 
   const expertise = [
