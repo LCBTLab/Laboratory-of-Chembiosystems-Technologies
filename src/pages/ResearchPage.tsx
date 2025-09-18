@@ -31,116 +31,138 @@ const ResearchPage: React.FC = () => {
 
   const projects: ResearchProject[] = [
     {
-    id: 1,
-    sno: "1",
-    project:
-      "Bioengineering of Living Materials to fabricate Functionalized Bacterial Nanocellulose for High-Performance Applications",
-    awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
-    role: "P.I.",
-    year: "2021-26",
-    status: "Ongoing",
-  },
-  {
-    id: 2,
-    sno: "2",
-    project:
-      "Education Guidelines - Enabling of Academic Institutes in Technical Textiles",
-    awardingAgency: "Ministry of Textiles, Govt. of India",
-    role: "P.I.",
-    year: "2025-28",
-    status: "Approved",
-  },
-  {
-    id: 3,
-    sno: "3",
-    project:
-      "Biopolymer based degradable and wireless implantable biosensors for monitoring of post-surgical clotting disorders and peripheral nerve injuries",
-    awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
-    role: "P.I.",
-    year: "2024-27",
-    status: "Approved",
-  },
-  {
-    id: 4,
-    sno: "4",
-    project:
-      "Sustainable and Green Campus initiative: Integrated circular economy based approach for valorization of campus leaf waste and agrobiomass into valueadded products: A pilot plant study with economic sustainability and industrial relevance",
-    awardingAgency: "IIT (BHU)",
-    role: "P.I.",
-    year: "2025-27",
-    status: "Approved",
-  },
-  {
-    id: 5,
-    sno: "5",
-    project:
-      "Te-MobiX: Safe and Degradation-controlled Batteries with Efficient Charging for Tropical e-Mobility Excellence",
-    awardingAgency: "Anusandhan National Research Foundation (ANRF)",
-    role: "Co-P.I.",
-    year: "2025-28",
-    status: "Ongoing",
-  },
-  {
-    id: 6,
-    sno: "6",
-    project:
-      "Agro-Pads: An integrated strategy to convert agro-waste to affordable sanitary and medicinal pads for health and socio-economic upliftment of rural girls & women",
-    awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
-    role: "P.I.",
-    year: "2025-27",
-    status: "Approved",
-  },
-  {
-    id: 7,
-    sno: "7",
-    project: "Safety and efficacy studies of value-added forest produce",
-    awardingAgency: "CGMFP, Govt. of C.G.",
-    role: "P.I.",
-    year: "2024-25",
-    status: "Approved",
-  },
-  {
-    id: 8,
-    sno: "8",
-    project:
-      "Lignocellulose based scalable luminous photonic biopolymers for sustainable films and coatings",
-    awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
-    role: "P.I.",
-    year: "2024-27",
-    status: "Ongoing",
-  },
-  {
-    id: 9,
-    sno: "9",
-    project:
-      "End functionalized cellulose nanocrsytals using integrated microfluidics for production of high-performance optically active coatings and fibers",
-    awardingAgency:
-      "Department of Science & Technology (DST), Govt. of India (Indo-Japan project)",
-    role: "P.I.",
-    year: "2024-26",
-    status: "Approved",
-  },
-  {
-    id: 10,
-    sno: "10",
-    project:
-      "Scale-up studies of isoprene production from genetically engineered cyanobacteria for biofuel application",
-    awardingAgency: "CST, Govt. of U.P.",
-    role: "Co-P.I.",
-    year: "2024-26",
-    status: "Ongoing",
-  },
-  {
-    id: 11,
-    sno: "11",
-    project:
-      "Novel Bioprocessing routes for development of value-added products",
-    awardingAgency: "IIT (BHU)",
-    role: "P.I.",
-    year: "2020-21",
-    status: "Complete",
-  },
-];
+      id: 1,
+      sno: "1",
+      project: "Bioengineering of Living Materials to fabricate Functionalized Bacterial Nanocellulose for High-Performance Applications",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2021-26",
+      status: "Ongoing",
+      description: "Advanced bioengineering project focusing on bacterial nanocellulose for high-performance applications",
+      image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Bioengineering", "Nanocellulose", "Biotechnology"]
+    },
+    {
+      id: 2,
+      sno: "2",
+      project: "Education Guidelines - Enabling of Academic Institutes in Technical Textiles",
+      awardingAgency: "Ministry of Textiles, Govt. of India",
+      role: "P.I.",
+      year: "2025-28",
+      status: "Approved",
+      description: "Educational framework development for technical textiles in academic institutions",
+      image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Education", "Technical Textiles", "Guidelines"]
+    },
+    {
+      id: 3,
+      sno: "3",
+      project: "Biopolymer based degradable and wireless implantable biosensors for monitoring of post-surgical clotting disorders and peripheral nerve injuries",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2024-27",
+      status: "Approved",
+      description: "Development of biodegradable wireless biosensors for medical monitoring applications",
+      image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Biopolymer", "Biosensors", "Medical Technology"]
+    },
+    {
+      id: 4,
+      sno: "4",
+      project: "Sustainable and Green Campus initiative: Integrated circular economy based approach for valorization of campus leaf waste and agrobiomass into valueadded products: A pilot plant study with economic sustainability and industrial relevance",
+      awardingAgency: "IIT (BHU)",
+      role: "P.I.",
+      year: "2025-27",
+      status: "Approved",
+      description: "Circular economy approach for campus waste valorization into value-added products",
+      image: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Sustainability", "Circular Economy", "Waste Valorization"]
+    },
+    {
+      id: 5,
+      sno: "5",
+      project: "Te-MobiX: Safe and Degradation-controlled Batteries with Efficient Charging for Tropical e-Mobility Excellence",
+      awardingAgency: "Anusandhan National Research Foundation (ANRF)",
+      role: "Co-P.I.",
+      year: "2025-28",
+      status: "Ongoing",
+      description: "Development of safe and efficient battery technology for tropical e-mobility applications",
+      image: "https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Battery Technology", "E-Mobility", "Tropical Applications"]
+    },
+    {
+      id: 6,
+      sno: "6",
+      project: "Agro-Pads: An integrated strategy to convert agro-waste to affordable sanitary and medicinal pads for health and socio-economic upliftment of rural girls & women",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2025-27",
+      status: "Approved",
+      description: "Converting agricultural waste into affordable sanitary products for rural women's health",
+      image: "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Agro-waste", "Healthcare", "Social Impact"]
+    },
+    {
+      id: 7,
+      sno: "7",
+      project: "Safety and efficacy studies of value-added forest produce",
+      awardingAgency: "CGMFP, Govt. of C.G.",
+      role: "P.I.",
+      year: "2024-25",
+      status: "Approved",
+      description: "Comprehensive safety and efficacy evaluation of forest-based value-added products",
+      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Forest Products", "Safety Studies", "Value Addition"]
+    },
+    {
+      id: 8,
+      sno: "8",
+      project: "Lignocellulose based scalable luminous photonic biopolymers for sustainable films and coatings",
+      awardingAgency: "Department of Biotechnology (DBT), Govt. of India",
+      role: "P.I.",
+      year: "2024-27",
+      status: "Ongoing",
+      description: "Development of luminous photonic biopolymers from lignocellulose for sustainable applications",
+      image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Lignocellulose", "Photonic Materials", "Sustainable Films"]
+    },
+    {
+      id: 9,
+      sno: "9",
+      project: "End functionalized cellulose nanocrsytals using integrated microfluidics for product ion of high-performance optically active coatings and fibers",
+      awardingAgency: "Department of Science & Technology (DST), Govt. of India (Indo-Japan project)",
+      role: "P.I.",
+      year: "2024-26",
+      status: "Approved",
+      description: "Microfluidics-based functionalization of cellulose nanocrystals for optical applications",
+      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Cellulose Nanocrystals", "Microfluidics", "Optical Materials"]
+    },
+    {
+      id: 10,
+      sno: "10",
+      project: "Scale-up studies of isoprene production from genetically engineered cyanobacteria for biofuel application",
+      awardingAgency: "CST, Govt. of U.P.",
+      role: "Co-P.I.",
+      year: "2024-26",
+      status: "Ongoing",
+      description: "Scaling up isoprene production using genetically modified cyanobacteria for biofuel applications",
+      image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Biofuel", "Cyanobacteria", "Genetic Engineering"]
+    },
+    {
+      id: 11,
+      sno: "11",
+      project: "Novel Bioprocessing routes for development of value-added products",
+      awardingAgency: "IIT (BHU)",
+      role: "P.I.",
+      year: "2020-21",
+      status: "Complete",
+      description: "Development of innovative bioprocessing methods for creating value-added products",
+      image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Bioprocessing", "Value Addition", "Innovation"]
+    }
+  ];
   const publications: Publication[] = [
     {
       id: 51,
@@ -282,9 +304,9 @@ const ResearchPage: React.FC = () => {
           {/* Animated Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
-              { value: projects.length, label: "Active Projects", delay: "0s" },
+              { value: "11", label: "Research Projects", delay: "0s" },
               { value: publications.length, label: "Publications", delay: "0.2s" },
-              { value: "15+", label: "Years Experience", delay: "0.4s" },
+              { value: "6+", label: "Years Active", delay: "0.4s" },
               { value: "50+", label: "Collaborations", delay: "0.6s" }
             ].map((stat, index) => (
               <div 
