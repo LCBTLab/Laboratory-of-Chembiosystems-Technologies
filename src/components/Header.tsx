@@ -35,7 +35,7 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-5 min-w-0">
             <Beaker className="h-10 w-10 text-blue-600 shrink-0" />
             <div className="sm:flex flex-col leading-tight min-w-0">
-              <h1 className="text-base sm:text-lg font-semibold text-gray-900 whitespace-normal max-w-xs sm:max-w-md truncate">
+              <h1 className="text-base sm:text-lg font-semibold text-gray-700 whitespace-normal max-w-xs sm:max-w-md truncate">
                 Laboratory of Chembiosystem & Technologies
               </h1>
               <p className="text-xs text-gray-600 truncate">IIT (BHU) Varanasi</p>
