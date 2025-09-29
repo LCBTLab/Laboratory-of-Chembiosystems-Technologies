@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Beaker, User, LogIn } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
-
+import logo.png from 'src';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
