@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Plus, 
-  Search, 
-  Filter, 
-  MoreVertical, 
-  Edit3, 
-  Trash2, 
-  Share2, 
-  Copy, 
-  Eye,
-  Calendar,
-  User,
-  Layout
-} from 'lucide-react';
+import { Plus, Search, Filter, MoreVertical, CreditCard as Edit3, Trash2, Share2, Copy, Eye, Calendar, User, LayoutGrid as Layout } from 'lucide-react';
 import { useDashboards } from '../hooks/useDashboards';
 import { Dashboard } from '../types/dashboard';
 

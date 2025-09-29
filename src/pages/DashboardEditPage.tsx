@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  Save, 
-  Plus, 
-  Settings, 
-  Eye,
-  Undo,
-  Redo,
-  Grid,
-  Layers
-} from 'lucide-react';
+import { ArrowLeft, Save, Plus, Settings, Eye, Undo, Redo, Grid2x2 as Grid, Layers } from 'lucide-react';
 import { DashboardGrid } from '../components/dashboard/DashboardGrid';
 import { useDashboards } from '../hooks/useDashboards';
 import { useWidgets } from '../hooks/useWidgets';

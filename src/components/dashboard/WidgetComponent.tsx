@@ -1,18 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  MoreVertical, 
-  Edit3, 
-  Trash2, 
-  RefreshCw, 
-  Settings,
-  TrendingUp,
-  BarChart3,
-  Table,
-  Type,
-  Image,
-  AlertTriangle,
-  Gauge
-} from 'lucide-react';
+import { MoreVertical, CreditCard as Edit3, Trash2, RefreshCw, Settings, TrendingUp, BarChart3, Table, Type, Image, AlertTriangle, Gauge } from 'lucide-react';
 import { Widget, WidgetDataResponse } from '../../types/dashboard';
 import { useWidgets } from '../../hooks/useWidgets';
 

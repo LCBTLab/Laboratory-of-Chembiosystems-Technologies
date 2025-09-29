@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { 
-  ArrowLeft, 
-  Edit3, 
-  Share2, 
-  RefreshCw, 
-  Settings, 
-  MoreVertical,
-  Maximize2,
-  Download,
-  Clock
-} from 'lucide-react';
+import { ArrowLeft, CreditCard as Edit3, Share2, RefreshCw, Settings, MoreVertical, Maximize2, Download, Clock } from 'lucide-react';
 import { DashboardGrid } from '../components/dashboard/DashboardGrid';
 import { useDashboards } from '../hooks/useDashboards';
 import { Dashboard } from '../types/dashboard';
