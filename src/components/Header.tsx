@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Beaker, User, LogIn } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
-import logo from 'src/logo.png';
+import logo from  './logo.png';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       
 <Link to="/" className="flex items-center space-x-5 min-w-0">
   <img 
-    src="src/logo.png" 
+    src={logo} 
     alt="Laboratory of Chembiosystem & Technologies Logo" 
     className="h-12 w-12 sm:h-16 sm:w-16 flex-shrink-0 object-contain"
   />
