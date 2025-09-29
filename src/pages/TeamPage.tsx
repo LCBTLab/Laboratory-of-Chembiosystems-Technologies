@@ -76,6 +76,16 @@ const currentStudents: Student[] = [
     year: "July 2021",
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program"
+  },
+  {
+    id: 7,
+    sno: "7",
+    name: "Aakansha Korgaonkr",
+    fellowship: "MHRD",
+    degree: "M.Tech.",
+    year: "July 2024",
+    image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
+    specialization: "3D Printing, Geo-polymer"
   }
 ];
 
