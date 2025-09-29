@@ -15,6 +15,9 @@ import NewsPage from './pages/NewsPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import DashboardListPage from './pages/DashboardListPage';
+import DashboardViewPage from './pages/DashboardViewPage';
+import DashboardEditPage from './pages/DashboardEditPage';
 
 function App() {
   return (
@@ -30,6 +33,32 @@ function App() {
             element={
               <ProtectedRoute>
                 <DashboardPage />
+              </ProtectedRoute>
+            } 
+          />
+          
+          {/* Dashboard System Routes */}
+          <Route 
+            path="/dashboards" 
+            element={
+              <ProtectedRoute>
+                <DashboardListPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/:id" 
+            element={
+              <ProtectedRoute>
+                <DashboardViewPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/:id/edit" 
+            element={
+              <ProtectedRoute>
+                <DashboardEditPage />
               </ProtectedRoute>
             } 
           />
