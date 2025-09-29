@@ -35,7 +35,7 @@ const Header: React.FC = () => {
       
 <Link to="/" className="flex items-center space-x-5 min-w-0">
   <img 
-    src="/path/to/your-logo.png" 
+    src="https://github.com/Kroofy01/LCBT/blob/main/src/logo.png" 
     alt="Laboratory of Chembiosystem & Technologies Logo" 
     className="h-12 w-12 sm:h-16 sm:w-16 flex-shrink-0 object-contain"
   />
