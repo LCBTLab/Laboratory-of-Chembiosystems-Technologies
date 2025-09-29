@@ -40,7 +40,7 @@ const Header: React.FC = () => {
     className="h-12 w-12 sm:h-16 sm:w-16 flex-shrink-0 object-contain"
   />
   <div className="sm:flex flex-col leading-tight min-w-0">
-    <h1 className="text-base sm:text-lg font-semibold text-gray-700 whitespace-normal max-w-xs sm:max-w-md truncate">
+    <h1 className="text-base sm:text-lg font-semibold text-gray-500 whitespace-normal max-w-xs sm:max-w-md truncate">
       Laboratory of Chembiosystem & Technologies
     </h1>
     <p className="text-xs text-gray-600 truncate">IIT (BHU) Varanasi</p>
