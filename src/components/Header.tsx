@@ -31,21 +31,21 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-     
-      
+        <div className="flex justify-between items-center min-h-16 py-2">
+
+
 {/* Logo */}
-<Link to="/" className="flex items-center space-x-3 sm:space-x-5 min-w-0">
-  <img 
+<Link to="/" className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+  <img
     src="https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/logo.png"
-    alt="Laboratory of Chembiosystem & Technologies Logo" 
-    className="h-12 w-12 sm:h-14 sm:w-14 flex-shrink-0 object-contain"
+    alt="Laboratory of Chembiosystem & Technologies Logo"
+    className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex-shrink-0 object-contain"
   />
-  <div className="flex flex-col leading-tight min-w-0 flex-1">
-    <h1 className="text-sm sm:text-base md:text-lg font-semibold text-gray-700 leading-snug">
-      Laboratory of Chembiosystem & Technologies
+  <div className="flex flex-col leading-tight">
+    <h1 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 leading-tight">
+      Laboratory of Chembiosystems & Technologies
     </h1>
-    <p className="text-xs text-gray-600">IIT (BHU) Varanasi</p>
+    <p className="text-xs sm:text-sm text-gray-600 mt-0.5">IIT (BHU) Varanasi</p>
   </div>
 </Link>
 
