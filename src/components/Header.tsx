@@ -127,15 +127,7 @@ const Header: React.FC = () => {
                     <User className="h-4 w-4 mr-2" />
                     Dashboard
                   </Link>
-                ) : (
-                  <Link
-                    to="/login"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center px-3 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200"
-                  >
-                    <LogIn className="h-4 w-4 mr-2" />
-                    Member Login
-                  </Link>
+               
                 )}
               </div>
             </nav>
