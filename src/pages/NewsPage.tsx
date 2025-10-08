@@ -72,7 +72,7 @@ const NewsPage: React.FC = () => {
       author: "Research Team",
       excerpt: "Our research students have successfully developed cups, glasses, and kulhads from rice stubble, providing a sustainable solution to agricultural waste and benefiting farmers.",
       content: "In a groundbreaking initiative, our laboratory's research students have developed innovative products from rice stubble, transforming agricultural waste into valuable eco-friendly items. The team has successfully created biodegradable cups, glasses, and kulhads (traditional clay cups) from rice biomass, addressing the dual challenges of stubble burning and plastic pollution. This innovation not only provides farmers with an additional revenue stream by creating value from crop residue but also offers sustainable alternatives to plastic and ceramic products. The technology has significant potential for commercialization and could help reduce the environmental impact of stubble burning, a major contributor to air pollution in northern India.",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://staticimg.amarujala.com/assets/images/2024/01/06/paral-sa-bna-utapatha-ka-satha-aaiiaaiita-becaya-ka-chhatara_1704521800.jpeg?w=674&dpr=1.0&q=80",
       tags: ["Rice Biomass", "Agricultural Waste", "Sustainable Products", "Innovation"],
       featured: true,
       externalLinks: [
