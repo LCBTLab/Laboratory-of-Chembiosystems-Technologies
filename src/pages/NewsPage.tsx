@@ -260,6 +260,89 @@ const NewsPage: React.FC = () => {
         </div>
       </section>
 
+      {/* IInvenTiv-2024 Video Showcase */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center p-3 bg-red-100 rounded-full mb-4">
+              <Youtube className="h-8 w-8 text-red-600" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Highlight of Lab's Research Work in IInvenTiv-2024
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Watch our laboratory's innovative research showcase at India's premier R&D exhibition featuring all IITs, NITs, IISERs, IIITs and top 50 NIRF-ranked institutions
+            </p>
+          </div>
+
+          {/* YouTube Video Embed */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/rU5f-paRJFY"
+                  title="IInvenTiv 2024 - Lab Research Showcase"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <div className="p-6 bg-gray-50">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  Laboratory of Chembiosystem & Technologies - IInvenTiv 2024
+                </h3>
+                <p className="text-gray-600">
+                  Our research exhibition at IInvenTiv-2024, showcasing sustainable materials, transparent wood technology, and biodegradable products to industry partners and collaborators.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Media Links */}
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
+              View on Social Media
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a
+                href="https://twitter.com/iinventivIIT/status/1768517114145784031"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-300"
+              >
+                <svg className="h-6 w-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <div className="text-left">
+                  <div className="font-semibold text-gray-900">Twitter / X</div>
+                  <div className="text-sm text-gray-600">Watch on X (Twitter)</div>
+                </div>
+                <ExternalLink className="h-5 w-5 text-gray-400 ml-auto" />
+              </a>
+
+              <a
+                href="https://www.facebook.com/IInvenTiv/posts/pfbid0GSXgfLNNzwS1cXWUmaZnEnLJKkNcX2RGwCDfcvyNYGjVMpenevbxHYoFi8Yhkw7zl?paipv=0&eav=AfYFNXvuckZ5ad9hqXkqvp_rsuAGLs1VpVywmKFvIv5PSSBsSOYgzr8_d1Bvv9vXwvE&_rdr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-blue-600 hover:shadow-md transition-all duration-300"
+              >
+                <svg className="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <div className="text-left">
+                  <div className="font-semibold text-gray-900">Facebook</div>
+                  <div className="text-sm text-gray-600">Watch on Facebook</div>
+                </div>
+                <ExternalLink className="h-5 w-5 text-gray-400 ml-auto" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured News */}
       {featuredNews.length > 0 && (
         <section className="py-16 bg-gray-50">
@@ -267,13 +350,13 @@ const NewsPage: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Featured News</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {featuredNews.map((item) => (
-                <div 
+                <div
                   key={item.id}
                   className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden cursor-pointer"
                   onClick={() => setSelectedNews(item)}
                 >
                   <div className="relative">
-                    <img 
+                    <img
                       src={item.image}
                       alt={item.title}
                       className="w-full h-48 object-cover"
@@ -301,7 +384,7 @@ const NewsPage: React.FC = () => {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {item.tags.slice(0, 3).map((tag, index) => (
-                        <span 
+                        <span
                           key={index}
                           className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full"
                         >
