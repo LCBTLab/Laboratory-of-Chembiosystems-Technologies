@@ -9,6 +9,7 @@ import PIPage from './pages/PIPage';
 import TeamPage from './pages/TeamPage';
 import ResearchPage from './pages/ResearchPage';
 import PublicationsPage from './pages/PublicationsPage';
+import PatentsPage from './pages/PatentsPage';
 import GalleryPage from './pages/GalleryPage';
 import OpportunitiesPage from './pages/OpportunitiesPage';
 import NewsPage from './pages/NewsPage';
@@ -75,6 +76,7 @@ function App() {
                   <Route path="/team" element={<TeamPage />} />
                   <Route path="/research" element={<ResearchPage />} />
                   <Route path="/publications" element={<PublicationsPage />} />
+                  <Route path="/patents" element={<PatentsPage />} />
                   <Route path="/gallery" element={<GalleryPage />} />
                   <Route path="/opportunities" element={<OpportunitiesPage />} />
                   <Route path="/news" element={<NewsPage />} />

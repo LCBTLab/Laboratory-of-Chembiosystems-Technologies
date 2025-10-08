@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, User, Tag, Search, Filter, ExternalLink, Award, BookOpen, Users } from 'lucide-react';
+import { Calendar, User, Tag, Search, Filter, ExternalLink, Award, BookOpen, Users, Youtube } from 'lucide-react';
 
 interface NewsItem {
   id: number;
@@ -12,6 +12,8 @@ interface NewsItem {
   image: string;
   tags: string[];
   featured: boolean;
+  externalLinks?: { title: string; url: string }[];
+  videoLinks?: { title: string; url: string }[];
 }
 
 const NewsPage: React.FC = () => {
@@ -22,6 +24,82 @@ const NewsPage: React.FC = () => {
   const newsItems: NewsItem[] = [
     {
       id: 1,
+      title: "Transparent Wood: A Sustainable Alternative to Plastic Featured in Global Media",
+      category: "Publications",
+      date: "2022-10-22",
+      author: "Dr. Prodyut Dhar",
+      excerpt: "Our groundbreaking research on transparent wood as a sustainable alternative to plastic has been featured in major international media outlets and scientific publications worldwide.",
+      content: "Our laboratory's innovative research on transparent wood has garnered significant international attention, being featured in numerous prestigious media outlets and scientific publications. The research demonstrates that transparent wood could be one of the most promising replacements for petroleum-based plastics, offering millions of times more sustainability. Major publications including Phys.org, Deccan Herald, Live Mint, Yahoo Finance, Futurism, Inverse, and Knowable Magazine have highlighted our findings. The study shows how optimal production techniques can make transparent wood a viable alternative to both plastic and glass in various applications, from smartphone displays to smart windows. This recognition underscores the global significance of our work in developing sustainable materials for the future.",
+      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Transparent Wood", "Sustainability", "Media Coverage", "Innovation"],
+      featured: true,
+      externalLinks: [
+        { title: "Resource.co: Transparent wood offers a sustainable alternative to plastic", url: "https://resource.co/article/transparent-wood-offers-sustainable-alternative-plastic-study-shows" },
+        { title: "Deccan Herald: How 'transparent wood' is a good alternative to plastic", url: "https://www.deccanherald.com/science/how-transparent-wood-is-a-good-alternative-to-plastic-1156817.html" },
+        { title: "Live Mint: Transparent wood - Eco-friendly alternative", url: "https://www.livemint.com/news/world/transparent-wood-eco-friendly-alternative-one-of-most-promising-replacements-for-plastic-11666420261905.html" },
+        { title: "Phys.org: Transparent wood could soon replace plastics", url: "https://phys.org/news/2022-10-transparent-wood-plastics.html" },
+        { title: "Yahoo Finance: Transparent wood can replace plastic, study claims", url: "https://finance.yahoo.com/news/transparent-wood-replace-plastic-study-135742737.html" },
+        { title: "Futurism: Scientists say new transparent wood could replace plastic", url: "https://futurism.com/the-byte/transparent-wood-replace-plastic" },
+        { title: "One Green Planet: Transparent Wood Alternative to Plastic", url: "https://www.onegreenplanet.org/environment/transparent-wood-could-be-a-great-alternative-to-plastic-new-study-finds/" },
+        { title: "Inverse: Forget plastic - This see-through wood material", url: "https://www.inverse.com/innovation/see-through-wood-sustainable" },
+        { title: "Knowable Magazine: Why scientists are making transparent wood", url: "https://knowablemagazine.org/content/article/technology/2023/why-scientists-are-making-transparent-wood" },
+        { title: "Packaging Insights: Can transparent wood replace plastic and glass?", url: "https://www.packaginginsights.com/news/transparent-wood-could-replace-plastics-through-optimal-production-techniques-find-indian-researchers.html" },
+        { title: "SciDev: Transparent wood could soon replace plastics", url: "https://www.scidev.net/asia-pacific/news/transparent-wood-could-soon-replace-plastics/" },
+        { title: "Industry Trap: Transparent Wood Could End Reliance on Plastics", url: "https://www.industrytap.com/transparent-wood-could-soon-end-our-reliance-on-petroleum-based-plastics/64400" },
+        { title: "Wood Central: See-Through Wood Takes World by Storm", url: "https://woodcentral.com.au/iphones-to-smart-windows-see-through-wood-to-take-world-by-storm/" }
+      ]
+    },
+    {
+      id: 2,
+      title: "IIT BHU Faculty Among Top Five for Innovation in Bamboo Sector",
+      category: "Awards",
+      date: "2022-11-15",
+      author: "Dr. Prodyut Dhar",
+      excerpt: "Dr. Prodyut Dhar recognized among India's top five innovators in the bamboo sector for developing sustainable bamboo-based products and technologies.",
+      content: "Dr. Prodyut Dhar has been recognized as one of the top five innovators in India's bamboo sector for his groundbreaking work on bamboo-based products. This recognition by Times of India highlights the laboratory's commitment to developing sustainable alternatives using renewable resources. Our bamboo-based drinking straws technology, which has been patented and successfully transferred to industry, represents a significant achievement in creating eco-friendly alternatives to plastic products. The innovation addresses the growing environmental concerns about single-use plastics while supporting sustainable bamboo cultivation and processing industries.",
+      image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Bamboo Products", "Innovation", "Sustainability", "Recognition"],
+      featured: true,
+      externalLinks: [
+        { title: "Times of India: IIT-BHU faculty among top five for innovation in bamboo sector", url: "https://timesofindia.indiatimes.com/city/varanasi/iit-bhu-faculty-among-top-fivefor-innovation-in-bamboo-sector/articleshow/95482147.cms" }
+      ]
+    },
+    {
+      id: 3,
+      title: "IIT-BHU Students Create Sustainable Products from Rice Stubble",
+      category: "Research",
+      date: "2024-01-06",
+      author: "Research Team",
+      excerpt: "Our research students have successfully developed cups, glasses, and kulhads from rice stubble, providing a sustainable solution to agricultural waste and benefiting farmers.",
+      content: "In a groundbreaking initiative, our laboratory's research students have developed innovative products from rice stubble, transforming agricultural waste into valuable eco-friendly items. The team has successfully created biodegradable cups, glasses, and kulhads (traditional clay cups) from rice biomass, addressing the dual challenges of stubble burning and plastic pollution. This innovation not only provides farmers with an additional revenue stream by creating value from crop residue but also offers sustainable alternatives to plastic and ceramic products. The technology has significant potential for commercialization and could help reduce the environmental impact of stubble burning, a major contributor to air pollution in northern India.",
+      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["Rice Biomass", "Agricultural Waste", "Sustainable Products", "Innovation"],
+      featured: true,
+      externalLinks: [
+        { title: "Amarujala: IIT-BHU research students made cup, glasses and kulhads from stubble", url: "https://www.amarujala.com/uttar-pradesh/varanasi/iit-bhu-research-students-made-cup-glasses-and-kulhads-from-stubble-farmers-will-benefit-greatly-2024-01-06" }
+      ]
+    },
+    {
+      id: 4,
+      title: "Lab's Research Highlighted at IInvenTiv-2024 Mega R&D Fair",
+      category: "Events",
+      date: "2024-03-15",
+      author: "Research Team",
+      excerpt: "Our laboratory's cutting-edge research was showcased at IInvenTiv-2024, India's largest R&D exhibition featuring top institutions including IITs, NITs, IISERs, and IIITs.",
+      content: "Our laboratory had the honor of showcasing our innovative research at IInvenTiv-2024, India's premier R&D fair where all IITs, NITs, IISERs, IIITs, and other top 50 NIRF-ranked institutions come together to display their research and development achievements. The event provided an excellent platform to demonstrate our technologies in sustainable materials, transparent wood, and biodegradable products to industry partners, fellow researchers, and potential collaborators. The overwhelming response to our exhibits reinforced the commercial viability and societal impact of our research. The fair facilitated numerous discussions with industry leaders interested in technology transfer and collaborative research opportunities.",
+      image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
+      tags: ["IInvenTiv", "R&D Fair", "Technology Showcase", "Collaboration"],
+      featured: true,
+      videoLinks: [
+        { title: "IInvenTiv 2024 - Lab Showcase YouTube Video", url: "https://youtu.be/rU5f-paRJFY" }
+      ],
+      externalLinks: [
+        { title: "IInvenTiv Twitter Post", url: "https://twitter.com/iinventivIIT/status/1768517114145784031" },
+        { title: "IInvenTiv Facebook Post", url: "https://www.facebook.com/IInvenTiv/posts/pfbid0GSXgfLNNzwS1cXWUmaZnEnLJKkNcX2RGwCDfcvyNYGjVMpenevbxHYoFi8Yhkw7zl" }
+      ]
+    },
+    {
+      id: 5,
       title: "Lab Receives Major Research Grant from DST-SERB",
       category: "Awards",
       date: "2023-11-20",
@@ -30,22 +108,10 @@ const NewsPage: React.FC = () => {
       content: "We are thrilled to announce that our laboratory has received a major research grant of ₹50 lakhs from the Department of Science and Technology - Science and Engineering Research Board (DST-SERB). This three-year grant will support our groundbreaking research on developing sustainable biomaterials for medical applications. The project, titled 'Engineering Smart Biomaterials for Targeted Therapeutic Applications,' will focus on creating next-generation materials that can respond to biological stimuli and deliver drugs with unprecedented precision. This funding will enable us to expand our research capabilities, acquire new equipment, and support additional research personnel. We are grateful for this recognition and look forward to making significant contributions to the field of biomaterials science.",
       image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
       tags: ["Research Grant", "DST-SERB", "Biomaterials", "Funding"],
-      featured: true
+      featured: false
     },
     {
-      id: 2,
-      title: "Research Paper Published in Nature Biotechnology",
-      category: "Publications",
-      date: "2023-11-15",
-      author: "Research Team",
-      excerpt: "Our latest research on engineering biomolecular systems for sustainable chemical production has been published in the prestigious journal Nature Biotechnology.",
-      content: "We are proud to announce the publication of our research paper titled 'Engineering Biomolecular Systems for Sustainable Chemical Production' in Nature Biotechnology, one of the most prestigious journals in the field. This work represents a significant breakthrough in our understanding of how to design and optimize biological systems for industrial applications. The research demonstrates novel approaches to protein engineering and metabolic pathway optimization that could revolutionize sustainable chemical manufacturing. The paper is the result of three years of intensive research and collaboration with international partners. This publication not only validates our research approach but also opens new avenues for future investigations in the field of synthetic biology and sustainable biotechnology.",
-      image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
-      tags: ["Publication", "Nature Biotechnology", "Protein Engineering", "Sustainability"],
-      featured: true
-    },
-    {
-      id: 3,
+      id: 7,
       title: "New PhD Students Join the Lab",
       category: "Team",
       date: "2023-11-10",
@@ -57,7 +123,7 @@ const NewsPage: React.FC = () => {
       featured: false
     },
     {
-      id: 4,
+      id: 8,
       title: "International Conference Presentation at Biotechnology Summit",
       category: "Events",
       date: "2023-11-05",
@@ -69,7 +135,7 @@ const NewsPage: React.FC = () => {
       featured: false
     },
     {
-      id: 5,
+      id: 9,
       title: "Lab Equipment Upgrade: New Spectroscopy Facility",
       category: "Infrastructure",
       date: "2023-10-28",
@@ -81,7 +147,7 @@ const NewsPage: React.FC = () => {
       featured: false
     },
     {
-      id: 6,
+      id: 10,
       title: "Collaboration Agreement with Industry Partner",
       category: "Partnerships",
       date: "2023-10-20",
@@ -93,7 +159,7 @@ const NewsPage: React.FC = () => {
       featured: false
     },
     {
-      id: 7,
+      id: 11,
       title: "Student Achievement: Best Paper Award",
       category: "Awards",
       date: "2023-10-15",
@@ -105,7 +171,7 @@ const NewsPage: React.FC = () => {
       featured: false
     },
     {
-      id: 8,
+      id: 12,
       title: "Workshop on Green Chemistry Principles",
       category: "Events",
       date: "2023-10-10",
@@ -118,7 +184,7 @@ const NewsPage: React.FC = () => {
     }
   ];
 
-  const categories = ['all', 'Awards', 'Publications', 'Team', 'Events', 'Infrastructure', 'Partnerships'];
+  const categories = ['all', 'Awards', 'Publications', 'Research', 'Team', 'Events', 'Infrastructure', 'Partnerships'];
 
   const filteredNews = newsItems.filter(item => {
     const matchesCategory = selectedFilter === 'all' || item.category === selectedFilter;
@@ -404,10 +470,56 @@ const NewsPage: React.FC = () => {
                     {selectedNews.content}
                   </p>
                 </div>
-                
+
+                {selectedNews.videoLinks && selectedNews.videoLinks.length > 0 && (
+                  <div className="mb-6 pb-6 border-b border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                      <Youtube className="h-5 w-5 mr-2 text-red-600" />
+                      Video Links
+                    </h3>
+                    <div className="space-y-2">
+                      {selectedNews.videoLinks.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          {link.title}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {selectedNews.externalLinks && selectedNews.externalLinks.length > 0 && (
+                  <div className="mb-6 pb-6 border-b border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                      <ExternalLink className="h-5 w-5 mr-2" />
+                      Media Coverage & External Links
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {selectedNews.externalLinks.map((link, index) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-start text-blue-600 hover:text-blue-800 transition-colors text-sm"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2 mt-0.5 flex-shrink-0" />
+                          <span>{link.title}</span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex flex-wrap gap-2 pt-6 border-t border-gray-200">
                   {selectedNews.tags.map((tag, index) => (
-                    <span 
+                    <span
                       key={index}
                       className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
                     >

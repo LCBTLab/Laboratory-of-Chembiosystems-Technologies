@@ -19,6 +19,7 @@ const Header: React.FC = () => {
     { name: 'Team', href: '/team' },
     { name: 'Research', href: '/research' },
     { name: 'Publications', href: '/publications' },
+    { name: 'Patents', href: '/patents' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Opportunities', href: '/opportunities' },
     { name: 'News', href: '/news' },
