@@ -127,7 +127,8 @@ const Header: React.FC = () => {
                     <User className="h-4 w-4 mr-2" />
                     Dashboard
                   </Link>
-               
+                ) : (
+                 
                 )}
               </div>
             </nav>
