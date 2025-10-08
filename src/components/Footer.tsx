@@ -68,6 +68,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-White-400">
+                Design & Developed By Anoop kuamr Singh
+              </p>
           <p className="text-gray-400">
             © {new Date().getFullYear()} Laboratory of Chembiosystems Research, IIT (BHU). All rights reserved.
           </p>
