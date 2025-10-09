@@ -8,7 +8,7 @@ import AboutPage from './pages/AboutPage';
 import PIPage from './pages/PIPage';
 import TeamPage from './pages/TeamPage';
 import ResearchPage from './pages/ResearchPage';
-import PublicationsPage from './pages/PublicationsPage';
+
 import PatentsPage from './pages/PatentsPage';
 import GalleryPage from './pages/GalleryPage';
 import OpportunitiesPage from './pages/OpportunitiesPage';
