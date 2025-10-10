@@ -156,7 +156,7 @@ const alumniStudents: Student[] = [
     year: "2018-23",
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
-    
+     placed_in: "Rimba",
     isAlumni: true
   },
   {
