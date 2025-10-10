@@ -413,6 +413,7 @@ export default function TeamPage() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                         {student.year}
+                        </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                         {student.placed_in}
                       </td>
