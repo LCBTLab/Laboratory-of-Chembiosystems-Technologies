@@ -196,6 +196,11 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div className="w-1/2"></div>
                 </div>
+                ))}
+            </div>
+          </div>
+        </div>
+      </section>
           
       <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -448,11 +453,6 @@ const AboutPage: React.FC = () => {
      
 
        
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
