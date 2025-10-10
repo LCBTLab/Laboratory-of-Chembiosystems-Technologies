@@ -179,7 +179,7 @@ const alumniStudents: Student[] = [
     year: "2019-24",
     image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
-    placed_in: "Deloitte"
+    placed_in: "Deloitte",
     isAlumni: true
   }
 ];
