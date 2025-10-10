@@ -179,6 +179,23 @@ const AboutPage: React.FC = () => {
               Key milestones in the growth and development of our laboratory
             </p>
           </div>
+             <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
+            <div className="space-y-12">
+              {milestones.map((milestone, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                      <div className="text-blue-600 font-bold text-lg mb-2">{milestone.year}</div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
+                      <p className="text-gray-600">{milestone.description}</p>
+                    </div>
+                  </div>
+                  <div className="relative flex items-center justify-center w-4 h-4 bg-blue-600 rounded-full z-10">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="w-1/2"></div>
+                </div>
           
       <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -430,23 +447,7 @@ const AboutPage: React.FC = () => {
 
      
 
-          <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                      <div className="text-blue-600 font-bold text-lg mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </div>
-                  </div>
-                  <div className="relative flex items-center justify-center w-4 h-4 bg-blue-600 rounded-full z-10">
-                    <div className="w-2 h-2 bg-white rounded-full"></div>
-                  </div>
-                  <div className="w-1/2"></div>
-                </div>
+       
               ))}
             </div>
           </div>
