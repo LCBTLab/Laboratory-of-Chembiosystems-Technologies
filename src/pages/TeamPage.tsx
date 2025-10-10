@@ -179,6 +179,7 @@ const alumniStudents: Student[] = [
     year: "2019-24",
     image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
+    placed_in: "Deloitte"
     isAlumni: true
   }
 ];
@@ -372,6 +373,7 @@ export default function TeamPage() {
                     <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Fellowship</th>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Degree</th>
                     <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Year</th>
+                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Placed In</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -411,6 +413,8 @@ export default function TeamPage() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                         {student.year}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {student.placed_in}
                       </td>
                     </tr>
                   ))}
