@@ -168,6 +168,18 @@ const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
+       {/* Timeline */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Our Journey
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Key milestones in the growth and development of our laboratory
+            </p>
+          </div>
+          
       <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -416,17 +428,7 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Our Journey
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Key milestones in the growth and development of our laboratory
-            </p>
-          </div>
+     
 
           <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
