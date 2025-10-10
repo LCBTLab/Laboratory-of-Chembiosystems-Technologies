@@ -13,6 +13,7 @@ interface Student {
   linkedin?: string;
   specialization?: string;
   isAlumni?: boolean;
+  placed in: string;
 }
 
 const currentStudents: Student[] = [
@@ -98,7 +99,8 @@ const alumniStudents: Student[] = [
     degree: "M.Tech",
     year: "2023-2025",
     image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Chemical Engineering"
+    specialization: "Chemical Engineering",
+    palced in: ""
   },
   {
     id: 8,
@@ -108,7 +110,8 @@ const alumniStudents: Student[] = [
     degree: "IDD",
     year: "2020-2025",
     image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Integrated Dual Degree Program"
+    specialization: "Integrated Dual Degree Program",
+    palced in: "Imperial College London"
   },
   {
     id: 9,
@@ -118,7 +121,8 @@ const alumniStudents: Student[] = [
     degree: "IDD",
     year: "2020-2025",
     image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
-    specialization: "Integrated Dual Degree Program"
+    specialization: "Integrated Dual Degree Program",
+    palced in: "Mastercard"
   },
   {
     id: 10,
@@ -129,6 +133,7 @@ const alumniStudents: Student[] = [
     year: "2019-24",
     image: "https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Cellulose Nanocrystals, Sustainable Materials",
+    palced in: "Post Doc. IIT Roorkee",
     isAlumni: true
   },
   {
@@ -151,6 +156,7 @@ const alumniStudents: Student[] = [
     year: "2018-23",
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
+    
     isAlumni: true
   },
   {
