@@ -87,7 +87,19 @@ const currentStudents: Student[] = [
     year: "July 2024",
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "3D Printing, Geo-polymer"
-  }
+  },
+    {
+    id: 8,
+    sno: "8",
+    name: "Anoop Kumar Singh",
+    fellowship: "Project-JRF",
+    degree: "B.Sc. Ag.",
+    year: "July 2025",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/WhatsApp%20Image%202025-10-11%20at%2022.17.18_511dbd68.jpg",
+    linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
+    specialization: "Cellulose Nanocrystals, Sustainable Materials"
+  },
+
 ];
 
 const alumniStudents: Student[] = [
