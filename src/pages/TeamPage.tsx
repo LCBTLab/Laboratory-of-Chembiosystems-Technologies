@@ -475,7 +475,7 @@ export default function TeamPage() {
               <img
                 src="https://www.iitbhu.ac.in/sites/default/files/styles/medium/public/pictures/2022-11/WhatsApp%20Image%202022-10-28%20at%201.30.17%20PM.jpeg?itok=4pE8AbrA"
                 alt="Dr. Prodyut Dhar"
-                className="w-64 h-100 object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-40 h-100 object-cover transition-transform duration-500 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-violet-900/80 via-purple-900/40 to-transparent opacity-60"></div>
               
