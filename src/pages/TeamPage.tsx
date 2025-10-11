@@ -105,7 +105,7 @@ const currentStudents: Student[] = [
     image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/anoopsingh.jpg",
     email: "anoopsiingh.69@gmail.com",
     linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
-    specialization: "Cellulose Nanocrystals, Sustainable Materials"
+    specialization: "Web Development, Leaser Engraving, Sustainable Materials"
   },
 
 ];
