@@ -342,7 +342,7 @@ export default function TeamPage() {
                           <img 
                             src={student.image}
                             alt={student.name}
-                            className="w-10 h-20 rounded-full object-cover mr-3"
+                            className="w-15 h-15 rounded-full object-cover mr-3"
                           />
                           <div>
                             <div className="font-medium hover:text-emerald-600 transition-colors duration-200">
@@ -566,7 +566,7 @@ export default function TeamPage() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${
                   member.isAlumni 
