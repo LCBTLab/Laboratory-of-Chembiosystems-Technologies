@@ -454,7 +454,7 @@ const ResearchPage: React.FC = () => {
                 </table>
               </div>
             </div>
-          
+      </section>
       {/* Call to Action with Animation */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
