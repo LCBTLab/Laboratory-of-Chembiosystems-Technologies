@@ -14,7 +14,7 @@ interface ResearchProject {
   tags: string[];
 }
 
-interface IndustrialProjects {
+interface IndustrialProject {
   id: number;
   sno: string;
   project: string;
@@ -166,29 +166,31 @@ const ResearchPage: React.FC = () => {
       tags: ["Bioprocessing", "Value Addition", "Innovation"]
     }
   ];
-  const Industrial: IndustrialProject[] = [
-     {
+
+  const industrial: IndustrialProject[] = [
+    {
       id: 1,
       sno: "1",
       project: "Manufacturing process for functionalized cellulose phosphate fibre from cellulose fibre or pulp & explore its application in value-added products",
-      awardingAgency: " Aditya Birla",
+      awardingAgency: "Aditya Birla",
       role: "P.I.",
       year: "2024-27",
       status: "Ongoing",
       description: "",
       image: "",
-      tags: [""]
+      tags: ["Cellulose", "Functionalization", "Value Addition"]
     },
     {
       id: 2,
       sno: "2",
       project: "Functionalized cellulose fiber production from Coconut waste and explore its applications into textiles",
+      awardingAgency: "Industrial Partner",
       role: "P.I.",
       year: "2025-27",
       status: "Approved",
       description: "",
       image: "",
-      tags: ["Education", "Technical Textiles", "Guidelines"]
+      tags: ["Coconut Waste", "Cellulose Fiber", "Textiles"]
     }
   ];
 
@@ -202,11 +204,11 @@ const ResearchPage: React.FC = () => {
     return matchesStatus && matchesSearch;
   });
 
-  const filteredIndustrial = industrial.filter(industrial => {
-    const matchesStatus = selectedFilter === 'all' || industrial.status === selectedFilter;
-    const matchesSearch = industrial.Industrial.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        industrial.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        industrial.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredIndustrial = industrial.filter(item => {
+    const matchesStatus = selectedFilter === 'all' || item.status === selectedFilter;
+    const matchesSearch = item.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         item.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesStatus && matchesSearch;
   });
 
@@ -219,14 +221,6 @@ const ResearchPage: React.FC = () => {
     }
   };
 
-  const getImpactFactorColor = (impactFactor: string) => {
-    const factor = parseFloat(impactFactor);
-    if (factor >= 10) return 'bg-red-100 text-red-800 border-red-200';
-    if (factor >= 5) return 'bg-orange-100 text-orange-800 border-orange-200';
-    if (factor >= 3) return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-    return 'bg-green-100 text-green-800 border-green-200';
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Animation */}
@@ -235,10 +229,10 @@ const ResearchPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12 animate-fade-in-up">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-slide-in-left">
-              Sponsored Research Project
+              Sponsored Research Projects
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right">
-              Explore our comprehensive research projects and publications spanning biotechnology,
+              Explore our comprehensive research projects spanning biotechnology,
               materials science, and sustainable engineering solutions.
             </p>
           </div>
@@ -247,7 +241,7 @@ const ResearchPage: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
             {[
               { value: "11", label: "Research Projects", delay: "0s" },
-              { value: publications.length, label: "Publications", delay: "0.2s" },
+              { value: "2", label: "Industrial Projects", delay: "0.2s" },
               { value: "6+", label: "Years Active", delay: "0.4s" },
               { value: "50+", label: "Collaborations", delay: "0.6s" }
             ].map((stat, index) => (
@@ -267,37 +261,35 @@ const ResearchPage: React.FC = () => {
       </section>
 
       {/* Tab Navigation with Animation */}
-      <section className="py-8 bg-white sticky top-16 z-40 border-b border-gray-200">
+      <section className="py-8 bg-white sticky top-0 z-40 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-center mb-6">
             <div className="bg-gray-100 rounded-lg p-1 animate-slide-in-up">
               {[
-                { id: 'projects', label: 'Research Projects', icon: Award },
-                { id: 'publications', label: 'Publications', icon: BookOpen }
-              ].map((tab) => {
-                const Icon = tab.icon;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center px-6 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 ${
-                      activeTab === tab.id
-                        ? 'bg-blue-600 text-white shadow-lg'
-                        : 'text-gray-600 hover:text-blue-600'
-                    }`}
-                  >
-                    <Icon className="h-5 w-5 mr-2" />
-                    {tab.label}
-                  </button>
-                );
-              })}
+                { id: 'projects', label: 'Research Projects' },
+                { id: 'industrial', label: 'Industrial Projects' }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center px-6 py-3 rounded-md font-medium transition-all duration-300 transform hover:scale-105 ${
+                    activeTab === tab.id
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
           </div>
 
           {/* Search and Filter */}
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between animate-fade-in">
             <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
               <input
                 type="text"
                 placeholder={`Search ${activeTab}...`}
@@ -307,22 +299,22 @@ const ResearchPage: React.FC = () => {
               />
             </div>
             
-            {activeTab === 'projects' && (
-              <div className="flex items-center gap-4">
-                <Filter className="h-5 w-5 text-gray-600" />
-                <select
-                  value={selectedFilter}
-                  onChange={(e) => setSelectedFilter(e.target.value)}
-                  className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                >
-                  {statuses.map(status => (
-                    <option key={status} value={status}>
-                      {status === 'all' ? 'All Status' : status}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
+            <div className="flex items-center gap-4">
+              <svg className="h-5 w-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+              </svg>
+              <select
+                value={selectedFilter}
+                onChange={(e) => setSelectedFilter(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+              >
+                {statuses.map(status => (
+                  <option key={status} value={status}>
+                    {status === 'all' ? 'All Status' : status}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
       </section>
@@ -330,8 +322,8 @@ const ResearchPage: React.FC = () => {
       {/* Content Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {activeTab === 'Industrial' ? (
-            /* Projects Table */
+          {activeTab === 'projects' ? (
+            /* Research Projects Table */
             <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-slide-in-up">
               <div className="overflow-x-auto">
                 <table className="w-full">
@@ -346,7 +338,7 @@ const ResearchPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {filteredProject.map((industrial, index) => (
+                    {filteredProjects.map((project, index) => (
                       <tr 
                         key={project.id}
                         className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
@@ -363,7 +355,7 @@ const ResearchPage: React.FC = () => {
                             {project.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
-                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full animate-pulse"
+                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
                               >
                                 {tag}
                               </span>
@@ -380,7 +372,7 @@ const ResearchPage: React.FC = () => {
                           {project.year}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getStatusColor(project.status)}`}>
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(project.status)}`}>
                             {project.status}
                           </span>
                         </td>
@@ -391,15 +383,11 @@ const ResearchPage: React.FC = () => {
               </div>
             </div>
           ) : (
-            /* Industrial Table */
-             <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {activeTab === 'indrustrial' ? (
-            /* Projects Table */
+            /* Industrial Projects Table */
             <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-slide-in-up">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                  <thead className="bg-gradient-to-r from-purple-600 to-blue-600 text-white">
                     <tr>
                       <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">S.No</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Project</th>
@@ -410,24 +398,24 @@ const ResearchPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {filteredIndustrial.map((industrial, index) => (
+                    {filteredIndustrial.map((item, index) => (
                       <tr 
-                        key={industrial.id}
-                        className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
+                        key={item.id}
+                        className="hover:bg-purple-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {industrial.sno}
+                          {item.sno}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-900 max-w-md">
-                          <div className="font-medium hover:text-blue-600 transition-colors duration-200">
-                            {industrial.project}
+                          <div className="font-medium hover:text-purple-600 transition-colors duration-200">
+                            {item.project}
                           </div>
                           <div className="flex flex-wrap gap-1 mt-2">
-                            {industrial.tags.map((tag, tagIndex) => (
+                            {item.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
-                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full animate-pulse"
+                                className="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full"
                               >
                                 {tag}
                               </span>
@@ -435,17 +423,17 @@ const ResearchPage: React.FC = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
-                          {industrial.awardingAgency}
+                          {item.awardingAgency}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
-                          {Industrial.role}
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600">
+                          {item.role}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {industrial.year}
+                          {item.year}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getStatusColor(Industrial.status)}`}>
-                            {industrial.Industrial}
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(item.status)}`}>
+                            {item.status}
                           </span>
                         </td>
                       </tr>
@@ -454,7 +442,10 @@ const ResearchPage: React.FC = () => {
                 </table>
               </div>
             </div>
+          )}
+        </div>
       </section>
+
       {/* Call to Action with Animation */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
@@ -469,23 +460,22 @@ const ResearchPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-bounce-in">
             <a 
               href="/contact"
-              className="inline-flex items-center px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Start Collaboration
             </a>
             <a 
-              href="/publications"
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+              href="/research"
+              className="inline-flex items-center justify-center px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
             >
-              <BookOpen className="h-5 w-5 mr-2" />
-              View All Publications
+              View All Projects
             </a>
           </div>
         </div>
       </section>
 
       {/* Custom CSS for Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in-up {
           from {
             opacity: 0;
