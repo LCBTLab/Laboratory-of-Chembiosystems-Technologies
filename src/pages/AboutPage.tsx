@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
 
   const milestones = [
     {
-      year: "2018",
+      year: "2020",
       title: "Lab Establishment",
       description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
     },
