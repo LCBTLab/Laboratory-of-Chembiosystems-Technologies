@@ -25,6 +25,8 @@ const currentStudents: Student[] = [
     degree: "PhD",
     year: "Dec 2020",
     image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/2211.jpg",
+    email: "rohitrai.rs.bce20@itbhu.ac",
+    linkedin: "https://www.linkedin.com/in/rohit-rai-82b367195/",
     specialization: "Cellulose Nanocrystals, Sustainable Materials"
   },
   {
@@ -45,6 +47,8 @@ const currentStudents: Student[] = [
     degree: "PhD",
     year: "July 2024",
     image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1669221312881.jpeg",
+    email: "himashumodi.rs.bce24@itbhu.ac",
+    linkedin: "https://www.linkedin.com/in/himanshu-modi-90b247242",
     specialization: "Chemical Engineering, Biotechnology"
   },
   {
@@ -55,6 +59,8 @@ const currentStudents: Student[] = [
     degree: "PhD",
     year: "July 2024",
     image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/WhatsApp%20Image%202025-06-19%20at%2014.47.03_2bc2f854.jpg",
+    email: "sauravkumar.rs.bce24@itbhu.ac",
+    linkedin: "",
     specialization: "Sustainable Chemistry, Materials Science"
   },
   {
@@ -65,9 +71,10 @@ const currentStudents: Student[] = [
     degree: "PhD",
     year: "July 2025",
     image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/1710943724382.jpeg",
+    email: "meghalisaha.rs.bce25@itbhu.ac",
+    linkedin: "https://www.linkedin.com/in/meghali-saha-017b64237/",
     specialization: "Sustainable Chemistry, Materials Science"
   },
-
   {
     id: 6,
     sno: "6",
@@ -95,7 +102,8 @@ const currentStudents: Student[] = [
     fellowship: "Project-JRF",
     degree: "B.Sc. Ag.",
     year: "July 2025",
-    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/WhatsApp%20Image%202025-10-11%20at%2022.17.18_511dbd68.jpg",
+    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/anoopsingh.jpg",
+    email: "anoopsiingh.69@gmail.com",
     linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
     specialization: "Cellulose Nanocrystals, Sustainable Materials"
   },
