@@ -32,7 +32,7 @@ const AboutPage: React.FC = () => {
       description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
     },
     {
-      year: "2019",
+      year: "2020",
       title: "First Major Grant",
       description: "Secured significant funding for biomaterials research project"
     },
