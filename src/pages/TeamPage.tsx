@@ -342,7 +342,7 @@ export default function TeamPage() {
                           <img 
                             src={student.image}
                             alt={student.name}
-                            className="w-10 h-10 rounded-full object-cover mr-3"
+                            className="w-10 h-20 rounded-full object-cover mr-3"
                           />
                           <div>
                             <div className="font-medium hover:text-emerald-600 transition-colors duration-200">
