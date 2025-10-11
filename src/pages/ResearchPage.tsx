@@ -202,11 +202,11 @@ const ResearchPage: React.FC = () => {
     return matchesStatus && matchesSearch;
   });
 
-  const filteredIndustrial = Industrial.filter(Industrial => {
-    const matchesStatus = selectedFilter === 'all' || Industrial.status === selectedFilter;
-    const matchesSearch = Industrial.Industrial.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        Industrial.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        Industrial.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredIndustrial = industrial.filter(industrial => {
+    const matchesStatus = selectedFilter === 'all' || industrial.status === selectedFilter;
+    const matchesSearch = industrial.Industrial.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        industrial.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        industrial.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesStatus && matchesSearch;
   });
 
@@ -346,7 +346,7 @@ const ResearchPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {filteredIndustrial.map((Industrial, index) => (
+                    {filteredProject.map((industrial, index) => (
                       <tr 
                         key={project.id}
                         className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
@@ -410,21 +410,21 @@ const ResearchPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {filteredIndustrial.map((project, index) => (
+                    {filteredIndustrial.map((industrial, index) => (
                       <tr 
-                        key={Industrial.id}
+                        key={industrial.id}
                         className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
                         style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                          {Industrial.sno}
+                          {industrial.sno}
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-900 max-w-md">
                           <div className="font-medium hover:text-blue-600 transition-colors duration-200">
-                            {Industrial.project}
+                            {industrial.project}
                           </div>
                           <div className="flex flex-wrap gap-1 mt-2">
-                            {Industrial.tags.map((tag, tagIndex) => (
+                            {industrial.tags.map((tag, tagIndex) => (
                               <span 
                                 key={tagIndex}
                                 className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full animate-pulse"
@@ -435,17 +435,17 @@ const ResearchPage: React.FC = () => {
                           </div>
                         </td>
                         <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
-                          {Industrial.awardingAgency}
+                          {industrial.awardingAgency}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
                           {Industrial.role}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {Industrial.year}
+                          {industrial.year}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getStatusColor(Industrial.status)}`}>
-                            {Industrial.Industrial}
+                            {industrial.Industrial}
                           </span>
                         </td>
                       </tr>
