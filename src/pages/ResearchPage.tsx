@@ -166,7 +166,7 @@ const ResearchPage: React.FC = () => {
       tags: ["Bioprocessing", "Value Addition", "Innovation"]
     }
   ];
-  const publications: Publication[] = [
+  const Industrial: IndustrialProject[] = [
      {
       id: 1,
       sno: "1",
@@ -202,9 +202,12 @@ const ResearchPage: React.FC = () => {
     return matchesStatus && matchesSearch;
   });
 
-  const filteredPublications = publications.filter(publication => {
-    return publication.citation.toLowerCase().includes(searchTerm.toLowerCase()) ||
-           publication.journal.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredIndustrial = Industrial.filter(Industrial => {
+    const matchesStatus = selectedFilter === 'all' || Industrial.status === selectedFilter;
+    const matchesSearch = Industrial.Industrial.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        Industrial.awardingAgency.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        Industrial.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    return matchesStatus && matchesSearch;
   });
 
   const getStatusColor = (status: string) => {
@@ -232,7 +235,7 @@ const ResearchPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12 animate-fade-in-up">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 animate-slide-in-left">
-              Research & Publications
+              Sponsored Research Project
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-slide-in-right">
               Explore our comprehensive research projects and publications spanning biotechnology,
@@ -327,7 +330,7 @@ const ResearchPage: React.FC = () => {
       {/* Content Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {activeTab === 'projects' ? (
+          {activeTab === 'Industrial' ? (
             /* Projects Table */
             <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-slide-in-up">
               <div className="overflow-x-auto">
@@ -343,7 +346,7 @@ const ResearchPage: React.FC = () => {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-200">
-                    {filteredProjects.map((project, index) => (
+                    {filteredIndustrial.map((Industrial, index) => (
                       <tr 
                         key={project.id}
                         className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
@@ -388,70 +391,69 @@ const ResearchPage: React.FC = () => {
               </div>
             </div>
           ) : (
-            /* Publications List */
-            <div className="space-y-6">
-              {filteredPublications.map((publication, index) => (
-                <div 
-                  key={publication.id}
-                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] animate-slide-in-up"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-4 mb-3">
-                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                          #{publication.sno}
-                        </span>
-                        <span className="text-gray-600 text-sm">
-                          {publication.year}
-                        </span>
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getImpactFactorColor(publication.impactFactor)}`}>
-                          I.F. {publication.impactFactor}
-                        </span>
-                      </div>
-                      
-                      <p className="text-gray-800 leading-relaxed mb-3">
-                        {publication.citation}
-                      </p>
-                      
-                      <div className="flex items-center gap-4 text-sm text-gray-600">
-                        <span className="font-medium text-blue-600">
-                          {publication.journal}
-                        </span>
-                        {publication.doi && (
-                          <a 
-                            href={`https://doi.org/${publication.doi}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200"
-                          >
-                            <ExternalLink className="h-4 w-4 mr-1" />
-                            DOI
-                          </a>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            /* Industrial Table */
+             <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {activeTab === 'indrustrial' ? (
+            /* Projects Table */
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-slide-in-up">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">S.No</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Project</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Awarding Agency</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Role</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Year</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold uppercase tracking-wider">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {filteredIndustrial.map((project, index) => (
+                      <tr 
+                        key={Industrial.id}
+                        className="hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
+                        style={{ animationDelay: `${index * 0.1}s` }}
+                      >
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                          {Industrial.sno}
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-900 max-w-md">
+                          <div className="font-medium hover:text-blue-600 transition-colors duration-200">
+                            {Industrial.project}
+                          </div>
+                          <div className="flex flex-wrap gap-1 mt-2">
+                            {Industrial.tags.map((tag, tagIndex) => (
+                              <span 
+                                key={tagIndex}
+                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full animate-pulse"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600 max-w-xs">
+                          {Industrial.awardingAgency}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">
+                          {Industrial.role}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                          {Industrial.year}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <span className={`px-3 py-1 rounded-full text-xs font-medium border animate-pulse ${getStatusColor(Industrial.status)}`}>
+                            {Industrial.Industrial}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
-          )}
-          
-          {((activeTab === 'projects' && filteredProjects.length === 0) || 
-            (activeTab === 'publications' && filteredPublications.length === 0)) && (
-            <div className="text-center py-16 animate-fade-in">
-              <Search className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                No {activeTab} found
-              </h3>
-              <p className="text-gray-500">
-                Try adjusting your search terms or filters.
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
       {/* Call to Action with Animation */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
