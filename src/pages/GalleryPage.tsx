@@ -26,9 +26,9 @@ const GalleryPage: React.FC = () => {
     },
     {
       id: 2,
-      title: "Team Research Meeting",
+      title: "Team Dinner",
       category: "Team",
-      image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Lab%20picture%20June%202024.jpeg",
       description: "Weekly research discussion and project planning session",
       date: "2023-11-10"
     },
@@ -60,7 +60,7 @@ const GalleryPage: React.FC = () => {
       id: 6,
       title: "Team Building Activity",
       category: "Team",
-      image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Lab%20picture%20May%202023.jpeg",
       description: "Annual team outing and bonding activities",
       date: "2023-10-15"
     },
