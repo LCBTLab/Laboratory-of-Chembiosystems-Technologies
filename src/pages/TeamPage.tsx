@@ -186,7 +186,7 @@ const alumniStudents: Student[] = [
     fellowship: "MHRD",
     degree: "M.Tech",
     year: "2022-24",
-    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Smruti%20Picture.jpg",
     specialization: "Functional Materials, Thermal Management",
     placed_in: "PhD (IIT Madras)",
     isAlumni: true
