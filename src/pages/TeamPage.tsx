@@ -113,11 +113,23 @@ const currentStudents: Student[] = [
     name: "Suraj Gaur",
     fellowship: "Project-JRF",
     degree: "M.Sc. Biotech.",
-    year: "Dec 2024",
+    year: "December 2024",
     image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/suraj%20gaur.jpg",
     email: "sg8607408@gmail.com",
     linkedin: "https://www.linkedin.com/in/suraj-gaur-b71908186/",
     specialization: "Agriculture Biomass, cellulose extraction,cellulose phosphorylation,Optically colured film, Lignin extraction "
+  },
+  {
+    id: 10,
+    sno: "10",
+    name: "Aniruddha Nayak",
+    fellowship: "Project-JRF",
+    degree: "M.Sc. Botony.",
+    year: "January 2025",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/anirudh.jpg",
+    email: "nayakaniruddha1999@gmail.com",
+    linkedin: "https://www.linkedin.com/in/aniruddha-nayak-0295ab280/",
+    specialization: "Agricultural biomass based biomaterial, and application compatibility in different sector, In vivo toxicity study "
   }
 ];
 
