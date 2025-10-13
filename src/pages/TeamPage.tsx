@@ -107,7 +107,18 @@ const currentStudents: Student[] = [
     linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
     specialization: "Web Development, Leaser Engraving, Sustainable Materials"
   },
-
+{
+    id: 9,
+    sno: "9",
+    name: "Suraj Gaur",
+    fellowship: "Project-JRF",
+    degree: "M.Sc. Biotech.",
+    year: "Dec 2024",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/suraj%20gaur.jpg",
+    email: "sg8607408@gmail.com",
+    linkedin: "https://www.linkedin.com/in/suraj-gaur-b71908186/",
+    specialization: "Agriculture Biomass, cellulose extraction,cellulose phosphorylation,Optically colured film, Lignin extraction "
+  }
 ];
 
 const alumniStudents: Student[] = [
