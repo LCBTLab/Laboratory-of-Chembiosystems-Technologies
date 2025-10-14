@@ -443,13 +443,16 @@ const PublicationsPage = () => {
     {
       id: 20,
       title: "Effect of cellulose nanocrystal polymorphs on mechanical, barrier and thermal properties of poly(lactic acid) based bionanocomposites",
-      authors: ["D
-
-
-
-
-
-
+      authors: ["Dhar, P.", "Tarafder, D.", "Kumar, A.", "Katiyar, V."],
+      journal: "RSC Advances",
+      year: 2015,
+      volume: "5(74)",
+      pages: "60426-40",
+      impactFactor: 4.036,
+      category: "Bionanocomposites",
+      keywords: ["Cellulose Nanocrystal", "Polylactic Acid", "Bionanocomposites"],
+      graphicalAbstract: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=300&fit=crop"
+    },   
      {
       id: 19,
       title: "Acid functionalized cellulose nanocrystals and its effect on mechanical, thermal, crystallization and surfaces properties of poly(lactic acid) bionanocomposites films: A comprehensive study",
@@ -689,9 +692,8 @@ const PublicationsPage = () => {
       keywords: ["Ion Transfer", "Anion Exchange Membrane", "Fuel Cells", "PVA"],
       graphicalAbstract: "https://images.unsplash.com/photo-1617791160588-241658c0f566?w=400&h=300&fit=crop"
     }           
-};
-  ]
-  const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
+];
+    const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
     'Environmental Remediation', 'Agricultural Applications', 'Computational Biology', 'Enzyme Technology', 
     'Bio-composites', 'Nanocomposites', 'Energy Materials', 'Energy Storage', 'Catalysis', 'Bionanocomposites',
     'Food Preservation', 'Environmental Assessment', 'Nanomaterials', 'Biosensors'];
@@ -729,14 +731,8 @@ const PublicationsPage = () => {
       'Nanomaterials': 'bg-purple-100 text-purple-800',
       'Biosensors': 'bg-pink-100 text-pink-800'
     };
-    return colors[category] || 'bg-gray-100 text-gray-800';uong, T.K.N.", "Truong, T.T.", "Dhar, P.", "Lee, B.", "Oh, J.", "Mondal, S."],
-      journal: "Aggregate",
-      year: 2025,
-      doi: "10.1002/agt2.70047",
-      impactFactor: 13.7,
-      category: "Biomedical Materials",
-      keywords: ["Hydrogel", "Wound Healing", "Sensing", "Smart Materials"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop"
+    return colors[category] || 'bg-gray-100 text-gray-800';
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -834,17 +830,7 @@ const PublicationsPage = () => {
                 key={publication.id}
                 className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex flex-col lg:flex-row gap-6">
-                  {publication.graphicalAbstract && (
-                    <div className="lg:w-80 flex-shrink-0">
-                      <img
-                        src={publication.graphicalAbstract}
-                        alt={`Graphical abstract for ${publication.title}`}
-                        className="w-full h-48 lg:h-full object-cover rounded-lg border border-gray-200"
-                      />
-                    </div>
-                  )}
-                  
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors flex-1">
@@ -907,29 +893,29 @@ const PublicationsPage = () => {
                         </span>
                       ))}
                     </div>
-                    
-                    {publication.doi && (
-                      <div className="flex items-center pt-4 border-t border-gray-100">
-                        <a 
-                          href={`https://doi.org/${publication.doi}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          DOI: {publication.doi}
-                        </a>
-                      </div>
-                    )}
                   </div>
                 </div>
+                
+                {publication.doi && (
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <a 
+                      href={`https://doi.org/${publication.doi}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+                    >
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      DOI: {publication.doi}
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>
           
           {filteredPublications.length === 0 && (
             <div className="text-center py-16">
-              <Image className="h-16 w-16 text-gray-400 mx-auto mb-4" />
+              <BookOpen className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-600 mb-2">
                 No publications found
               </h3>
@@ -972,3 +958,5 @@ const PublicationsPage = () => {
     </div>
   );
 };
+
+export default PublicationsPage;
