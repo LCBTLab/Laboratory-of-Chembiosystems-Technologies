@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import { Users, GraduationCap, Award, ExternalLink, Mail, Linkedin, MapPin, Calendar } from 'lucide-react';
 
 interface Student {
@@ -460,7 +460,7 @@ export default function TeamPage() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-66 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${
                   member.isAlumni 
