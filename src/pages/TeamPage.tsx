@@ -13,7 +13,7 @@ interface Student {
   linkedin?: string;
   specialization?: string;
   isAlumni?: boolean;
-  placed_in: string;
+  placed_in?: string;
 }
 
 const currentStudents: Student[] = [
@@ -95,7 +95,7 @@ const currentStudents: Student[] = [
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "3D Printing, Geo-polymer"
   },
-    {
+  {
     id: 8,
     sno: "8",
     name: "Anoop Kumar Singh",
@@ -107,7 +107,7 @@ const currentStudents: Student[] = [
     linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
     specialization: "Web Development, Leaser Engraving, Sustainable Materials"
   },
-{
+  {
     id: 9,
     sno: "9",
     name: "Suraj Gaur",
@@ -134,7 +134,7 @@ const currentStudents: Student[] = [
 ];
 
 const alumniStudents: Student[] = [
-    {
+  {
     id: 7,
     sno: "1",
     name: "Amey Mistry",
@@ -143,7 +143,8 @@ const alumniStudents: Student[] = [
     year: "2023-2025",
     image: "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Chemical Engineering",
-    placed_in: ""
+    placed_in: "",
+    isAlumni: true
   },
   {
     id: 8,
@@ -154,7 +155,8 @@ const alumniStudents: Student[] = [
     year: "2020-2025",
     image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
-    placed_in: "Imperial College London"
+    placed_in: "Imperial College London",
+    isAlumni: true
   },
   {
     id: 9,
@@ -165,7 +167,8 @@ const alumniStudents: Student[] = [
     year: "2020-2025",
     image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
-    placed_in: "Mastercard"
+    placed_in: "Mastercard",
+    isAlumni: true
   },
   {
     id: 10,
@@ -199,7 +202,7 @@ const alumniStudents: Student[] = [
     year: "2018-23",
     image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
     specialization: "Integrated Dual Degree Program",
-     placed_in: "Rimba",
+    placed_in: "Rimba",
     isAlumni: true
   },
   {
@@ -327,158 +330,6 @@ export default function TeamPage() {
         </div>
       </div>
 
-      {/* Students Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-        {activeTab === 'alumni' && (
-          <div className="text-center mb-12 animate-fade-in-up">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full mb-4">
-              <GraduationCap className="w-8 h-8 text-white" />
-            </div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Alumni</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Celebrating our former students who have successfully completed their programs and continue their journey in research and industry
-            </p>
-          </div>
-        )}
-
-        {activeTab === 'current' ? (
-          /* Current Students Table */
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
-            <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-4">
-              <h2 className="text-2xl font-bold text-white">Current Students</h2>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gradient-to-r from-emerald-50 to-teal-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-800 uppercase tracking-wider">S.No</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-800 uppercase tracking-wider">Student</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-800 uppercase tracking-wider">Fellowship</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-800 uppercase tracking-wider">Degree</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-800 uppercase tracking-wider">Year</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {displayMembers.map((student, index) => (
-                    <tr 
-                      key={student.id}
-                      className="hover:bg-emerald-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {student.sno}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900">
-                        <div className="flex items-center">
-                          <img 
-                            src={student.image}
-                            alt={student.name}
-                            className="w-10 h-10rounded-full object-cover mr-3"
-                          />
-                          <div>
-                            <div className="font-medium hover:text-emerald-600 transition-colors duration-200">
-                              {student.name}
-                            </div>
-                            {student.specialization && (
-                              <div className="text-xs text-gray-500">{student.specialization}</div>
-                            )}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        <span className="px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-medium">
-                          {student.fellowship}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-teal-600">
-                        {student.degree}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        {student.year}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        ) : (
-          /* Alumni Table */
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden animate-fade-in-up">
-            <div className="bg-gradient-to-r from-rose-600 to-pink-600 px-6 py-4">
-              <h2 className="text-2xl font-bold text-white">Alumni</h2>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gradient-to-r from-rose-50 to-pink-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">S.No</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Student</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Fellowship</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Degree</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Year</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-rose-800 uppercase tracking-wider">Placed In</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {displayMembers.map((student, index) => (
-                    <tr 
-                      key={student.id}
-                      className="hover:bg-rose-50 transition-all duration-300 transform hover:scale-[1.01] animate-fade-in-up"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {student.sno}
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-900">
-                        <div className="flex items-center">
-                          <img 
-                            src={student.image}
-                            alt={student.name}
-                            className="w-10 h-10 rounded-full object-cover mr-3"
-                          />
-                          <div>
-                            <div className="font-medium hover:text-rose-600 transition-colors duration-200">
-                              {student.name}
-                            </div>
-                            {student.specialization && (
-                              <div className="text-xs text-gray-500">{student.specialization}</div>
-                            )}
-                          </div>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4 text-sm text-gray-600">
-                        <span className="px-3 py-1 bg-rose-100 text-rose-800 rounded-full text-xs font-medium">
-                          {student.fellowship}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-pink-600">
-                        {student.degree}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        {student.year}
-                        </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                        {student.placed_in}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
-        {/* Empty State */}
-        {displayMembers.length === 0 && (
-          <div className="text-center py-16 animate-fade-in-up">
-            <Users className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-600 mb-2">No students found</h3>
-            <p className="text-gray-500">Try adjusting your search criteria</p>
-          </div>
-        )}
-      </div>
-
       {/* Principal Investigator Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="text-center mb-12 animate-fade-in-up">
@@ -581,8 +432,20 @@ export default function TeamPage() {
         </div>
       </div>
 
-      {/* Students Table/Grid */}
+      {/* Students Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        {activeTab === 'alumni' && (
+          <div className="text-center mb-12 animate-fade-in-up">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-rose-500 to-pink-500 rounded-full mb-4">
+              <GraduationCap className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Alumni</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Celebrating our former students who have successfully completed their programs and continue their journey in research and industry
+            </p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {displayMembers.map((member, index) => (
             <div
@@ -597,7 +460,7 @@ export default function TeamPage() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-70 h-100 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${
                   member.isAlumni 
@@ -643,6 +506,16 @@ export default function TeamPage() {
                     <span className="ml-1">{member.year}</span>
                   </div>
                 </div>
+
+                {member.placed_in && (
+                  <div className="mb-4">
+                    <div className="flex items-center text-sm text-gray-600">
+                      <MapPin className="w-4 h-4 mr-2" />
+                      <span className="font-medium">Placed in:</span>
+                      <span className="ml-1">{member.placed_in}</span>
+                    </div>
+                  </div>
+                )}
 
                 {member.specialization && (
                   <div className="mb-4">
