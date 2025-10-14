@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Microscope, Leaf, Users, BookOpen } from 'lucide-react';
 
 const HomePage: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
+  
+  const images = [
+    "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const highlights = [
     {
       icon: <Microscope className="h-8 w-8 text-blue-600" />,
@@ -31,7 +48,7 @@ const HomePage: React.FC = () => {
       {/* Quote Banner */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 py-4 overflow-hidden">
         <div className="animate-pulse text-center">
-          <p className="text-white text-lg md:text-xl font-semibold tracking-wide">
+          <p className="text-white text-xl md:text-2xl font-bold tracking-wide">
             "Of The People, By The People, For The People"
           </p>
         </div>
@@ -80,19 +97,18 @@ const HomePage: React.FC = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-              <img 
-                src="https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                alt="Laboratory Research"
-                className="object-cover w-full h-96 lg:h-[500px] animate-[zoom_20s_ease-in-out_infinite]"
-              />
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl h-96 lg:h-[500px]">
+              {images.map((image, index) => (
+                <img 
+                  key={index}
+                  src={image} 
+                  alt={`Laboratory Research ${index + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                    index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                  }`}
+                />
+              ))}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              <style>{`
-                @keyframes zoom {
-                  0%, 100% { transform: scale(1); }
-                  50% { transform: scale(1.1); }
-                }
-              `}</style>
             </div>
           </div>
         </div>
