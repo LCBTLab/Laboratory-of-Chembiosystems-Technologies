@@ -460,7 +460,7 @@ export default function TeamPage() {
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-45 h-85 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-45 h-70 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${
                   member.isAlumni 
