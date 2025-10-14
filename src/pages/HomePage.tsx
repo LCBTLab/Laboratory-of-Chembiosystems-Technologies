@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Microscope, Leaf, Users, BookOpen, Award } from 'lucide-react';
+import { ArrowRight, Microscope, Leaf, Users, BookOpen } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   const highlights = [
@@ -26,13 +26,12 @@ const HomePage: React.FC = () => {
     }
   ];
 
- 
- return (
+  return (
     <div className="min-h-screen">
       {/* Quote Banner */}
-      <div className="bg-gradient-to-r from-white-600 via-white-700 to-white-600 py-4 overflow-hidden">
+      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 py-4 overflow-hidden">
         <div className="animate-pulse text-center">
-          <p className="text-black text-lg md:text-x3 font-bold tracking-wide">
+          <p className="text-white text-lg md:text-xl font-semibold tracking-wide">
             "Of The People, By The People, For The People"
           </p>
         </div>
@@ -81,13 +80,19 @@ const HomePage: React.FC = () => {
                 </Link>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
               <img 
                 src="https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800" 
                 alt="Laboratory Research"
-                className="rounded-2xl shadow-2xl object-cover w-full h-96 lg:h-[500px]"
+                className="object-cover w-full h-96 lg:h-[500px] animate-[zoom_20s_ease-in-out_infinite]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+              <style>{`
+                @keyframes zoom {
+                  0%, 100% { transform: scale(1); }
+                  50% { transform: scale(1.1); }
+                }
+              `}</style>
             </div>
           </div>
         </div>
@@ -121,54 +126,6 @@ const HomePage: React.FC = () => {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Research Themes Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Our Research Themes
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Exploring diverse areas of chemistry and biology to create innovative solutions
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {researchThemes.map((theme, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={theme.image}
-                    alt={theme.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {theme.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {theme.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link 
-              to="/research" 
-              className="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              View All Research
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
           </div>
         </div>
       </section>
