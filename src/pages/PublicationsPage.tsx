@@ -1,6 +1,4 @@
-
-
-export default PublicationsPage;import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Search, Filter, ExternalLink, Calendar, User, BookOpen, Image } from 'lucide-react';
 
 const PublicationsPage = () => {
