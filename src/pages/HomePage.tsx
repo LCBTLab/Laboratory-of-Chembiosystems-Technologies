@@ -52,9 +52,9 @@ const HomePage: React.FC = () => {
  return (
     <div className="min-h-screen">
       {/* Quote Banner */}
-      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-600 py-4 overflow-hidden">
+      <div className="bg-gradient-to-r from-white-600 via-white-700 to-white-600 py-4 overflow-hidden">
         <div className="animate-pulse text-center">
-          <p className="text-white text-lg md:text-xl font-semibold tracking-wide">
+          <p className="text-black text-lg md:text-x3 font-bold tracking-wide">
             "Of The People, By The People, For The People"
           </p>
         </div>
