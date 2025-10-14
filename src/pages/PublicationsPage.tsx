@@ -691,7 +691,7 @@ const PublicationsPage = () => {
       graphicalAbstract: "https://images.unsplash.com/photo-1617791160588-241658c0f566?w=400&h=300&fit=crop"
     }           
 ];
-    const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
+   const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
     'Environmental Remediation', 'Agricultural Applications', 'Computational Biology', 'Enzyme Technology', 
     'Bio-composites', 'Nanocomposites', 'Energy Materials', 'Energy Storage', 'Catalysis', 'Bionanocomposites',
     'Food Preservation', 'Environmental Assessment', 'Nanomaterials', 'Biosensors'];
