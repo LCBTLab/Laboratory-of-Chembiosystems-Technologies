@@ -26,29 +26,7 @@ const HomePage: React.FC = () => {
     }
   ];
 
-  const researchThemes = [
-    {
-      title: "Molecular Systems Engineering",
-      description: "Design and optimization of molecular systems for various applications",
-      image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=500"
-    },
-    {
-      title: "Biomaterials & Biointerfaces",
-      description: "Development of novel biomaterials and study of biointerface interactions",
-      image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=500"
-    },
-    {
-      title: "Sustainable Chemistry",
-      description: "Green chemistry approaches for environmental sustainability",
-      image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=500"
-    },
-    {
-      title: "Bioinspired Systems",
-      description: "Learning from nature to create innovative technological solutions",
-      image: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=500"
-    }
-  ];
-
+ 
  return (
     <div className="min-h-screen">
       {/* Quote Banner */}
