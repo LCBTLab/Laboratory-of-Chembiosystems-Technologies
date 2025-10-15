@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, ExternalLink, Calendar, User, BookOpen, Image } from 'lucide-react';
+import { Search, Filter, ExternalLink, Calendar, User, BookOpen, Image as ImageIcon } from 'lucide-react';
 
 const PublicationsPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -7,7 +7,7 @@ const PublicationsPage = () => {
   const [selectedYear, setSelectedYear] = useState('all');
 
   const publications = [
-     {
+    {
       id: 55,
       title: "All-Biomass-Derived Cellulose Phosphate-Based Heat-Sealable Films and Thermally Stable Antifizzing Cups with Improved Recyclability",
       authors: ["Ranjan, R.", "Mone, V. P.", "Rai, R.", "Kant, C.", "Dhar, P."],
@@ -23,14 +23,13 @@ const PublicationsPage = () => {
     {
       id: 54,
       title: "Hydrogel-Based Smart Materials for Wound Healing and Sensing",
-      authors: ["Dhar, P.", "Tarafder, D.", "Kumar, A.", "Katiyar, V."],
-      journal: "RSC Advances",
-      year: 2015,
-      volume: "5(74)",
-      pages: "60426-40",
-      impactFactor: 4.036,
-      category: "Bionanocomposites",
-      keywords: ["Cellulose Nanocrystal", "Polylactic Acid", "Bionanocomposites"],
+      authors: ["Duong, T.K.N.", "Truong, T.T.", "Dhar, P.", "Lee, B.", "Oh, J.", "Mondal, S."],
+      journal: "Aggregate",
+      year: 2025,
+      doi: "10.1002/agt2.70047",
+      impactFactor: 13.7,
+      category: "Biomedical Materials",
+      keywords: ["Hydrogel", "Wound Healing", "Sensing", "Smart Materials"],
       graphicalAbstract: "https://images.unsplash.com/photo-1576319155317-f0d6ba19bd8b?w=400&h=300&fit=crop"
     },
     {
@@ -449,9 +448,9 @@ const PublicationsPage = () => {
       impactFactor: 4.036,
       category: "Bionanocomposites",
       keywords: ["Cellulose Nanocrystal", "Polylactic Acid", "Bionanocomposites"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=300&fit=crop"
-    },   
-     {
+      graphicalAbstract: "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=300&fit=crop"
+    },
+    {
       id: 19,
       title: "Acid functionalized cellulose nanocrystals and its effect on mechanical, thermal, crystallization and surfaces properties of poly(lactic acid) bionanocomposites films: A comprehensive study",
       authors: ["Dhar, P.", "Bhasney, S.M.", "Kumar, A.", "Katiyar, V."],
@@ -689,9 +688,10 @@ const PublicationsPage = () => {
       category: "Energy Materials",
       keywords: ["Ion Transfer", "Anion Exchange Membrane", "Fuel Cells", "PVA"],
       graphicalAbstract: "https://images.unsplash.com/photo-1617791160588-241658c0f566?w=400&h=300&fit=crop"
-    }           
-];
-   const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
+    }
+  ];
+
+  const categories = ['all', 'Sustainable Materials', 'Biomedical Materials', 'Food Packaging', 'Photodynamic Therapy', 
     'Environmental Remediation', 'Agricultural Applications', 'Computational Biology', 'Enzyme Technology', 
     'Bio-composites', 'Nanocomposites', 'Energy Materials', 'Energy Storage', 'Catalysis', 'Bionanocomposites',
     'Food Preservation', 'Environmental Assessment', 'Nanomaterials', 'Biosensors'];
@@ -826,10 +826,26 @@ const PublicationsPage = () => {
             {filteredPublications.map((publication) => (
               <div 
                 key={publication.id}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow duration-300"
+                className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                  <div className="flex-1">
+                <div className="flex flex-col lg:flex-row">
+                  {/* Graphical Abstract Image */}
+                  <div className="lg:w-64 lg:flex-shrink-0">
+                    <div className="relative h-48 lg:h-full">
+                      <img 
+                        src={publication.graphicalAbstract}
+                        alt={`Graphical abstract for ${publication.title}`}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center">
+                        <ImageIcon className="h-3 w-3 text-gray-600 mr-1" />
+                        <span className="text-xs font-medium text-gray-600">Graphical Abstract</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Publication Details */}
+                  <div className="flex-1 p-6">
                     <div className="flex items-start justify-between mb-3">
                       <h3 className="text-xl font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors flex-1">
                         {publication.title}
@@ -891,22 +907,22 @@ const PublicationsPage = () => {
                         </span>
                       ))}
                     </div>
+
+                    {publication.doi && (
+                      <div className="flex items-center pt-4 border-t border-gray-100">
+                        <a 
+                          href={`https://doi.org/${publication.doi}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          DOI: {publication.doi}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
-                
-                {publication.doi && (
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <a 
-                      href={`https://doi.org/${publication.doi}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      DOI: {publication.doi}
-                    </a>
-                  </div>
-                )}
               </div>
             ))}
           </div>
