@@ -115,7 +115,7 @@ const Header: React.FC = () => {
         @keyframes fade-in {
           from {
             opacity: 0;
-            transform: translateY(-10px);
+            transform: translateY(-8px);
           }
           to {
             opacity: 1;
@@ -124,40 +124,45 @@ const Header: React.FC = () => {
         }
 
         .animate-fade-in {
-          animation: fade-in 0.2s ease-out;
+          animation: fade-in 0.15s ease-out;
+        }
+        
+        /* Ensure dropdown is above other content */
+        .group:hover > div {
+          pointer-events: auto;
         }
       `}</style>
 
       <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center min-h-16 py-2">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+        <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo - More compact */}
+            <Link to="/" className="flex items-center space-x-2 flex-shrink-0 mr-4">
               <img
                 src="https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/logo.png"
                 alt="Laboratory of Chembiosystem & Technologies Logo"
-                className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 flex-shrink-0 object-contain"
+                className="h-10 w-10 sm:h-11 sm:w-11 flex-shrink-0 object-contain"
               />
               <div className="flex flex-col leading-tight">
-                <h1 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold text-gray-900 leading-tight">
-                  Laboratory of Chembiosystems & Technologies
+                <h1 className="text-xs sm:text-sm font-semibold text-gray-900 leading-tight whitespace-nowrap">
+                  Lab of Chembiosystems & Technologies
                 </h1>
-                <p className="text-xs sm:text-sm text-gray-600 mt-0.5">IIT (BHU) Varanasi</p>
+                <p className="text-xs text-gray-600">IIT (BHU)</p>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-1 ml-6 flex-1 justify-end">
+            {/* Desktop Navigation - More compact */}
+            <nav className="hidden lg:flex space-x-0.5 flex-1 justify-end">
               {navigation.map((item, index) => (
                 <div
                   key={item.name}
-                  className="relative"
+                  className="relative group"
                   onMouseEnter={() => item.hasDropdown && setHoveredMenu(index)}
                   onMouseLeave={() => setHoveredMenu(null)}
                 >
                   <Link
                     to={item.href}
-                    className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    className={`flex items-center px-2 py-2 rounded-md text-xs font-medium transition-colors duration-200 whitespace-nowrap ${
                       isActive(item.href)
                         ? 'bg-blue-100 text-blue-700'
                         : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
@@ -166,21 +171,26 @@ const Header: React.FC = () => {
                     {item.name}
                     {item.hasDropdown && (
                       <ChevronDown
-                        className={`ml-1 h-4 w-4 transition-transform duration-200 ${
+                        className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
                           hoveredMenu === index ? 'rotate-180' : ''
                         }`}
                       />
                     )}
                   </Link>
 
-                  {/* Desktop Dropdown Menu */}
+                  {/* Desktop Dropdown Menu - Fixed z-index */}
                   {item.hasDropdown && item.submenu && hoveredMenu === index && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in">
+                    <div 
+                      className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in z-[100]"
+                      onMouseEnter={() => setHoveredMenu(index)}
+                      onMouseLeave={() => setHoveredMenu(null)}
+                    >
                       {item.submenu.map((subItem) => (
                         <Link
                           key={subItem.name}
                           to={subItem.href}
-                          className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                          className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                          onClick={() => setHoveredMenu(null)}
                         >
                           {subItem.name}
                         </Link>
