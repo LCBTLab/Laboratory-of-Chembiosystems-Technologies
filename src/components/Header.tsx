@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { useAuthStore } from '../store/authStore';
 
-const Header = () => {
+const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<number | null>(null);
+  const location = useLocation();
+  const { user, initialize } = useAuthStore();
+
+  useEffect(() => {
+    initialize();
+  }, [initialize]);
 
   const navigation = [
     { 
@@ -99,12 +107,14 @@ const Header = () => {
     },
   ];
 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center min-h-16 py-2">
           {/* Logo */}
-          <a href="/" className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 lg:space-x-4 flex-shrink-0 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
             <img
               src="https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/logo.png"
               alt="Laboratory of Chembiosystem & Technologies Logo"
@@ -116,7 +126,7 @@ const Header = () => {
               </h1>
               <p className="text-xs sm:text-sm text-gray-600 mt-0.5">IIT (BHU) Varanasi</p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex space-x-1 ml-6 flex-1 justify-end">
@@ -127,9 +137,13 @@ const Header = () => {
                 onMouseEnter={() => item.hasDropdown && setHoveredMenu(index)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
-                <a
-                  href={item.href}
-                  className="flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                <Link
+                  to={item.href}
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
                 >
                   {item.name}
                   {item.hasDropdown && (
@@ -139,19 +153,19 @@ const Header = () => {
                       }`}
                     />
                   )}
-                </a>
+                </Link>
 
                 {/* Desktop Dropdown Menu */}
                 {item.hasDropdown && item.submenu && hoveredMenu === index && (
                   <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in">
                     {item.submenu.map((subItem) => (
-                      <a
+                      <Link
                         key={subItem.name}
-                        href={subItem.href}
+                        to={subItem.href}
                         className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
                       >
                         {subItem.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -178,26 +192,32 @@ const Header = () => {
               {navigation.map((item, index) => (
                 <div key={item.name}>
                   <div
-                    className="flex items-center justify-between cursor-pointer"
+                    className="flex items-center justify-between"
                     onClick={() => {
                       if (item.hasDropdown) {
                         setMobileSubmenuOpen(mobileSubmenuOpen === index ? null : index);
                       } else {
-                        window.location.href = item.href;
+                        setIsMenuOpen(false);
                       }
                     }}
                   >
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       onClick={(e) => {
                         if (item.hasDropdown) {
                           e.preventDefault();
+                        } else {
+                          setIsMenuOpen(false);
                         }
                       }}
-                      className="flex-1 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                      className={`flex-1 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                        isActive(item.href)
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      }`}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                     {item.hasDropdown && (
                       <ChevronDown
                         className={`h-5 w-5 text-gray-500 mr-3 transition-transform duration-200 ${
@@ -211,13 +231,14 @@ const Header = () => {
                   {item.hasDropdown && item.submenu && mobileSubmenuOpen === index && (
                     <div className="pl-6 mt-2 space-y-1">
                       {item.submenu.map((subItem) => (
-                        <a
+                        <Link
                           key={subItem.name}
-                          href={subItem.href}
+                          to={subItem.href}
+                          onClick={() => setIsMenuOpen(false)}
                           className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
                         >
                           {subItem.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -228,7 +249,7 @@ const Header = () => {
         )}
       </div>
 
-      <style>{`
+      <style jsx>{`
         @keyframes fade-in {
           from {
             opacity: 0;
