@@ -133,7 +133,7 @@ const Header: React.FC = () => {
             {navigation.map((item, index) => (
               <div
                 key={item.name}
-                className="relative"
+                className="relative group"
                 onMouseEnter={() => item.hasDropdown && setHoveredMenu(index)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
@@ -144,6 +144,11 @@ const Header: React.FC = () => {
                       ? 'bg-blue-100 text-blue-700'
                       : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                   }`}
+                  onClick={(e) => {
+                    if (item.hasDropdown) {
+                      e.preventDefault();
+                    }
+                  }}
                 >
                   {item.name}
                   {item.hasDropdown && (
@@ -157,7 +162,7 @@ const Header: React.FC = () => {
 
                 {/* Desktop Dropdown Menu */}
                 {item.hasDropdown && item.submenu && hoveredMenu === index && (
-                  <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in">
+                  <div className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in z-50">
                     {item.submenu.map((subItem) => (
                       <Link
                         key={subItem.name}
