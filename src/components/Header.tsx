@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useAuthStore } from '../store/authStore';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
+  const [clickedMenu, setClickedMenu] = useState<number | null>(null);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<number | null>(null);
-  const location = useLocation();
-  const { user, initialize } = useAuthStore();
-
-  useEffect(() => {
-    initialize();
-  }, [initialize]);
+  const [currentPath, setCurrentPath] = useState('/');
 
   const navigation = [
     { 
@@ -25,7 +19,6 @@ const Header: React.FC = () => {
       href: '/about',
       hasDropdown: true,
       submenu: [
-        { name: 'Overview', href: '/about/overview' },
         { name: 'Mission & Vision', href: '/about/mission' },
         { name: 'Lab History', href: '/about/history' },
         { name: 'Facilities', href: '/about/facilities' }
@@ -41,7 +34,6 @@ const Header: React.FC = () => {
       href: '/team',
       hasDropdown: true,
       submenu: [
-        { name: 'Current Students', href: '/team/current' },
         { name: 'Alumni', href: '/team/alumni' },
         { name: 'Visiting Researchers', href: '/team/visitors' },
         { name: 'Join Us', href: '/team/join' }
@@ -52,7 +44,6 @@ const Header: React.FC = () => {
       href: '/research',
       hasDropdown: true,
       submenu: [
-        { name: 'Research Areas', href: '/research/areas' },
         { name: 'Current Projects', href: '/research/projects' },
         { name: 'Collaborations', href: '/research/collaborations' },
         { name: 'Equipment', href: '/research/equipment' }
@@ -63,7 +54,6 @@ const Header: React.FC = () => {
       href: '/publications',
       hasDropdown: true,
       submenu: [
-        { name: 'All Publications', href: '/publications' },
         { name: 'Recent Papers', href: '/publications/recent' },
         { name: 'Journal Articles', href: '/publications/journals' },
         { name: 'Conference Papers', href: '/publications/conferences' }
@@ -79,8 +69,7 @@ const Header: React.FC = () => {
       href: '/gallery',
       hasDropdown: true,
       submenu: [
-        { name: 'Photo Gallery', href: '/gallery/photos' },
-        { name: 'Video Gallery', href: '/gallery/videos' },
+        { name: 'Videos', href: '/gallery/videos' },
         { name: 'Lab Tour', href: '/gallery/tour' }
       ]
     },
@@ -94,7 +83,6 @@ const Header: React.FC = () => {
       href: '/news',
       hasDropdown: true,
       submenu: [
-        { name: 'Latest News', href: '/news/latest' },
         { name: 'Events', href: '/news/events' },
         { name: 'Seminars', href: '/news/seminars' },
         { name: 'Workshops', href: '/news/workshops' }
@@ -107,7 +95,24 @@ const Header: React.FC = () => {
     },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => currentPath === path;
+
+  const handleMenuClick = (index: number, hasDropdown: boolean) => {
+    if (hasDropdown) {
+      setClickedMenu(clickedMenu === index ? null : index);
+    }
+  };
+
+  const handleNavigation = (href: string) => {
+    setCurrentPath(href);
+    setIsMenuOpen(false);
+    setClickedMenu(null);
+    setHoveredMenu(null);
+  };
+
+  const isSubmenuOpen = (index: number) => {
+    return hoveredMenu === index || clickedMenu === index;
+  };
 
   return (
     <>
@@ -127,7 +132,6 @@ const Header: React.FC = () => {
           animation: fade-in 0.15s ease-out;
         }
         
-        /* Ensure dropdown is above other content */
         .group:hover > div {
           pointer-events: auto;
         }
@@ -136,8 +140,15 @@ const Header: React.FC = () => {
       <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-full mx-auto px-2 sm:px-4 lg:px-6">
           <div className="flex justify-between items-center h-16">
-            {/* Logo - More compact */}
-            <Link to="/" className="flex items-center space-x-2 flex-shrink-0 mr-4">
+            {/* Logo */}
+            <a 
+              href="/" 
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavigation('/');
+              }}
+              className="flex items-center space-x-2 flex-shrink-0 mr-4"
+            >
               <img
                 src="https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/logo.png"
                 alt="Laboratory of Chembiosystem & Technologies Logo"
@@ -149,10 +160,10 @@ const Header: React.FC = () => {
                 </h1>
                 <p className="text-xs text-gray-600">IIT (BHU)</p>
               </div>
-            </Link>
+            </a>
 
-            {/* Desktop Navigation - More compact */}
-            <nav className="hidden lg:flex space-x-0.5 flex-1 justify-end">
+            {/* Desktop Navigation - Evenly distributed with bigger tabs */}
+            <nav className="hidden lg:flex space-x-1 flex-1 justify-end items-center">
               {navigation.map((item, index) => (
                 <div
                   key={item.name}
@@ -160,40 +171,54 @@ const Header: React.FC = () => {
                   onMouseEnter={() => item.hasDropdown && setHoveredMenu(index)}
                   onMouseLeave={() => setHoveredMenu(null)}
                 >
-                  <Link
-                    to={item.href}
-                    className={`flex items-center px-2 py-2 rounded-md text-xs font-medium transition-colors duration-200 whitespace-nowrap ${
-                      isActive(item.href)
-                        ? 'bg-blue-100 text-blue-700'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                    }`}
-                  >
-                    {item.name}
-                    {item.hasDropdown && (
-                      <ChevronDown
-                        className={`ml-0.5 h-3 w-3 transition-transform duration-200 ${
-                          hoveredMenu === index ? 'rotate-180' : ''
-                        }`}
-                      />
-                    )}
-                  </Link>
+                  <div className="flex items-center">
+                    <button
+                      onClick={(e) => {
+                        if (!item.hasDropdown) {
+                          handleNavigation(item.href);
+                        } else {
+                          handleMenuClick(index, item.hasDropdown);
+                        }
+                      }}
+                      className={`flex items-center gap-1 px-3 py-2.5 rounded-md text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                        isActive(item.href)
+                          ? 'bg-blue-100 text-blue-700'
+                          : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.name}
+                      {item.hasDropdown && (
+                        <ChevronDown
+                          className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                            isSubmenuOpen(index) ? 'rotate-180' : ''
+                          }`}
+                        />
+                      )}
+                    </button>
+                  </div>
 
-                  {/* Desktop Dropdown Menu - Fixed z-index */}
-                  {item.hasDropdown && item.submenu && hoveredMenu === index && (
+                  {/* Desktop Dropdown Menu */}
+                  {item.hasDropdown && item.submenu && isSubmenuOpen(index) && (
                     <div 
-                      className="absolute top-full left-0 mt-1 w-52 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in z-[100]"
+                      className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in z-[100]"
                       onMouseEnter={() => setHoveredMenu(index)}
-                      onMouseLeave={() => setHoveredMenu(null)}
+                      onMouseLeave={() => {
+                        setHoveredMenu(null);
+                        setClickedMenu(null);
+                      }}
                     >
                       {item.submenu.map((subItem) => (
-                        <Link
+                        <a
                           key={subItem.name}
-                          to={subItem.href}
+                          href={subItem.href}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation(subItem.href);
+                          }}
                           className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                          onClick={() => setHoveredMenu(null)}
                         >
                           {subItem.name}
-                        </Link>
+                        </a>
                       ))}
                     </div>
                   )}
@@ -225,27 +250,26 @@ const Header: React.FC = () => {
                         if (item.hasDropdown) {
                           setMobileSubmenuOpen(mobileSubmenuOpen === index ? null : index);
                         } else {
-                          setIsMenuOpen(false);
+                          handleNavigation(item.href);
                         }
                       }}
                     >
-                      <Link
-                        to={item.href}
+                      <a
+                        href={item.href}
                         onClick={(e) => {
-                          if (item.hasDropdown) {
-                            e.preventDefault();
-                          } else {
-                            setIsMenuOpen(false);
+                          e.preventDefault();
+                          if (!item.hasDropdown) {
+                            handleNavigation(item.href);
                           }
                         }}
-                        className={`flex-1 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                        className={`flex-1 block px-3 py-2.5 rounded-md text-base font-medium transition-colors duration-200 ${
                           isActive(item.href)
                             ? 'bg-blue-100 text-blue-700'
                             : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                         }`}
                       >
                         {item.name}
-                      </Link>
+                      </a>
                       {item.hasDropdown && (
                         <ChevronDown
                           className={`h-5 w-5 text-gray-500 mr-3 transition-transform duration-200 ${
@@ -259,14 +283,17 @@ const Header: React.FC = () => {
                     {item.hasDropdown && item.submenu && mobileSubmenuOpen === index && (
                       <div className="pl-6 mt-2 space-y-1">
                         {item.submenu.map((subItem) => (
-                          <Link
+                          <a
                             key={subItem.name}
-                            to={subItem.href}
-                            onClick={() => setIsMenuOpen(false)}
-                            className="block px-3 py-2 rounded-md text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
+                            href={subItem.href}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleNavigation(subItem.href);
+                            }}
+                            className="block px-3 py-2.5 rounded-md text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
                           >
                             {subItem.name}
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     )}
@@ -277,6 +304,19 @@ const Header: React.FC = () => {
           )}
         </div>
       </header>
+
+      {/* Demo Content */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Current Page: {currentPath}
+          </h2>
+          <p className="text-gray-600">
+            Click on navigation items to see the routing work. 
+            Try hovering over menu items with dropdowns or clicking the arrow icons!
+          </p>
+        </div>
+      </div>
     </>
   );
 };
