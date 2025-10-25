@@ -5,6 +5,7 @@ import { useAuthStore } from '../store/authStore';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<number | null>(null);
   const [clickedMenu, setClickedMenu] = useState<number | null>(null);
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<number | null>(null);
   const location = useLocation();
@@ -13,19 +14,6 @@ const Header: React.FC = () => {
   useEffect(() => {
     initialize();
   }, [initialize]);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (!target.closest('.dropdown-container')) {
-        setClickedMenu(null);
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
 
   const navigation = [
     { 
@@ -130,11 +118,12 @@ const Header: React.FC = () => {
   };
 
   const isSubmenuOpen = (index: number) => {
-    return clickedMenu === index;
+    return hoveredMenu === index || clickedMenu === index;
   };
 
   const handleSubmenuClick = () => {
     setClickedMenu(null);
+    setHoveredMenu(null);
     setIsMenuOpen(false);
   };
 
@@ -181,6 +170,8 @@ const Header: React.FC = () => {
                 <div
                   key={item.name}
                   className="relative dropdown-container"
+                  onMouseEnter={() => item.hasDropdown && setHoveredMenu(index)}
+                  onMouseLeave={() => setHoveredMenu(null)}
                 >
                   <div className="flex items-center">
                     <Link
@@ -215,6 +206,8 @@ const Header: React.FC = () => {
                   {item.hasDropdown && item.submenu && isSubmenuOpen(index) && (
                     <div 
                       className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-xl border border-gray-200 py-2 animate-fade-in z-[100]"
+                      onMouseEnter={() => setHoveredMenu(index)}
+                      onMouseLeave={() => setHoveredMenu(null)}
                     >
                       {item.submenu.map((subItem) => (
                         <Link
