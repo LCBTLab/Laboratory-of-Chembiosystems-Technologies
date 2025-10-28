@@ -1,5 +1,35 @@
-import React from 'react';
-import { Target, Eye, Award, Users, Lightbulb, Globe, Trophy, Star, Medal } from 'lucide-react';
+{
+      year: "2020",
+      title: "Lab Establishment",
+      description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
+    },
+    {
+      year: "2021",
+      title: "First Major Grant",
+      description: "Secured significant funding for biomaterials research project"
+    },
+    {
+      year: "2022",
+      title: "International Collaboration",
+      description: "Established partnerships with leading international research institutions"
+    },
+    {
+      year: "2023",
+      title: "Breakthrough Publication",
+      description: "Published groundbreaking research in high-impact journals"
+    },
+    {
+      year: "2024",
+      title: "Excellence Award",
+      description: "Received prestigious research excellence awards"
+    },
+    {
+      year: "2025",
+      title: "Expansion",
+      description: "Expanded lab facilities and welcomed new team members"
+    }
+  ];import React from 'react';
+import { Target, Eye, Users, Lightbulb, Globe } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   const coreValues = [
@@ -19,51 +49,30 @@ const AboutPage: React.FC = () => {
       description: "Developing environmentally responsible solutions for a better future"
     },
     {
-      icon: <Award className="h-8 w-8 text-purple-600" />,
+      icon: <Target className="h-8 w-8 text-purple-600" />,
       title: "Excellence",
       description: "Maintaining the highest standards in research, education, and scientific integrity"
     }
   ];
 
-  const milestones = [
-    {
-      year: "2020",
-      title: "Lab Establishment",
-      description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
-    },
-    {
-      year: "2020",
-      title: "First Major Grant",
-      description: "Secured significant funding for biomaterials research project"
-    },
-    {
-      year: "2020",
-      title: "International Collaboration",
-      description: "Established partnerships with leading international research institutions"
-    },
-    {
-      year: "2021",
-      title: "Breakthrough Publication",
-      description: "Published groundbreaking research in Nature Biotechnology"
-    },
-    {
-      year: "2022",
-      title: "Excellence Award",
-      description: "Received IIT (BHU) Excellence in Research Award"
-    },
-    {
-      year: "2023",
-      title: "Expansion",
-      description: "Expanded lab facilities and welcomed new team members"
-    }
-  ];
-    return colors[category] || 'bg-gray-100 text-gray-800 border-gray-200';
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-       {/* Timeline */}
+      <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              About Our Laboratory
+            </h1>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              The Laboratory of Chembiosystems Technologies at IIT (BHU) is dedicated to advancing the frontiers 
+              of science through innovative research at the intersection of chemistry and biology.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -74,7 +83,7 @@ const AboutPage: React.FC = () => {
               Key milestones in the growth and development of our laboratory
             </p>
           </div>
-             <div className="relative">
+          <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -91,22 +100,8 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div className="w-1/2"></div>
                 </div>
-                ))}
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-          
-      <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              About Our Laboratory
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              The Laboratory of Chembiosystems Technologies at IIT (BHU) is dedicated to advancing the frontiers 
-              of science through innovative research at the intersection of chemistry and biology.
-            </p>
           </div>
         </div>
       </section>
@@ -121,7 +116,7 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To be a globally recognized center of excellence in chembiosystems TEchnologies, pioneering 
+                To be a globally recognized center of excellence in chembiosystems technologies, pioneering 
                 sustainable solutions that address critical challenges in health, environment, and technology 
                 through innovative integration of chemical and biological sciences.
               </p>
@@ -254,6 +249,40 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Timeline */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Our Journey
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Key milestones in the growth and development of our laboratory
+            </p>
+          </div>
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
+            <div className="space-y-12">
+              {milestones.map((milestone, index) => (
+                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
+                    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                      <div className="text-blue-600 font-bold text-lg mb-2">{milestone.year}</div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{milestone.title}</h3>
+                      <p className="text-gray-600">{milestone.description}</p>
+                    </div>
+                  </div>
+                  <div className="relative flex items-center justify-center w-4 h-4 bg-blue-600 rounded-full z-10">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="w-1/2"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Awards and Honours */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -278,7 +307,7 @@ const AboutPage: React.FC = () => {
                 <div className="flex flex-col md:flex-row gap-4">
                   <div className="flex-shrink-0">
                     <div className="flex items-center gap-3">
-                      <div className={`p-3 rounded-full ${getCategoryColor(award.category).replace('text-', 'text-').replace('bg-', 'bg-')}`}>
+                      <div className={`p-3 rounded-full ${getCategoryColor(award.category).split(' ')[0]}`}>
                         {award.icon}
                       </div>
                       <div className="text-left">
@@ -344,10 +373,6 @@ const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-     
-
-       
     </div>
   );
 };
