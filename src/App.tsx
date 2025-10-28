@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import AwardsHonours from './pages/AwardsHonours';
 import PIPage from './pages/PIPage';
 import TeamPage from './pages/TeamPage';
 import ResearchPage from './pages/ResearchPage';
@@ -72,6 +73,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/about" element={<AboutPage />} />
+                  <Route path="/about/awardshonours" element={<AwardsHonours />} />
                   <Route path="/pi" element={<PIPage />} />
                   <Route path="/team" element={<TeamPage />} />
                   <Route path="/research" element={<ResearchPage />} />
