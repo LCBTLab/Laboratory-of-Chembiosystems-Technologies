@@ -63,6 +63,7 @@ const Header: React.FC = () => {
       name: 'Publications', 
       href: '/publications',
       hasDropdown: false,
+    },
     { 
       name: 'Patents', 
       href: '/patents',
