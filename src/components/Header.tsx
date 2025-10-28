@@ -62,14 +62,7 @@ const Header: React.FC = () => {
     { 
       name: 'Publications', 
       href: '/publications',
-      hasDropdown: true,
-      submenu: [
-        { name: 'All Publications', href: '/publications' },
-        { name: 'Recent Papers', href: '/publications/recent' },
-        { name: 'Journal Articles', href: '/publications/journals' },
-        { name: 'Conference Papers', href: '/publications/conferences' }
-      ]
-    },
+      hasDropdown: false,
     { 
       name: 'Patents', 
       href: '/patents',
@@ -78,12 +71,7 @@ const Header: React.FC = () => {
     { 
       name: 'Gallery', 
       href: '/gallery',
-      hasDropdown: true,
-      submenu: [
-        { name: 'Photo Gallery', href: '/gallery/photos' },
-        { name: 'Video Gallery', href: '/gallery/videos' },
-        { name: 'Lab Tour', href: '/gallery/tour' }
-      ]
+      hasDropdown: false,
     },
     { 
       name: 'Opportunities', 
@@ -93,13 +81,7 @@ const Header: React.FC = () => {
     { 
       name: 'News', 
       href: '/news',
-      hasDropdown: true,
-      submenu: [
-        { name: 'Latest News', href: '/news/latest' },
-        { name: 'Events', href: '/news/events' },
-        { name: 'Seminars', href: '/news/seminars' },
-        { name: 'Workshops', href: '/news/workshops' }
-      ]
+      hasDropdown: false,
     },
     { 
       name: 'Contact', 
