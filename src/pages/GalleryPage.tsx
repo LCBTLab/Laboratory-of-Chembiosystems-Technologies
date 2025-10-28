@@ -18,10 +18,10 @@ const GalleryPage: React.FC = () => {
   const galleryItems: GalleryItem[] = [
     {
       id: 1,
-      title: "Advanced Laboratory Equipment",
+      title: "Syringe pump",
       category: "Equipment",
-      image: "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "State-of-the-art analytical instruments for molecular characterization",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Syringe%20Pump.png",
+      description: "A syringe pump precisely delivers or withdraws liquids at controlled flow rates for accurate dosing or infusion",
       date: "2023-11-15"
     },
     {
@@ -66,18 +66,18 @@ const GalleryPage: React.FC = () => {
     },
     {
       id: 7,
-      title: "Microscopy Facility",
+      title: "Split-Tube Furnace",
       category: "Equipment",
-      image: "https://images.pexels.com/photos/2280568/pexels-photo-2280568.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "High-resolution microscopy for material characterization",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/split%20tube%20furnance.png",
+      description: "A split tube furnace enables high-temperature heating with easy tube access through its hinged design",
       date: "2023-10-12"
     },
     {
       id: 8,
-      title: "Workshop on Green Chemistry",
-      category: "Events",
-      image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Hands-on workshop on sustainable chemical processes",
+      title: "Rotary Vacuum Film Evaporator",
+      category: "Equipment",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/WhatsApp%20Image%202025-10-28%20at%2011.44.07_201cea96.jpg",
+      description: "A rotary vacuum film evaporator efficiently removes solvents by rotating a flask under reduced pressure for gentle and rapid evaporation",
       date: "2023-10-05"
     },
     {
