@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import AwardsHonours from './pages/AboutPage/AwardsHonours';
+import AwardsHonours from './pages/AwardsHonours';
 import PIPage from './pages/PIPage';
 import TeamPage from './pages/TeamPage';
 import ResearchPage from './pages/ResearchPage';
