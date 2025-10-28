@@ -81,7 +81,7 @@ const StudentAwardCard: React.FC<AwardCardProps> = ({
   );
 };
 
-const Awardshonours: React.FC = () => {
+const AwardsHonours: React.FC = () => {
   const fellowships = [
     {
       year: "2024",
