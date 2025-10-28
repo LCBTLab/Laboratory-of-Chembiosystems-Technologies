@@ -328,4 +328,4 @@ const AwardsPage: React.FC = () => {
   );
 };
 
-export default AwardsPage;
+export default AwardsHonours;
