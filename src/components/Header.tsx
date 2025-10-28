@@ -26,7 +26,7 @@ const Header: React.FC = () => {
       href: '/about',
       hasDropdown: true,
       submenu: [
-        { name: 'Awards & Honours', href: '/about/awards & honours' },
+        { name: 'Awards & Honours', href: '/about/awards-honours' },
       ]
     },
     { 
