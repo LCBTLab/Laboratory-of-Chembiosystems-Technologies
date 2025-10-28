@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, Eye, Award, Users, Lightbulb, Globe, Trophy, Star, Medal } from 'lucide-react';
+import { Target, Eye, Award, Users, Lightbulb, Globe } from 'lucide-react';
 
 const AboutPage: React.FC = () => {
   const coreValues = [
@@ -32,38 +32,50 @@ const AboutPage: React.FC = () => {
       description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
     },
     {
-      year: "2020",
+      year: "2021",
       title: "First Major Grant",
       description: "Secured significant funding for biomaterials research project"
     },
     {
-      year: "2020",
+      year: "2022",
       title: "International Collaboration",
       description: "Established partnerships with leading international research institutions"
     },
     {
-      year: "2021",
-      title: "Breakthrough Publication",
-      description: "Published groundbreaking research in Nature Biotechnology"
-    },
-    {
-      year: "2022",
-      title: "Excellence Award",
-      description: "Received IIT (BHU) Excellence in Research Award"
-    },
-    {
       year: "2023",
+      title: "Breakthrough Publication",
+      description: "Published groundbreaking research in high-impact journals"
+    },
+    {
+      year: "2024",
+      title: "Excellence Award",
+      description: "Received prestigious research excellence awards"
+    },
+    {
+      year: "2025",
       title: "Expansion",
       description: "Expanded lab facilities and welcomed new team members"
     }
   ];
-    return colors[category] || 'bg-gray-100 text-gray-800 border-gray-200';
-  };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-       {/* Timeline */}
+      <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              About Our Laboratory
+            </h1>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              The Laboratory of Chembiosystems Technologies at IIT (BHU) is dedicated to advancing the frontiers 
+              of science through innovative research at the intersection of chemistry and biology.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -74,7 +86,7 @@ const AboutPage: React.FC = () => {
               Key milestones in the growth and development of our laboratory
             </p>
           </div>
-             <div className="relative">
+          <div className="relative">
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-200"></div>
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
@@ -91,22 +103,8 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div className="w-1/2"></div>
                 </div>
-                ))}
+              ))}
             </div>
-          </div>
-        </div>
-      </section>
-          
-      <section className="bg-gradient-to-br from-blue-50 to-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-              About Our Laboratory
-            </h1>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              The Laboratory of Chembiosystems Technologies at IIT (BHU) is dedicated to advancing the frontiers 
-              of science through innovative research at the intersection of chemistry and biology.
-            </p>
           </div>
         </div>
       </section>
@@ -121,7 +119,7 @@ const AboutPage: React.FC = () => {
                 <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
               </div>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To be a globally recognized center of excellence in chembiosystems TEchnologies, pioneering 
+                To be a globally recognized center of excellence in chembiosystems technologies, pioneering 
                 sustainable solutions that address critical challenges in health, environment, and technology 
                 through innovative integration of chemical and biological sciences.
               </p>
@@ -256,4 +254,5 @@ const AboutPage: React.FC = () => {
     </div>
   );
 };
+
 export default AboutPage;
