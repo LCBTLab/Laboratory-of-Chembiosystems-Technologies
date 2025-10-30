@@ -39,7 +39,7 @@ const AboutPage: React.FC = () => {
     {
       year: "2023",
       tittle: "Award",
-      description: "Winner under the "Prototype Development Stage" Category in national bamboo inovation challenge"
+      description: "Winner under the Prototype Development Stage Category in national bamboo inovation challenge"
     },
     {
       year: "2023",
