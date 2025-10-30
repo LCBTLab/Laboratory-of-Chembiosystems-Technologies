@@ -32,19 +32,24 @@ const AboutPage: React.FC = () => {
       description: "Laboratory of Chembiosystems Technologies founded at IIT (BHU)"
     },
     {
-      year: "2021",
-      title: "First Major Grant",
-      description: "Secured significant funding for biomaterials research project"
-    },
-    {
       year: "2022",
-      title: "International Collaboration",
-      description: "Established partnerships with leading international research institutions"
+      title: "First Major Publication",
+      description: "Aspect Of Nano-cellulose: A Review"
     },
     {
       year: "2023",
-      title: "Breakthrough Publication",
-      description: "Published groundbreaking research in high-impact journals"
+      tittle: "Award",
+      description: "Winner under the "Prototype Development Stage" Category in national bamboo inovation challenge"
+    },
+    {
+      year: "2023",
+      title: "International Collaboration",
+      description: "IndoFrance Scientific High Level Visiting Fellowship (SSHN)"
+    },
+    {
+      year: "2023",
+      title: "1st Granted Patent",
+      description: "Biodegradable Bamboo based drinking straws & method of prepration there of. (Indian Patent, patent No.- 557472)"
     },
     {
       year: "2024",
