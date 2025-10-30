@@ -52,14 +52,14 @@ const AboutPage: React.FC = () => {
       description: "Biodegradable Bamboo based drinking straws & method of prepration there of. (Indian Patent, patent No.- 557472)"
     },
     {
-      year: "2024",
-      title: "Excellence Award",
-      description: "Received prestigious research excellence awards"
+      year: "2024-2027",
+      title: "Major Indrustrial Project",
+      description: "PI- Manufacturing process for funcationalized cellulose-phosphate fiber from cellulose fiber or pulp & explore its application in value added products"
     },
     {
-      year: "2025",
-      title: "Expansion",
-      description: "Expanded lab facilities and welcomed new team members"
+      year: "2024",
+      title: "1st Ph.D. Graduate",
+      description: "Rahul Ranjan - MHRD (2019-2024)"
     }
   ];
 
