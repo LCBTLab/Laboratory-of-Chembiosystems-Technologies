@@ -22,7 +22,7 @@ const GalleryPage: React.FC = () => {
       category: "Equipment",
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Syringe%20Pump.png",
       description: "A syringe pump precisely delivers or withdraws liquids at controlled flow rates for accurate dosing or infusion",
-      date: "2023-11-15"
+      date: ""
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ const GalleryPage: React.FC = () => {
       category: "Team",
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Lab%20picture%20June%202024.jpeg",
       description: "Weekly research discussion and project planning session",
-      date: "2023-11-10"
+      date: ""
     },
     {
       id: 3,
@@ -38,23 +38,23 @@ const GalleryPage: React.FC = () => {
       category: "Research",
       image: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800",
       description: "Setting up protein crystallization experiments for structural studies",
-      date: "2023-11-08"
+      date: ""
     },
     {
       id: 4,
       title: "Conference Presentation",
       category: "Events",
-      image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/4.jpg",
       description: "Presenting research findings at international biotechnology conference",
-      date: "2023-10-25"
+      date: ""
     },
     {
       id: 5,
-      title: "Cell Culture Laboratory",
-      category: "Research",
-      image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800",
-      description: "Sterile cell culture facility for biomaterial testing",
-      date: "2023-10-20"
+      title: "Team Dinner",
+      category: "Team",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/3.jpg",
+      description: "",
+      date: ""
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ const GalleryPage: React.FC = () => {
       category: "Team",
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Lab%20picture%20May%202023.jpeg",
       description: "Annual team outing and bonding activities",
-      date: "2023-10-15"
+      date: ""
     },
     {
       id: 7,
@@ -70,7 +70,7 @@ const GalleryPage: React.FC = () => {
       category: "Equipment",
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/split%20tube%20furnance.png",
       description: "A split tube furnace enables high-temperature heating with easy tube access through its hinged design",
-      date: "2023-10-12"
+      date: ""
     },
     {
       id: 8,
@@ -78,7 +78,7 @@ const GalleryPage: React.FC = () => {
       category: "Equipment",
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/WhatsApp%20Image%202025-10-28%20at%2011.44.07_201cea96.jpg",
       description: "A rotary vacuum film evaporator efficiently removes solvents by rotating a flask under reduced pressure for gentle and rapid evaporation",
-      date: "2023-10-05"
+      date: ""
     },
     {
       id: 9,
@@ -86,7 +86,7 @@ const GalleryPage: React.FC = () => {
       category: "Research",
       image: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=800",
       description: "Synthesis of novel biomaterials for medical applications",
-      date: "2023-09-28"
+      date: ""
     },
     {
       id: 10,
@@ -94,7 +94,7 @@ const GalleryPage: React.FC = () => {
       category: "Team",
       image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800",
       description: "One-on-one mentoring session with graduate students",
-      date: "2023-09-22"
+      date: ""
     },
     {
       id: 11,
@@ -102,7 +102,7 @@ const GalleryPage: React.FC = () => {
       category: "Equipment",
       image: "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800",
       description: "Advanced spectroscopic analysis of synthesized compounds",
-      date: "2023-09-18"
+      date: ""
     },
     {
       id: 12,
@@ -110,8 +110,15 @@ const GalleryPage: React.FC = () => {
       category: "Events",
       image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800",
       description: "Comprehensive safety training for all lab members",
-      date: "2023-09-15"
-    }
+      date: ""
+    },
+    {
+      id: 13,
+      title: "tour",
+      category: "Team",
+      image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/5.jpg",
+      description: "Giving tour to the our Japanese fellow",
+      date: ""
   ];
 
   const categories = ['all', 'Research', 'Equipment', 'Team', 'Events'];
