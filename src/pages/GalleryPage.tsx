@@ -119,6 +119,7 @@ const GalleryPage: React.FC = () => {
       image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/5.jpg",
       description: "Giving tour to the our Japanese fellow",
       date: ""
+    }
   ];
 
   const categories = ['all', 'Research', 'Equipment', 'Team', 'Events'];
