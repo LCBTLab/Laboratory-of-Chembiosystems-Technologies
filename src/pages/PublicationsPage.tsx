@@ -18,7 +18,7 @@ const PublicationsPage = () => {
       impactFactor: 7.3,
       category: "Sustainable Materials",
       keywords: ["Cellulose Phosphate", "Heat-Sealable Films", "Recyclability", "Biomass-Derived"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/55.jpeg"
     },
     {
       id: 54,
@@ -30,7 +30,7 @@ const PublicationsPage = () => {
       impactFactor: 13.7,
       category: "Biomedical Materials",
       keywords: ["Hydrogel", "Wound Healing", "Sensing", "Smart Materials"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1576319155317-f0d6ba19bd8b?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/54.jpg"
     },
     {
       id: 53,
@@ -42,7 +42,7 @@ const PublicationsPage = () => {
       impactFactor: 8.5,
       category: "Food Packaging",
       keywords: ["Biodegradable", "Cellulose", "Drinking Straws", "Adulterant Detection"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/53.jpg"
     },
     {
       id: 52,
@@ -52,7 +52,7 @@ const PublicationsPage = () => {
       year: 2025,
       category: "Photodynamic Therapy",
       keywords: ["Photoactivated", "Antibacterial", "Fe Complexes", "Singlet Oxygen"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/52.gif"
     },
     {
       id: 51,
@@ -63,7 +63,7 @@ const PublicationsPage = () => {
       pages: "113560",
       category: "Biomedical Materials",
       keywords: ["Hyaluronic Acid", "Hydrogel", "Wound Healing", "Angiogenesis"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/51.jpg"
     },
     {
       id: 50,
@@ -75,7 +75,7 @@ const PublicationsPage = () => {
       impactFactor: 5.3,
       category: "Environmental Remediation",
       keywords: ["MoS2", "3D Printing", "Cellulose", "Dye Degradation"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1614732414444-096e5f1122d5?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/50.webp"
     },
     {
       id: 49,
@@ -86,7 +86,7 @@ const PublicationsPage = () => {
       impactFactor: 8.2,
       category: "Agricultural Applications",
       keywords: ["Cellulose", "Bamboo", "Urea Release", "Rice Productivity"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/49.jpg"
     },
     {
       id: 48,
@@ -97,7 +97,7 @@ const PublicationsPage = () => {
       impactFactor: 4.7,
       category: "Biomedical Materials",
       keywords: ["Conductive Hydrogel", "Carbon Nanotubes", "Photothermal Therapy"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/48.jpeg"
     },
     {
       id: 47,
@@ -109,7 +109,7 @@ const PublicationsPage = () => {
       impactFactor: 2.6,
       category: "Photodynamic Therapy",
       keywords: ["Photodynamic", "Nickel Complexes", "Bacterial Inactivation"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/47.webp"
     },
     {
       id: 46,
@@ -121,7 +121,7 @@ const PublicationsPage = () => {
       impactFactor: 2.5,
       category: "Biomedical Materials",
       keywords: ["Cellulose Aerogels", "Rice Waste", "Antifungal"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/46.webp"
     },
     {
       id: 45,
@@ -625,7 +625,7 @@ const PublicationsPage = () => {
       volume: "4(4)",
       category: "Sustainable Materials",
       keywords: ["Cellulose Nanocrystals", "Food Packaging", "Catalytic Applications"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1516981442399-a91139e20ff8?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/6.webp"
     },
     {
       id: 5,
@@ -637,7 +637,7 @@ const PublicationsPage = () => {
       pages: "4052-4066",
       category: "Nanocomposites",
       keywords: ["Bacterial Cellulose", "Graphene", "In-situ Bioprocessing"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/5.webp"
     },
     {
       id: 4,
@@ -662,7 +662,7 @@ const PublicationsPage = () => {
       impactFactor: 8.0125,
       category: "Nanomaterials",
       keywords: ["Cellulose Nanocrystal", "Nanomotors", "Hyperthermia", "Pollutant Remediation"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1607434472257-d9f8e57a643d?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/3.jpg"
     },
     {
       id: 2,
@@ -687,7 +687,7 @@ const PublicationsPage = () => {
       impactFactor: 9.965,
       category: "Energy Materials",
       keywords: ["Ion Transfer", "Anion Exchange Membrane", "Fuel Cells", "PVA"],
-      graphicalAbstract: "https://images.unsplash.com/photo-1617791160588-241658c0f566?w=400&h=300&fit=crop"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/1.jpg"
     }
   ];
 
