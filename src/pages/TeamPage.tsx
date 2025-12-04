@@ -104,7 +104,7 @@ const currentStudents: Student[] = [
     year: "July 2025",
     image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/aNOOP.jpg",
     email: "anoopsiingh.69@gmail.com",
-    linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114",
+    linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
     specialization: "Web Development, Leaser Engraving, Sustainable Materials"
   },
   {
