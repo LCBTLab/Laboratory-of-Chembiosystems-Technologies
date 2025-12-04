@@ -6,10 +6,10 @@ const HomePage: React.FC = () => {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   
   const images = [
-    "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=800"
+    "https://www.iitbhu.ac.in/contents/iitbhu/img/slider/iit_bhu_slider_01.jpg",
+    "https://www.iitbhu.ac.in/contents/iitbhu/img/slider/iit_bhu_slider_05.jpg",
+    "https://www.iitbhu.ac.in/contents/iitbhu/img/slider/iit_bhu_slider_03.jpg",
+    "https://www.iitbhu.ac.in/contents/iitbhu/img/slider/iit_bhu_slider_04.jpg"
   ];
 
   React.useEffect(() => {
