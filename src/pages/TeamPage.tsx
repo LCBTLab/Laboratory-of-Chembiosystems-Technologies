@@ -36,7 +36,7 @@ const currentStudents: Student[] = [
     fellowship: "CSIR-NET",
     degree: "PhD",
     year: "July 2022",
-    image: "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Sanju.jpg",
     specialization: "Biomaterials, Bioengineering"
   },
   {
@@ -92,7 +92,7 @@ const currentStudents: Student[] = [
     fellowship: "MHRD",
     degree: "M.Tech.",
     year: "July 2024",
-    image: "https://images.pexels.com/photos/3777943/pexels-photo-3777943.jpeg?auto=compress&cs=tinysrgb&w=400",
+    image: "http://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/aKANSHA.jpg",
     specialization: "3D Printing, Geo-polymer"
   },
   {
