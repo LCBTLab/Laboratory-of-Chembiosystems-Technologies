@@ -92,7 +92,7 @@ const currentStudents: Student[] = [
     fellowship: "MHRD",
     degree: "M.Tech.",
     year: "July 2024",
-    image: "http://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/aKANSHA.jpg",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/aKANSHA.jpg",
     specialization: "3D Printing, Geo-polymer"
   },
   {
@@ -102,7 +102,7 @@ const currentStudents: Student[] = [
     fellowship: "Project-JRF",
     degree: "B.Sc. Ag.",
     year: "July 2025",
-    image: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/anoopsingh.jpg",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/aNOOP.jpg",
     email: "anoopsiingh.69@gmail.com",
     linkedin: "https://www.linkedin.com/in/anoop-kumar-singh5114/",
     specialization: "Web Development, Leaser Engraving, Sustainable Materials"
