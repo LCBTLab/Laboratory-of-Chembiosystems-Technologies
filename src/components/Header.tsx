@@ -48,7 +48,7 @@ const Header: React.FC = () => {
     { 
       name: 'Research', 
       href: '/research',
-      hasDropdown: true,
+      hasDropdown: false,
       submenu: [
         { name: 'Research Areas', href: '/research/areas' },
         { name: 'Current Projects', href: '/research/projects' },
