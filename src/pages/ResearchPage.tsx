@@ -243,7 +243,7 @@ const ResearchPage: React.FC = () => {
               { value: "11", label: "Research Projects", delay: "0s" },
               { value: "2", label: "Industrial Projects", delay: "0.2s" },
               { value: "6+", label: "Years Active", delay: "0.4s" },
-              { value: "50+", label: "Collaborations", delay: "0.6s" }
+            
             ].map((stat, index) => (
               <div 
                 key={index}
