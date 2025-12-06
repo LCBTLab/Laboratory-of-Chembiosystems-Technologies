@@ -17,9 +17,19 @@ interface Student {
 }
 
 const currentStudents: Student[] = [
-  {
-    id: 1,
+  { id: 1,
     sno: "1",
+    name: "Asadulla Asraf Ali",
+    fellowship: "ANRF",
+    degree: "Post Doc.",
+    year: "June 2025",
+    image: "https://raw.githubusercontent.com/Kroofy01/Lab-picture/refs/heads/main/Asad%20sir.jpg",
+    email: "rizbiasraf03@gmail.com",
+    linkedin: "http://www.linkedin.com/in/asadulla-asraf-ali-10194a194",
+    specialization: "Sustainable battery packaging, Life cycle analysis & Heritage chemistry"
+  },
+ {  id: 2,
+    sno: "2",
     name: "Rohit Rai",
     fellowship: "DBT-JRF",
     degree: "PhD",
@@ -30,8 +40,8 @@ const currentStudents: Student[] = [
     specialization: "Cellulose Nanocrystals, Sustainable Materials"
   },
   {
-    id: 2,
-    sno: "2",
+    id: 3,
+    sno: "3",
     name: "Sanju Kumari Sharma",
     fellowship: "CSIR-NET",
     degree: "PhD",
@@ -40,8 +50,8 @@ const currentStudents: Student[] = [
     specialization: "Biomaterials, Bioengineering"
   },
   {
-    id: 3,
-    sno: "3",
+    id: 4,
+    sno: "4",
     name: "Himanshu Modi",
     fellowship: "MHRD",
     degree: "PhD",
@@ -52,8 +62,8 @@ const currentStudents: Student[] = [
     specialization: "Chemical Engineering, Biotechnology"
   },
   {
-    id: 4,
-    sno: "4",
+    id: 5,
+    sno: "5",
     name: "Saurav Kumar",
     fellowship: "MHRD",
     degree: "PhD",
@@ -64,8 +74,8 @@ const currentStudents: Student[] = [
     specialization: "Sustainable Chemistry, Materials Science"
   },
   {
-    id: 5,
-    sno: "5",
+    id: 6,
+    sno: "6",
     name: "Meghali Saha",
     fellowship: "MHRD",
     degree: "PhD",
@@ -76,8 +86,8 @@ const currentStudents: Student[] = [
     specialization: "Sustainable Chemistry, Materials Science"
   },
   {
-    id: 6,
-    sno: "6",
+    id: 7,
+    sno: "7",
     name: "Praveen Kumar",
     fellowship: "MHRD",
     degree: "IDD",
@@ -86,8 +96,8 @@ const currentStudents: Student[] = [
     specialization: "Integrated Dual Degree Program"
   },
   {
-    id: 7,
-    sno: "7",
+    id: 8,
+    sno: "8",
     name: "Aakansha Korgaonkr",
     fellowship: "MHRD",
     degree: "M.Tech.",
@@ -96,8 +106,8 @@ const currentStudents: Student[] = [
     specialization: "3D Printing, Geo-polymer"
   },
   {
-    id: 8,
-    sno: "8",
+    id: 9,
+    sno: "9",
     name: "Anoop Kumar Singh",
     fellowship: "Project-JRF",
     degree: "B.Sc. Ag.",
@@ -108,8 +118,8 @@ const currentStudents: Student[] = [
     specialization: "Web Development, Leaser Engraving, Sustainable Materials"
   },
   {
-    id: 9,
-    sno: "9",
+    id: 10,
+    sno: "10",
     name: "Suraj Gaur",
     fellowship: "Project-JRF",
     degree: "M.Sc. Biotech.",
@@ -120,8 +130,8 @@ const currentStudents: Student[] = [
     specialization: "Agriculture Biomass, cellulose extraction,cellulose phosphorylation,Optically colured film, Lignin extraction "
   },
   {
-    id: 10,
-    sno: "10",
+    id: 11,
+    sno: "11",
     name: "Aniruddha Nayak",
     fellowship: "Project-JRF",
     degree: "M.Sc. Botony.",
