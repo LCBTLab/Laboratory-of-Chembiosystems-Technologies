@@ -66,8 +66,8 @@ const Header: React.FC = () => {
       href: '/patents',
       hasDropdown: false
     },
-    { 
-      name: 'Gallery', 
+    {
+      name: 'Facilities',
       href: '/gallery',
       hasDropdown: false,
     },

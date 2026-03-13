@@ -165,7 +165,7 @@ const GalleryPage: React.FC = () => {
             <div className="flex items-center justify-center mb-6">
               <Camera className="h-12 w-12 text-blue-600 mr-4" />
               <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
-                Laboratory Gallery
+                Laboratory Facilities
               </h1>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
