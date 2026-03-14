@@ -11,6 +11,7 @@ interface Patent {
   date: string;
   description: string;
   technology?: string;
+  graphicalAbstract?: string;
 }
 
 const PatentsPage: React.FC = () => {
@@ -24,7 +25,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202511068810",
       status: "Filed",
       date: "2025",
-      description: "A novel method utilizing ionic liquids for the sustainable regeneration of cellulose fibers from agricultural waste materials. This innovative approach provides an environmentally friendly alternative to traditional cellulose extraction methods."
+      description: "A novel method utilizing ionic liquids for the sustainable regeneration of cellulose fibers from agricultural waste materials. This innovative approach provides an environmentally friendly alternative to traditional cellulose extraction methods.",
+      graphicalAbstract: "https://images.pexels.com/photos/3993913/pexels-photo-3993913.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 2,
@@ -33,7 +35,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202511060750",
       status: "Filed",
       date: "2025",
-      description: "An innovative 3D printing technique for creating nanofertilizers with controlled release properties. This technology enables precision agriculture by delivering nutrients more efficiently to crops."
+      description: "An innovative 3D printing technique for creating nanofertilizers with controlled release properties. This technology enables precision agriculture by delivering nutrients more efficiently to crops.",
+      graphicalAbstract: "https://images.pexels.com/photos/1078911/pexels-photo-1078911.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 3,
@@ -42,7 +45,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202511003465",
       status: "Filed",
       date: "2025",
-      description: "A sustainable process for creating absorbent pads from rice biomass. This eco-friendly alternative to synthetic absorbents has applications in medical, hygiene, and industrial sectors."
+      description: "A sustainable process for creating absorbent pads from rice biomass. This eco-friendly alternative to synthetic absorbents has applications in medical, hygiene, and industrial sectors.",
+      graphicalAbstract: "https://images.pexels.com/photos/1279365/pexels-photo-1279365.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 4,
@@ -51,7 +55,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202511001586",
       status: "Filed",
       date: "2025",
-      description: "A method for transforming wheat biomass into biodegradable packaging materials. This innovation addresses the growing demand for sustainable packaging solutions in the food and consumer goods industries."
+      description: "A method for transforming wheat biomass into biodegradable packaging materials. This innovation addresses the growing demand for sustainable packaging solutions in the food and consumer goods industries.",
+      graphicalAbstract: "https://images.pexels.com/photos/3571788/pexels-photo-3571788.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 5,
@@ -60,7 +65,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202411046355",
       status: "Filed",
       date: "2024",
-      description: "An environmentally friendly process utilizing jute fibers to create biodegradable packaging materials. This technology offers a sustainable alternative to plastic packaging while supporting traditional fiber industries."
+      description: "An environmentally friendly process utilizing jute fibers to create biodegradable packaging materials. This technology offers a sustainable alternative to plastic packaging while supporting traditional fiber industries.",
+      graphicalAbstract: "https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 6,
@@ -69,7 +75,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "202411001028",
       status: "Filed",
       date: "2024",
-      description: "A process for converting sugarcane bagasse, a by-product of sugar production, into biodegradable packaging materials. This innovation provides value addition to agricultural waste."
+      description: "A process for converting sugarcane bagasse, a by-product of sugar production, into biodegradable packaging materials. This innovation provides value addition to agricultural waste.",
+      graphicalAbstract: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 7,
@@ -79,7 +86,8 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2023",
       description: "A sustainable method for transforming rice straw into biodegradable packaging materials. This technology helps address the agricultural stubble burning problem while creating value-added products.",
-      technology: "Technology Transferred"
+      technology: "Technology Transferred",
+      graphicalAbstract: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 8,
@@ -90,7 +98,8 @@ const PatentsPage: React.FC = () => {
       status: "Granted",
       date: "Granted",
       description: "A granted patent for manufacturing biodegradable drinking straws from bamboo. This eco-friendly alternative to plastic straws has been successfully commercialized through technology transfer.",
-      technology: "Technology Transferred"
+      technology: "Technology Transferred",
+      graphicalAbstract: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 9,
@@ -99,7 +108,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "201631022079",
       status: "Filed",
       date: "2016",
-      description: "A one-step reactive processing technique for producing cellulose-based polymeric nanocomposite sheets. This method simplifies the manufacturing process and enhances material properties."
+      description: "A one-step reactive processing technique for producing cellulose-based polymeric nanocomposite sheets. This method simplifies the manufacturing process and enhances material properties.",
+      graphicalAbstract: "https://images.pexels.com/photos/2280549/pexels-photo-2280549.jpeg?auto=compress&cs=tinysrgb&w=400"
     },
     {
       id: 10,
@@ -108,7 +118,8 @@ const PatentsPage: React.FC = () => {
       applicationNumber: "PCT/JP2022/031738",
       status: "Filed",
       date: "2022",
-      description: "A Japanese patent application for a novel method to create high-strength transparent wood materials through inorganic compounding. This innovation opens new possibilities for sustainable building materials and optical applications."
+      description: "A Japanese patent application for a novel method to create high-strength transparent wood materials through inorganic compounding. This innovation opens new possibilities for sustainable building materials and optical applications.",
+      graphicalAbstract: "https://images.pexels.com/photos/1427107/pexels-photo-1427107.jpeg?auto=compress&cs=tinysrgb&w=400"
     }
   ];
 
@@ -181,11 +192,11 @@ const PatentsPage: React.FC = () => {
                 onClick={() => setSelectedPatent(patent)}
               >
                 <div className="p-6">
-                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                  <div className="flex flex-col lg:flex-row gap-6">
                     <div className="flex-1">
                       <div className="flex items-start gap-3 mb-3">
                         <FileText className="h-6 w-6 text-gray-400 mt-1 flex-shrink-0" />
-                        <div>
+                        <div className="flex-1">
                           <h3 className="text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors">
                             {patent.title}
                           </h3>
@@ -202,7 +213,7 @@ const PatentsPage: React.FC = () => {
                         {patent.description}
                       </p>
 
-                      <div className="flex flex-wrap gap-3 ml-9">
+                      <div className="flex flex-wrap gap-3 ml-9 mb-4">
                         <div className="flex items-center text-sm text-gray-600">
                           <FileText className="h-4 w-4 mr-1" />
                           <span className="font-medium">Application No.:</span>
@@ -216,24 +227,34 @@ const PatentsPage: React.FC = () => {
                           </div>
                         )}
                       </div>
-                    </div>
 
-                    <div className="flex flex-col gap-2 lg:items-end">
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border ${getStatusColor(patent.status)}`}>
-                        {getStatusIcon(patent.status)}
-                        {patent.status}
-                      </span>
-                      {patent.technology && (
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-amber-100 text-amber-800 border border-amber-200">
-                          <ExternalLink className="h-4 w-4" />
-                          {patent.technology}
+                      <div className="flex flex-col gap-2 ml-9">
+                        <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium border w-fit ${getStatusColor(patent.status)}`}>
+                          {getStatusIcon(patent.status)}
+                          {patent.status}
                         </span>
-                      )}
-                      <div className="flex items-center text-sm text-gray-500">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        <span>{patent.date}</span>
+                        {patent.technology && (
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium bg-amber-100 text-amber-800 border border-amber-200 w-fit">
+                            <ExternalLink className="h-4 w-4" />
+                            {patent.technology}
+                          </span>
+                        )}
+                        <div className="flex items-center text-sm text-gray-500">
+                          <Calendar className="h-4 w-4 mr-1" />
+                          <span>{patent.date}</span>
+                        </div>
                       </div>
                     </div>
+
+                    {patent.graphicalAbstract && (
+                      <div className="lg:w-64 flex-shrink-0">
+                        <img
+                          src={patent.graphicalAbstract}
+                          alt="Graphical Abstract"
+                          className="w-full h-64 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -381,6 +402,17 @@ const PatentsPage: React.FC = () => {
                     {selectedPatent.description}
                   </p>
                 </div>
+
+                {selectedPatent.graphicalAbstract && (
+                  <div className="pt-6 border-t border-gray-200">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Graphical Abstract</h3>
+                    <img
+                      src={selectedPatent.graphicalAbstract}
+                      alt="Graphical Abstract"
+                      className="w-full max-h-96 object-cover rounded-lg shadow-md"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>
