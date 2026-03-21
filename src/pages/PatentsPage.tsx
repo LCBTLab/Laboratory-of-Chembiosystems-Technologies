@@ -36,7 +36,7 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2025",
       description: "An innovative 3D printing technique for creating nanofertilizers with controlled release properties. This technology enables precision agriculture by delivering nutrients more efficiently to crops.",
-      graphicalAbstract: "https://images.pexels.com/photos/1078911/pexels-photo-1078911.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/Patent%20drwaing_page-0001.jpg"
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2025",
       description: "A sustainable process for creating absorbent pads from rice biomass. This eco-friendly alternative to synthetic absorbents has applications in medical, hygiene, and industrial sectors.",
-      graphicalAbstract: "https://images.pexels.com/photos/1279365/pexels-photo-1279365.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/patent%20Pad_page-0001.jpg"
     },
     {
       id: 4,
@@ -56,7 +56,7 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2025",
       description: "A method for transforming wheat biomass into biodegradable packaging materials. This innovation addresses the growing demand for sustainable packaging solutions in the food and consumer goods industries.",
-      graphicalAbstract: "https://images.pexels.com/photos/3571788/pexels-photo-3571788.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/Patent%20Weat%20Biomass_page-0001.jpg"
     },
     {
       id: 5,
@@ -66,7 +66,7 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2024",
       description: "An environmentally friendly process utilizing jute fibers to create biodegradable packaging materials. This technology offers a sustainable alternative to plastic packaging while supporting traditional fiber industries.",
-      graphicalAbstract: "https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/Patent%20pakedging%20material_page-0001.jpg"
     },
     {
       id: 6,
@@ -76,7 +76,7 @@ const PatentsPage: React.FC = () => {
       status: "Filed",
       date: "2024",
       description: "A process for converting sugarcane bagasse, a by-product of sugar production, into biodegradable packaging materials. This innovation provides value addition to agricultural waste.",
-      graphicalAbstract: "https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/Patent%20Sugarcane_page-0001.jpg"
     },
     {
       id: 7,
@@ -87,7 +87,7 @@ const PatentsPage: React.FC = () => {
       date: "2023",
       description: "A sustainable method for transforming rice straw into biodegradable packaging materials. This technology helps address the agricultural stubble burning problem while creating value-added products.",
       technology: "Technology Transferred",
-      graphicalAbstract: "https://images.pexels.com/photos/1366944/pexels-photo-1366944.jpeg?auto=compress&cs=tinysrgb&w=400"
+      graphicalAbstract: "https://raw.githubusercontent.com/Kroofy01/image/refs/heads/main/Parent%20Rice%20straw_page-0001.jpg"
     },
     {
       id: 8,
