@@ -16,10 +16,11 @@ import OpportunitiesPage from './pages/OpportunitiesPage';
 import NewsPage from './pages/NewsPage';
 import ContactPage from './pages/ContactPage';
 import LoginPage from './pages/LoginPage';
-import DashboardPage from './pages/DashboardPage';
+import SimpleDashboard from './pages/SimpleDashboard';
 import DashboardListPage from './pages/DashboardListPage';
 import DashboardViewPage from './pages/DashboardViewPage';
 import DashboardEditPage from './pages/DashboardEditPage';
+import ProfileEditPage from './pages/ProfileEditPage';
 
 function App() {
   return (
@@ -34,7 +35,17 @@ function App() {
             path="/dashboard" 
             element={
               <ProtectedRoute>
-                <DashboardPage />
+                <SimpleDashboard />
+              </ProtectedRoute>
+            } 
+          />
+          
+          {/* Protected profile edit route */}
+          <Route 
+            path="/profile/edit" 
+            element={
+              <ProtectedRoute>
+                <ProfileEditPage />
               </ProtectedRoute>
             } 
           />
