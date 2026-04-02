@@ -51,3 +51,7 @@ memory/test_credentials.md
 # Environment files
 *.env
 *.env.*
+-e 
+# Environment files
+*.env
+*.env.*
