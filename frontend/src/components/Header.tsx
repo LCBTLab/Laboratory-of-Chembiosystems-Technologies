@@ -203,6 +203,14 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
+              
+              {/* Login/Dashboard Button */}
+              <Link
+                to={user ? '/dashboard' : '/login'}
+                className="ml-4 px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+              >
+                {user ? 'Dashboard' : 'Login'}
+              </Link>
             </nav>
 
             {/* Mobile menu button */}
@@ -266,6 +274,15 @@ const Header: React.FC = () => {
                     )}
                   </div>
                 ))}
+                
+                {/* Mobile Login/Dashboard Button */}
+                <Link
+                  to={user ? '/dashboard' : '/login'}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="mt-4 block px-4 py-3 bg-blue-600 text-white text-center font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  {user ? 'Dashboard' : 'Login'}
+                </Link>
               </nav>
             </div>
           )}
