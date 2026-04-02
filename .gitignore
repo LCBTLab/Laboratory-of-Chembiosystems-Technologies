@@ -30,5 +30,8 @@ Thumbs.db
 *.tmp
 .cache/
 
+# Test credentials - do not commit
+memory/test_credentials.md
+
 # Don't ignore .env files - they contain deployment config
 # .env files are managed by Emergent and must be in git
