@@ -19,6 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
+DB_NAME = os.getenv("DB_NAME", "chembio_lab")
 ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*")
 
 # Initialize FastAPI
@@ -38,7 +39,7 @@ app.add_middleware(
 
 # MongoDB setup
 client = MongoClient(MONGO_URL)
-db = client["chembio_lab"]
+db = client[DB_NAME]
 
 # Collections
 profiles_collection = db["profiles"]
