@@ -35,3 +35,7 @@ memory/test_credentials.md
 
 # Don't ignore .env files - they contain deployment config
 # .env files are managed by Emergent and must be in git
+-e 
+# Environment files
+*.env
+*.env.*
