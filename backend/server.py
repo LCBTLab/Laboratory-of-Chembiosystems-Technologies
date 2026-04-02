@@ -292,12 +292,11 @@ async def logout():
 
 # Profile Routes
 @app.get("/api/profiles")
-async def get_profiles(active_only: bool = True):
+async def get_profiles(active_only: bool = True, limit: int = 100):
     query = {"is_active": True} if active_only else {}
-    profiles = list(profiles_collection.find(query))
+    profiles = list(profiles_collection.find(query, {"password": 0}).limit(limit))
     for profile in profiles:
         profile["_id"] = str(profile["_id"])
-        profile.pop("password", None)
     return profiles
 
 @app.get("/api/profiles/{profile_id}")
@@ -337,8 +336,8 @@ async def update_profile(
 
 # Project Routes
 @app.get("/api/projects")
-async def get_projects():
-    projects = list(projects_collection.find({}))
+async def get_projects(limit: int = 100):
+    projects = list(projects_collection.find({}).limit(limit))
     for project in projects:
         project["_id"] = str(project["_id"])
     return projects
@@ -412,8 +411,8 @@ async def delete_project(
 
 # Publication Routes
 @app.get("/api/publications")
-async def get_publications():
-    publications = list(publications_collection.find({}))
+async def get_publications(limit: int = 100):
+    publications = list(publications_collection.find({}).limit(limit))
     for pub in publications:
         pub["_id"] = str(pub["_id"])
     return publications
@@ -485,13 +484,13 @@ async def delete_publication(
 
 # Resource Routes
 @app.get("/api/resources")
-async def get_resources(public_only: bool = True, current_user: dict = Depends(get_current_user)):
+async def get_resources(public_only: bool = True, limit: int = 100, current_user: dict = Depends(get_current_user)):
     if public_only and not current_user.get("is_admin"):
         query = {"is_public": True}
     else:
         query = {}
     
-    resources = list(resources_collection.find(query))
+    resources = list(resources_collection.find(query).limit(limit))
     for resource in resources:
         resource["_id"] = str(resource["_id"])
     return resources
@@ -566,9 +565,9 @@ async def delete_resource(
 
 # Announcement Routes
 @app.get("/api/announcements")
-async def get_announcements(published_only: bool = True):
+async def get_announcements(published_only: bool = True, limit: int = 100):
     query = {"is_published": True} if published_only else {}
-    announcements = list(announcements_collection.find(query))
+    announcements = list(announcements_collection.find(query).limit(limit))
     for announcement in announcements:
         announcement["_id"] = str(announcement["_id"])
     return announcements
