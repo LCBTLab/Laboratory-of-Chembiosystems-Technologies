@@ -1,4 +1,8 @@
-const API_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL || window.location.origin;
+const API_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
+if (!API_URL) {
+  throw new Error('VITE_REACT_APP_BACKEND_URL environment variable is required');
+}
 
 // Helper function to get auth token
 const getAuthToken = () => {
