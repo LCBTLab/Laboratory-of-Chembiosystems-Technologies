@@ -19,14 +19,18 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*")
 
 # Initialize FastAPI
 app = FastAPI(title="ChemBioSystems Lab API")
 
 # CORS configuration
+# For production, set ALLOWED_ORIGINS env variable to your frontend URL
+origins = ALLOWED_ORIGINS.split(",") if ALLOWED_ORIGINS != "*" else ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
