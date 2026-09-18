@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Settings } from 'lucide-react';
 import { useAuthStore } from '../store/authStore';
 
 const Header: React.FC = () => {
@@ -203,6 +203,16 @@ const Header: React.FC = () => {
                   )}
                 </div>
               ))}
+              {user && (
+                <Link
+                  to="/admin"
+                  className="flex items-center gap-1.5 ml-2 px-3 py-2.5 rounded-md text-sm font-bold text-blue-600 hover:bg-blue-50 transition-colors whitespace-nowrap"
+                  title="Content Management System"
+                >
+                  <Settings className="h-4 w-4" />
+                  CMS
+                </Link>
+              )}
             </nav>
 
             {/* Mobile menu button */}
@@ -267,6 +277,18 @@ const Header: React.FC = () => {
                   </div>
                 ))}
               </nav>
+              {user && (
+                <div className="px-4 mt-2 pt-2 border-t border-gray-200">
+                  <Link
+                    to="/admin"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-md text-base font-bold text-blue-600 hover:bg-blue-50 transition-colors"
+                  >
+                    <Settings className="h-5 w-5" />
+                    Content Management
+                  </Link>
+                </div>
+              )}
             </div>
           )}
         </div>
