@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useAuthStore } from '../store/authStore';
-import { projectsAPI, publicationsAPI, resourcesAPI } from '../lib/api';
+import { supabase } from '../lib/supabase';
 import { 
   User, 
   Edit3, 
@@ -25,10 +25,11 @@ import {
   Phone,
   MapPin
 } from 'lucide-react';
+import type { Database } from '../lib/supabase';
 
-type Project = any;
-type Publication = any;
-type Resource = any;
+type Project = Database['public']['Tables']['projects']['Row'];
+type Publication = Database['public']['Tables']['publications']['Row'];
+type Resource = Database['public']['Tables']['resources']['Row'];
 
 const DashboardPage: React.FC = () => {
   const { user, profile, signOut, updateProfile } = useAuthStore();
@@ -114,13 +115,31 @@ const DashboardPage: React.FC = () => {
 
     try {
       if (activeTab === 'projects') {
-        const data = await projectsAPI.getAll();
+        const { data, error } = await supabase
+          .from('projects')
+          .select('*')
+          .or(`created_by.eq.${user.id},team_members.cs.{${user.id}}`)
+          .order('created_at', { ascending: false });
+        
+        if (error) throw error;
         setProjects(data || []);
       } else if (activeTab === 'publications') {
-        const data = await publicationsAPI.getAll();
+        const { data, error } = await supabase
+          .from('publications')
+          .select('*')
+          .eq('created_by', user.id)
+          .order('year', { ascending: false });
+        
+        if (error) throw error;
         setPublications(data || []);
       } else if (activeTab === 'resources') {
-        const data = await resourcesAPI.getAll(false);
+        const { data, error } = await supabase
+          .from('resources')
+          .select('*')
+          .eq('uploaded_by', user.id)
+          .order('created_at', { ascending: false });
+        
+        if (error) throw error;
         setResources(data || []);
       }
     } catch (error) {
@@ -180,10 +199,15 @@ const DashboardPage: React.FC = () => {
 
     try {
       setLoading(true);
-      await projectsAPI.create({
-        ...projectForm,
-        funding_amount: projectForm.funding_amount ? parseFloat(projectForm.funding_amount) : null,
-      });
+      const { error } = await supabase
+        .from('projects')
+        .insert({
+          ...projectForm,
+          funding_amount: projectForm.funding_amount ? parseFloat(projectForm.funding_amount) : null,
+          created_by: user.id,
+        });
+
+      if (error) throw error;
 
       setSuccess('Project created successfully!');
       setShowProjectForm(false);
@@ -212,7 +236,14 @@ const DashboardPage: React.FC = () => {
 
     try {
       setLoading(true);
-      await publicationsAPI.create(publicationForm);
+      const { error } = await supabase
+        .from('publications')
+        .insert({
+          ...publicationForm,
+          created_by: user.id,
+        });
+
+      if (error) throw error;
 
       setSuccess('Publication added successfully!');
       setShowPublicationForm(false);
