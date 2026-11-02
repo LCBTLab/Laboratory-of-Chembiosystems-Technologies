@@ -5,7 +5,7 @@ import {
   Camera, Briefcase, Newspaper, UserCircle, Settings,
   Menu, X, LogOut, ExternalLink, ChevronRight
 } from 'lucide-react';
-import { useAuthStore } from '../store/authStore';
+import { useAuthStore } from '../../store/authStore';
 
 const navItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
