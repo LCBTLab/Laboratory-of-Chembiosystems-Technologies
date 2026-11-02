@@ -3,11 +3,18 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error("Missing Supabase environment variables. Please check your .env file.")
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey)
+
+// Don't throw when env vars are missing: that would crash the whole app (blank page).
+// Public pages still render; login and CMS requests fail gracefully until configured.
+if (!isSupabaseConfigured) {
+  console.warn("Missing Supabase environment variables (VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY). Login and CMS features are disabled.")
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co',
+  supabaseAnonKey || 'placeholder-anon-key'
+)
 
 // Database types
 export type Database = {
